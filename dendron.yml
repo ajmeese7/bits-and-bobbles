@@ -82,6 +82,8 @@ preview:
     enableKatex: true
     automaticallyShowPreview: false
 publishing:
+    assetsPrefix: /bits-and-bobbles
+    siteUrl: https://ajmeese7.github.io
     enableFMTitle: true
     enableNoteTitleForLink: true
     enableMermaid: true
