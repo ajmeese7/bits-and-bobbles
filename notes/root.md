@@ -2,7 +2,7 @@
 id: igmh0dqdu0a6b80x03hhek7
 title: Root
 desc: 'The base of the project tree.'
-updated: 1663713346464
+updated: 1664723453636
 created: 1663712926920
 ---
 
@@ -12,6 +12,6 @@ This is the root of my project, an assortment of fragments of code that I have w
 
 ## What's here?
 
-- [Stack Overflow answers](stack-overflow.md)
-- [Codewars solutions](codewars.md)
-- [Codepen demos](codepen.md)
+- [[Stack Overflow answers|stack-overflow]]
+- [[Codewars solutions|codewars]]
+- [[Codepen demos|codepen]]
