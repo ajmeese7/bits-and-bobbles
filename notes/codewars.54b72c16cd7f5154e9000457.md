@@ -2,7 +2,7 @@
 id: 8fspf1e3hhmepmt94qp2mxo
 title: 'Decode the Morse code, advanced'
 desc: ''
-updated: 1664743600947
+updated: 1664929861911
 created: 1590752040000
 tags:
   - javascript
@@ -14,16 +14,14 @@ tags:
 ### JavaScript
 
 ```js
-var decodeBits = function(bits) {
+const decodeBits = (bits) => {
   // Removes any leading zeros
-  const firstOne = bits.indexOf("1");
-  bits = bits.substring(firstOne);
+  bits = bits.substring(bits.indexOf("1"));
 
   // Removes any trailing zeros (after last occurance of '1')
-  const lastOne = bits.lastIndexOf("1") + 1;
-  bits = bits.substring(0, lastOne);
+  bits = bits.substring(0, bits.lastIndexOf("1") + 1);
 
-  // To detect the transmission rate [in theory]
+  // To detect the transmission rate
   let count = 1,
     minCount = 1,
     maxCount = 1,
@@ -44,9 +42,9 @@ var decodeBits = function(bits) {
         maxCount = count;
       }
 
-      if (count < minCount) {
+      if (count < minCount)
         minCount = count;
-      }
+
       count = 1;
     }
 
@@ -57,39 +55,31 @@ var decodeBits = function(bits) {
   if (count == 1) minCount = 1;
 
   let doubleBits = "";
-  for (let i = 0; i < bits.length; i += minCount) {
+  for (let i = 0; i < bits.length; i += minCount)
     doubleBits += bits[i];
-  }
 
-  if (allCharactersSame(bits)) doubleBits = doubleBits.charAt(0);
+  if (allCharactersSame(bits))
+    doubleBits = doubleBits.charAt(0);
 
-  // Use custom function to replace all, because I don't know of
-  // a better way to do it
-  let decodedBits = doubleBits.replaceAll('111', '-');
-  decodedBits = decodedBits.replaceAll('1', '.');
-  decodedBits = decodedBits.replaceAll('0000000', '   ');
-  decodedBits = decodedBits.replaceAll('000', ' ');
-  decodedBits = decodedBits.replaceAll('0', '');
+  const decodedBits = doubleBits
+    .replace(/111/g, '-')
+    .replace(/1/g, '.')
+    .replace(/0000000/g, '   ')
+    .replace(/000/g, ' ')
+    .replace(/0/g, '');
 
   return decodedBits;
 }
 
-String.prototype.replaceAll = function(search, replacement) {
-  const target = this;
-  return target.replace(new RegExp(search, 'g'), replacement);
-};
-
 function allCharactersSame(str) {
-  for (let i = 1; i < str.length; i++) {
-    if (str.charAt(i) != str.charAt(0)) {
+  for (let i = 1; i < str.length; i++)
+    if (str.charAt(i) != str.charAt(0))
       return false;
-    }
-  }
 
   return true;
 }
 
-var decodeMorse = function(morseCode) {
+const decodeMorse = (morseCode) => {
   let decodedString = "";
   const morseChars = morseCode.replace(/  /g, ' ').split(' ');
 
