@@ -16,3 +16,4 @@ This is the root of my project, an assortment of fragments of code that I have w
 - [[Codewars solutions|codewars]]
 - [[Codepen demos|codepen]]
 - [[Euler Project|euler]]
+- [[Google FooBar|foobar]]
