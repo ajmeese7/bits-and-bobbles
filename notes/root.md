@@ -2,7 +2,7 @@
 id: igmh0dqdu0a6b80x03hhek7
 title: Root
 desc: 'The base of the project tree.'
-updated: 1664913766711
+updated: 1665530628022
 created: 1663712926920
 ---
 
@@ -17,3 +17,4 @@ This is the root of my project, an assortment of fragments of code that I have w
 - [[Codepen demos|codepen]]
 - [[Euler Project|euler]]
 - [[Google FooBar|foobar]]
+- [[HackTheBox Ops Notes|hackthebox]]
