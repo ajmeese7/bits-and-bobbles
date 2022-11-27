@@ -1,0 +1,36 @@
+<h1 id="pumpkin-stand"><a aria-hidden="true" class="anchor-heading icon-link" href="#pumpkin-stand"></a>Pumpkin Stand</h1>
+<h2 id="target-information"><a aria-hidden="true" class="anchor-heading icon-link" href="#target-information"></a>Target Information</h2>
+<ul>
+<li>IP: <code>167.71.135.137:32184</code></li>
+<li>Nothing related to the challenge is running on any other ports:
+<pre class="language-shell"><code class="language-shell">$ nmap <span class="token number">167.71</span>.135.137 -sC -sV -T4 -Pn
+</code></pre>
+</li>
+<li>SSH'ing into the target just runs the binary, it doesn't give a version or anything:
+<pre class="language-shell"><code class="language-shell">$ <span class="token function">ssh</span> -p <span class="token number">32184</span> anonymous@167.71.135.137
+</code></pre>
+</li>
+</ul>
+<h2 id="exploitation"><a aria-hidden="true" class="anchor-heading icon-link" href="#exploitation"></a>Exploitation</h2>
+<ul>
+<li>
+<p>Tried going into the negative numbers to overflow back to positive, which worked, but it failed when attempting to purchase the laser.</p>
+<p>The overflow happens right above the 32000 mark, which you can get right on the edge of with 24 shovel purchases.</p>
+</li>
+<li>
+<p>Figured out that using <code>telnet 167.71.135.137 32184</code> connects me to the server and runs the binary there.</p>
+<p>Running anything with letters crashes the program into an endless loop of "You cannot buy less than 1!"</p>
+<p>Running the command in a non-PTY terminal allowed me to use the escape command, which is <code>^]</code>. That got me to the telnet prompt, which allowed me to run commands. The <code>help</code> command showed me everything I have access to, which is very little.</p>
+</li>
+<li>
+<p>Entering <code>-2</code> then <code>-11</code> a few times got me to the overflow, which allowed me to buy the laser and returned the flag:</p>
+<pre class="language-text"><code class="language-text">HTB{1nt3g3R_0v3rfl0w_101_0r_0v3R_9000!}
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hackthebox (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">overflow (Private)</a></li>
+</ol>

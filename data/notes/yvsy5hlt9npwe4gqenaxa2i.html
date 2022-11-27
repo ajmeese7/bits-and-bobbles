@@ -1,0 +1,22 @@
+<h1 id="regex-for-capturing-all-the-urls-in-a-paragraph-except-for-a-specific-domain"><a aria-hidden="true" class="anchor-heading icon-link" href="#regex-for-capturing-all-the-urls-in-a-paragraph-except-for-a-specific-domain"></a>Regex for capturing all the urls in a paragraph except for a specific domain</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72392318/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>This should be sufficient for your use case:</p>
+<pre class="language-regex"><code class="language-regex">/<span class="token group punctuation">(?&#x3C;!</span><span class="token char-set class-name">\S</span><span class="token group punctuation">)</span><span class="token group punctuation">(?:</span>https<span class="token quantifier number">?</span>:<span class="token escape">\/</span><span class="token escape">\/</span><span class="token group punctuation">)</span><span class="token quantifier number">?</span><span class="token group punctuation">(?:</span><span class="token group punctuation">(?:</span><span class="token group punctuation">(?!</span>example<span class="token group punctuation">)</span><span class="token char-set class-name">\w</span><span class="token quantifier number">+</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span>.-<span class="token char-class-punctuation punctuation">]</span></span><span class="token group punctuation">)</span><span class="token quantifier number">+</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token range">a<span class="token range-punctuation operator">-</span>z</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">{2,11}</span><span class="token group punctuation">)</span><span class="token group punctuation">(?!</span><span class="token char-set class-name">\S</span><span class="token group punctuation">)</span>/gi
+</code></pre>
+<p>See <a href="https://regex101.com/r/NdOxKt/1">here</a> for a demonstration of the regex at work. Below is a rough explanation of what the regex is doing:</p>
+<ul>
+<li>The leading and trailing <code>(?&#x3C;!\S)</code> essentially splits the string into segments on space characters, including whitespace and newlines</li>
+<li>The <code>?:</code> syntax makes each set of parenthesis it is in a non-capture group, saving memory on the machine where it is ran and speeding up your execution time</li>
+<li><code>(?:https?:\/\/)?</code> optionally matches both <code>http</code> and <code>https</code> for URLs without matching the invalid characters <code>:</code> and <code>/</code> anywhere else in the URL</li>
+<li><code>(?:(?!example)\w+[.-])+</code> looks for one or more words that do not match <code>example</code>, followed by either a hyphen or a period</li>
+<li><code>[a-z]{2,11}</code> matches the final domain extension, i.e. <code>com</code>, <code>org</code>, or <code>enterprises</code></li>
+</ul>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

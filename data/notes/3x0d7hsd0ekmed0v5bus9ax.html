@@ -1,0 +1,23 @@
+<h1 id="error-handling-in-expressjs"><a aria-hidden="true" class="anchor-heading icon-link" href="#error-handling-in-expressjs"></a>Error handling in Express.js</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/57674854/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p><a href="https://expressjs.com/en/guide/error-handling.html">This page</a> describing basic error handling in Express might be helpful to you. It's hard to give any more specific information because we do not know what type of errors you anticipate getting.</p>
+<p>If you mean specifically with <code>createReadStream</code>, the methods discussed <a href="https://github.com/adaltas/node-csv/issues/155#issuecomment-36191678">here</a> might be helpful to you:</p>
+<pre class="language-js"><code class="language-js">readStream <span class="token operator">=</span> filesys<span class="token punctuation">.</span><span class="token method function property-access">createReadStream</span><span class="token punctuation">(</span>
+  path<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">"static"</span><span class="token punctuation">,</span> <span class="token string">"post_request.html"</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+readStream<span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">"error"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">/*handle error*/</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+res<span class="token punctuation">.</span><span class="token method function property-access">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string-property property">"Content-type"</span><span class="token operator">:</span> <span class="token string">"text/html"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+readStream<span class="token punctuation">.</span><span class="token method function property-access">pipe</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">nodejs (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">oauth2 (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">express (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

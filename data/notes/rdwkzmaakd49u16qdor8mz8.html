@@ -1,0 +1,29 @@
+<h1 id="how-to-add-or-remove-a-classname-when-screen-size-change-in-react"><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-add-or-remove-a-classname-when-screen-size-change-in-react"></a>How to add or remove a className when screen size change in react</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/63860125/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>If you're looking to do this with hooks instead of classes, here is a simple example for this case:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>isMobile<span class="token punctuation">,</span> setIsMobile<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">innerWidth</span> <span class="token operator">&#x3C;</span> <span class="token number">1200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">{</span><span class="token comment">/* Performs similarly to componentDidMount in classes */</span><span class="token punctuation">}</span>
+<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"resize"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> ismobile <span class="token operator">=</span> <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token property-access">innerWidth</span> <span class="token operator">&#x3C;</span> <span class="token number">1200</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>ismobile <span class="token operator">!==</span> isMobile<span class="token punctuation">)</span> <span class="token function">setIsMobile</span><span class="token punctuation">(</span>ismobile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>isMobile<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">{</span><span class="token comment">/* There is no need for a render function with Hooks */</span><span class="token punctuation">}</span>
+<span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&#x3C;</span>p className<span class="token operator">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>isMobile <span class="token operator">?</span> <span class="token string">"mobile-class"</span> <span class="token operator">:</span> <span class="token string">"non-mobile-class"</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token operator">></span><span class="token maybe-class-name">Your</span> text here<span class="token operator">&#x3C;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>For a more in-depth explanation of the useEffect hook, check out the official React documentation <a href="https://reactjs.org/docs/hooks-state.html">here</a>. Please note that you must be using React 16.8 or higher to take advantage of hooks.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">react (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hooks (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

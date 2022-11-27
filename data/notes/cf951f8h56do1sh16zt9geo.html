@@ -1,0 +1,86 @@
+<h1 id="braille-translation"><a aria-hidden="true" class="anchor-heading icon-link" href="#braille-translation"></a>Braille Translation</h1>
+<h2 id="instructions"><a aria-hidden="true" class="anchor-heading icon-link" href="#instructions"></a>Instructions</h2>
+<p>Because Commander Lambda is an equal-opportunity despot, they have several visually-impaired minions. But Lambda never bothered to follow intergalactic standards for workplace accommodations, so those minions have a hard time navigating her space station. You figure printing out Braille signs will help them, and -- since you'll be promoting efficiency at the same time -- increase your chances of a promotion.</p>
+<p>Braille is a writing system used to read by touch instead of by sight. Each character is composed of 6 dots in a 2x3 grid, where each dot can either be a bump or be flat (no bump). You plan to translate the signs around the space station to Braille so that the minions under Commander Lambda's command can feel the bumps on the signs and "read" the text with their touch. The special printer which can print the bumps onto the signs expects the dots in the following order:
+1 4
+2 5
+3 6</p>
+<p>So given the plain text word "code", you get the Braille dots:</p>
+<p>11 10 11 10
+00 01 01 01
+00 10 00 00</p>
+<p>Where 1 represents a bump and 0 represents no bump.  Put together, "code" becomes the output string "100100101010100110100010".</p>
+<p>Write a function <code>solution(plaintext)</code> that takes a string parameter and returns a string of 1's and 0's representing the bumps and absence of bumps in the input string. Your function should be able to encode the 26 lowercase letters, handle capital letters by adding a Braille capitalization mark before that character, and use a blank character (000000) for spaces. All signs on the space station are less than fifty characters long and use only letters and spaces.</p>
+<h2 id="languages"><a aria-hidden="true" class="anchor-heading icon-link" href="#languages"></a>Languages</h2>
+<p>To provide a Python solution, edit <code>solution.py</code></p>
+<p>To provide a Java solution, edit <code>Solution.java</code></p>
+<h2 id="test-cases"><a aria-hidden="true" class="anchor-heading icon-link" href="#test-cases"></a>Test cases</h2>
+<p>Your code should pass the following test cases.</p>
+<p>Note that it may also be run against hidden test cases not shown here.</p>
+<p>-- Python cases --</p>
+<p>Input:
+<code>solution.solution("code")</code></p>
+<p>Output:
+<code>100100101010100110100010</code></p>
+<p>Input:
+<code>solution.solution("Braille")</code></p>
+<p>Output:
+<code>000001110000111010100000010100111000111000100010</code></p>
+<p>Input:
+<code>solution.solution("The quick brown fox jumps over the lazy dog")</code></p>
+<p>Output:
+<code>000001011110110010100010000000111110101001010100100100101000000000110000111010101010010111101110000000110100101010101101000000010110101001101100111100011100000000101010111001100010111010000000011110110010100010000000111000100000101011101111000000100110101010110110</code></p>
+<p>-- Java cases --
+Input:
+<code>Solution.solution("code")</code></p>
+<p>Output:
+<code>100100101010100110100010</code></p>
+<p>Input:
+<code>Solution.solution("Braille")</code></p>
+<p>Output:
+<code>000001110000111010100000010100111000111000100010</code></p>
+<p>Input:
+<code>Solution.solution("The quick brown fox jumps over the lazy dog")</code></p>
+<p>Output:
+<code>000001011110110010100010000000111110101001010100100100101000000000110000111010101010010111101110000000110100101010101101000000010110101001101100111100011100000000101010111001100010111010000000011110110010100010000000111000100000101011101111000000100110101010110110</code></p>
+<p>Use <code>verify [file]</code> to test your solution and see how it does. When you are finished editing your code, use <code>submit [file]</code> to submit your answer. If your solution passes the test cases, it will be removed from your home folder.</p>
+<h3 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h3>
+<pre class="language-py"><code class="language-py"><span class="token comment"># https://stackoverflow.com/a/63595350/6456163</span>
+braille_chars <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'a'</span><span class="token punctuation">:</span> <span class="token string">'100000'</span><span class="token punctuation">,</span>
+    <span class="token string">'b'</span><span class="token punctuation">:</span> <span class="token string">'110000'</span><span class="token punctuation">,</span>
+    <span class="token string">'c'</span><span class="token punctuation">:</span> <span class="token string">'100100'</span><span class="token punctuation">,</span>
+    <span class="token string">'d'</span><span class="token punctuation">:</span> <span class="token string">'100110'</span><span class="token punctuation">,</span>
+    <span class="token string">'e'</span><span class="token punctuation">:</span> <span class="token string">'100010'</span><span class="token punctuation">,</span>
+    <span class="token string">'f'</span><span class="token punctuation">:</span> <span class="token string">'110100'</span><span class="token punctuation">,</span>
+    <span class="token string">'g'</span><span class="token punctuation">:</span> <span class="token string">'110110'</span><span class="token punctuation">,</span>
+    <span class="token string">'h'</span><span class="token punctuation">:</span> <span class="token string">'110010'</span><span class="token punctuation">,</span>
+    <span class="token string">'i'</span><span class="token punctuation">:</span> <span class="token string">'010100'</span><span class="token punctuation">,</span>
+    <span class="token string">'j'</span><span class="token punctuation">:</span> <span class="token string">'010110'</span><span class="token punctuation">,</span>
+    <span class="token string">'k'</span><span class="token punctuation">:</span> <span class="token string">'101000'</span><span class="token punctuation">,</span>
+    <span class="token string">'l'</span><span class="token punctuation">:</span> <span class="token string">'111000'</span><span class="token punctuation">,</span>
+    <span class="token string">'m'</span><span class="token punctuation">:</span> <span class="token string">'101100'</span><span class="token punctuation">,</span>
+    <span class="token string">'n'</span><span class="token punctuation">:</span> <span class="token string">'101110'</span><span class="token punctuation">,</span>
+    <span class="token string">'o'</span><span class="token punctuation">:</span> <span class="token string">'101010'</span><span class="token punctuation">,</span>
+    <span class="token string">'p'</span><span class="token punctuation">:</span> <span class="token string">'111100'</span><span class="token punctuation">,</span>
+    <span class="token string">'q'</span><span class="token punctuation">:</span> <span class="token string">'111110'</span><span class="token punctuation">,</span>
+    <span class="token string">'r'</span><span class="token punctuation">:</span> <span class="token string">'111010'</span><span class="token punctuation">,</span>
+    <span class="token string">'s'</span><span class="token punctuation">:</span> <span class="token string">'011100'</span><span class="token punctuation">,</span>
+    <span class="token string">'t'</span><span class="token punctuation">:</span> <span class="token string">'011110'</span><span class="token punctuation">,</span>
+    <span class="token string">'u'</span><span class="token punctuation">:</span> <span class="token string">'101001'</span><span class="token punctuation">,</span>
+    <span class="token string">'v'</span><span class="token punctuation">:</span> <span class="token string">'111001'</span><span class="token punctuation">,</span>
+    <span class="token string">'w'</span><span class="token punctuation">:</span> <span class="token string">'010111'</span><span class="token punctuation">,</span>
+    <span class="token string">'x'</span><span class="token punctuation">:</span> <span class="token string">'101101'</span><span class="token punctuation">,</span>
+    <span class="token string">'y'</span><span class="token punctuation">:</span> <span class="token string">'101111'</span><span class="token punctuation">,</span>
+    <span class="token string">'z'</span><span class="token punctuation">:</span> <span class="token string">'101011'</span><span class="token punctuation">,</span>
+    <span class="token string">' '</span><span class="token punctuation">:</span> <span class="token string">'000000'</span><span class="token punctuation">,</span>
+    <span class="token string">'!'</span><span class="token punctuation">:</span> <span class="token string">'000001'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Add an `!` before each uppercase letter and convert to lowercase</span>
+    string <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'!'</span> <span class="token operator">+</span> c<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> c<span class="token punctuation">.</span>isupper<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">else</span> c <span class="token keyword">for</span> c <span class="token keyword">in</span> string<span class="token punctuation">)</span>
+    <span class="token comment"># Convert each character to its braille representation</span>
+    braille <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>braille_chars<span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token keyword">for</span> c <span class="token keyword">in</span> string<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> braille
+</code></pre>

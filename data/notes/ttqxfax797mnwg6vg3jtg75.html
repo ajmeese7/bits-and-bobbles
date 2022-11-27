@@ -1,0 +1,22 @@
+<h1 id="show-n-columns-side-by-side-with-css"><a aria-hidden="true" class="anchor-heading icon-link" href="#show-n-columns-side-by-side-with-css"></a>Show `n` columns side-by-side with CSS</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/57434450/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>I fixed this <a href="https://jsfiddle.net/ajmeese7/k5o60dwy/5/">here</a>. The problem was the flex was overriding the default width.</p>
+<p>This is what the CSS is now:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.col-md-4</span></span> <span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">33.3333333333</span><span class="token unit">%</span><span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">%</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>It successfully sets the width of the columns to 20% instead of 33.3%.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">css (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">bootstrap (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">safari (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

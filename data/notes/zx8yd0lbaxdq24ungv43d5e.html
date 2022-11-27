@@ -1,0 +1,103 @@
+<h1 id="bringing-a-gun-to-a-trainer-fight"><a aria-hidden="true" class="anchor-heading icon-link" href="#bringing-a-gun-to-a-trainer-fight"></a>Bringing a Gun to a Trainer Fight</h1>
+<h2 id="instructions"><a aria-hidden="true" class="anchor-heading icon-link" href="#instructions"></a>Instructions</h2>
+<p>Uh-oh -- you've been cornered by one of Commander Lambdas elite bunny trainers! Fortunately, you grabbed a beam weapon from an abandoned storeroom while you were running through the station, so you have a chance to fight your way out. But the beam weapon is potentially dangerous to you as well as to the bunny trainers: its beams reflect off walls, meaning you'll have to be very careful where you shoot to avoid bouncing a shot toward yourself!</p>
+<p>Luckily, the beams can only travel a certain maximum distance before becoming too weak to cause damage. You also know that if a beam hits a corner, it will bounce back in exactly the same direction. And of course, if the beam hits either you or the bunny trainer, it will stop immediately (albeit painfully).</p>
+<p>Write a function solution(dimensions, your_position, trainer_position, distance) that gives an array of 2 integers of the width and height of the room, an array of 2 integers of your x and y coordinates in the room, an array of 2 integers of the trainer's x and y coordinates in the room, and returns an integer of the number of distinct directions that you can fire to hit the elite trainer, given the maximum distance that the beam can travel.</p>
+<p>The room has integer dimensions [1 &#x3C; x_dim &#x3C;= 1250, 1 &#x3C; y_dim &#x3C;= 1250]. You and the elite trainer are both positioned on the integer lattice at different distinct positions (x, y) inside the room such that [0 &#x3C; x &#x3C; x_dim, 0 &#x3C; y &#x3C; y_dim]. Finally, the maximum distance that the beam can travel before becoming harmless will be given as an integer 1 &#x3C; distance &#x3C;= 10000.</p>
+<p>For example, if you and the elite trainer were positioned in a room with dimensions [3, 2], your_position [1, 1], trainer_position [2, 1], and a maximum shot distance of 4, you could shoot in seven different directions to hit the elite trainer (given as vector bearings from your location): [1, 0], [1, 2], [1, -2], [3, 2], [3, -2], [-3, 2], and [-3, -2]. As specific examples, the shot at bearing [1, 0] is the straight line horizontal shot of distance 1, the shot at bearing [-3, -2] bounces off the left wall and then the bottom wall before hitting the elite trainer with a total shot distance of sqrt(13), and the shot at bearing [1, 2] bounces off just the top wall before hitting the elite trainer with a total shot distance of sqrt(5).</p>
+<h3 id="test-cases"><a aria-hidden="true" class="anchor-heading icon-link" href="#test-cases"></a>Test cases</h3>
+<p>Your code should pass the following test cases.</p>
+<p>Note that it may also be run against hidden test cases not shown here.</p>
+<p>Input:
+<code>solution.solution([3,2], [1,1], [2,1], 4)</code>
+Output:
+<code>7</code></p>
+<p>Input:
+<code>solution.solution([300,275], [150,150], [185,100], 500)</code>
+Output:
+<code>9</code></p>
+<h3 id="thought-process"><a aria-hidden="true" class="anchor-heading icon-link" href="#thought-process"></a>Thought Process</h3>
+<ul>
+<li>If the absolute distance between the shooter and the target is greater than the maximum distance, the shot will not hit the target (<code>solution = 0</code>).
+<ul>
+<li>If the absolute distance between the shooter and the target is equal to the maximum distance, the shot will hit the target and only one shot is possible (<code>solution = 1</code>).</li>
+</ul>
+</li>
+<li>The shots in the example are vectors relative to the shooter's position, not absolute coordinates in the room.
+<ul>
+<li>Angles can be used to represent the shot direction, using the sides of a triangle with the shooter's position as the origin.</li>
+<li>The angle of a shot can be calculated using <code>atan2(y, x)</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h2>
+<pre class="language-py"><code class="language-py"><span class="token keyword">from</span> itertools <span class="token keyword">import</span> product
+<span class="token keyword">from</span> math <span class="token keyword">import</span> atan2
+
+<span class="token comment"># Props to some of the visuals by Peter Agalakov and some syntax from</span>
+<span class="token comment"># Jason Lavoie (courtesy of Copilot)</span>
+<span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>dimensions<span class="token punctuation">,</span> your_position<span class="token punctuation">,</span> trainer_position<span class="token punctuation">,</span> distance<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    INPUT:
+    - dimensions: list of two integers [x, y] representing the width and height
+    of the room
+    - your_position: list of two integers [x, y] representing your x and y
+    coordinates in the room
+    - trainer_position: list of two integers [x, y] representing the trainer's
+    x and y coordinates in the room
+    - distance: integer representing the maximum distance the beam can travel
+    OUTPUT:
+    - int: maximum number of distinct directions that you can fire to hit the
+    trainer, given the maximum distance that the beam can travel
+    """</span>
+
+    max_distance <span class="token operator">=</span> distance
+    shooter_x<span class="token punctuation">,</span> shooter_y <span class="token operator">=</span> your_position
+    hits <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Generates the matrix of points that will need to be reflected into the</span>
+    <span class="token comment"># other quadrants; the strange range logic is required because the constraints</span>
+    <span class="token comment"># specify Python 2.7, which doesn't play nicely with range() and floats</span>
+    <span class="token keyword">for</span> reflect <span class="token keyword">in</span> product<span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">[</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">(</span>max_distance <span class="token operator">//</span> <span class="token operator">-</span>d<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">for</span> d <span class="token keyword">in</span> dimensions<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Finds all hits for the shooter and the trainer</span>
+        <span class="token keyword">for</span> position <span class="token keyword">in</span> your_position<span class="token punctuation">,</span> trainer_position<span class="token punctuation">:</span>
+            <span class="token comment"># Generates the four reflection quadrants of the room</span>
+            <span class="token keyword">for</span> quadrant <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                x<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token punctuation">[</span>
+                  <span class="token comment"># Mirrors odd-numbered reflections across the y-axis</span>
+                  <span class="token punctuation">(</span>d <span class="token operator">*</span> r <span class="token operator">+</span> <span class="token punctuation">(</span>d <span class="token operator">-</span> p <span class="token keyword">if</span> r <span class="token operator">%</span> <span class="token number">2</span> <span class="token keyword">else</span> p<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> q
+                  <span class="token keyword">for</span> d<span class="token punctuation">,</span> p<span class="token punctuation">,</span> r<span class="token punctuation">,</span> q <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>dimensions<span class="token punctuation">,</span> position<span class="token punctuation">,</span> reflect<span class="token punctuation">,</span> quadrant<span class="token punctuation">)</span>
+                <span class="token punctuation">]</span>
+                <span class="token comment"># Calculates the distance from the shooter to the hit</span>
+                distance <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">abs</span><span class="token punctuation">(</span>x <span class="token operator">-</span> shooter_x<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>y <span class="token operator">-</span> shooter_y<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">0.5</span>
+                <span class="token comment"># Calculates the angle from the shooter to the hit</span>
+                angle <span class="token operator">=</span> atan2<span class="token punctuation">(</span>shooter_x <span class="token operator">-</span> x<span class="token punctuation">,</span> shooter_y <span class="token operator">-</span> y<span class="token punctuation">)</span>
+                <span class="token comment"># Ignores hits that are out of range or have already been</span>
+                <span class="token comment"># recorded at a shorter distance</span>
+                <span class="token keyword">if</span> distance <span class="token operator">></span> max_distance <span class="token keyword">or</span> <span class="token punctuation">(</span>angle <span class="token keyword">in</span> hits <span class="token keyword">and</span> distance <span class="token operator">></span> <span class="token builtin">abs</span><span class="token punctuation">(</span>hits<span class="token punctuation">[</span>angle<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">continue</span>
+
+                <span class="token comment"># Mark shooter hits (bad) with a negative distance and trainer</span>
+                <span class="token comment"># hits (good) with a positive distance</span>
+                hits<span class="token punctuation">[</span>angle<span class="token punctuation">]</span> <span class="token operator">=</span> distance <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">if</span> position <span class="token operator">==</span> your_position <span class="token keyword">else</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Returns the number of distinct angles that hit the trainer</span>
+    <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token keyword">for</span> travel <span class="token keyword">in</span> hits<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> travel <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># Test cases</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 0</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 7</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 8</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">275</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">150</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">185</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 9</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 27</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">foobar (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">google (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">level-4 (Private)</a></li>
+</ol>

@@ -1,0 +1,20 @@
+<h1 id="how-to-get-a-value-from-nodelist"><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-get-a-value-from-nodelist"></a>How to get a Value from NodeList?</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72393517/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>One way to access the items returned from <code>getElementsByNodeName</code> is from <a href="https://www.w3schools.com/jsref/met_doc_getelementsbyname.asp">W3 Schools</a>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> collection <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementsByName</span><span class="token punctuation">(</span><span class="token string">"phone"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> collection<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> valueYouAreInterestedIn <span class="token operator">=</span> collection<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token property-access">specialKeyYouWant</span><span class="token punctuation">;</span>
+  <span class="token comment">// Use the value below :)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Please comment if there is anything else you need help with!</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">nodelist (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,21 @@
+<h1 id="string-ends-with"><a aria-hidden="true" class="anchor-heading icon-link" href="#string-ends-with"></a>String ends with?</h1>
+<h3 id="elixir"><a aria-hidden="true" class="anchor-heading icon-link" href="#elixir"></a>Elixir</h3>
+<pre class="language-elixir"><code class="language-elixir"><span class="token keyword">defmodule</span> <span class="token module class-name">EndsWith</span> <span class="token keyword">do</span>
+  <span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> ending<span class="token punctuation">)</span> <span class="token keyword">when</span> ending <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token attr-name">do:</span> <span class="token boolean">true</span>
+
+  <span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> ending<span class="token punctuation">)</span> <span class="token keyword">do</span>
+    string_len <span class="token operator">=</span> <span class="token module class-name">String</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+    search_len <span class="token operator">=</span> <span class="token module class-name">String</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span>ending<span class="token punctuation">)</span>
+    ending <span class="token operator">==</span> <span class="token module class-name">String</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> <span class="token operator">-</span>search_len<span class="token punctuation">,</span> string_len<span class="token punctuation">)</span>
+  <span class="token keyword">end</span>
+
+<span class="token keyword">end</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">elixir (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">7-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

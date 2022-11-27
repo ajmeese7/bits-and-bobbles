@@ -1,0 +1,15 @@
+<h1 id="ignore-n-lines-of-sed-output"><a aria-hidden="true" class="anchor-heading icon-link" href="#ignore-n-lines-of-sed-output"></a>Ignore `n` lines of `sed` output</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72669696/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>One way to do this is to ignore the first two lines of the output in sed:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">sed</span> <span class="token string">"1,2 ! s/[^[:blank:]]\{1,\}/<span class="token variable">$green</span>&#x26;<span class="token variable">$off</span>/3"</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">bash (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">sed (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

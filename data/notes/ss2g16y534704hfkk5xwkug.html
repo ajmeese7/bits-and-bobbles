@@ -1,0 +1,28 @@
+<h1 id="test-numerical-range-with-jasmine"><a aria-hidden="true" class="anchor-heading icon-link" href="#test-numerical-range-with-jasmine"></a>Test numerical range with Jasmine</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/57675174/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>Depending on how specific you need it to be, you could create a range of +-1 second or some similar number with <code>toBeWithinRange</code> from the <a href="https://www.npmjs.com/package/jasmine-expect">Jasmine Matchers</a> package:</p>
+<pre class="language-js"><code class="language-js"><span class="token function">expect</span><span class="token punctuation">(</span>createdTime<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBeWithinRange</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+</code></pre>
+<p>With this method you will have to test the <code>createdTime</code> separately from the other test, but that shouldn't be too big of an issue. You just need to assign the return property that you want to the variable <code>createdTime</code>.</p>
+<p><strong>Edit</strong>- A similar method with a more clear matcher is using <code>toBeNear</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token function">expect</span><span class="token punctuation">(</span>createdTime<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toBeNear</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>This will be true if the date assigned to createdTime is within two seconds of the date when the test runs.</p>
+<p><strong>Edit 2</strong>- to exclude object keys when testing, you can follow an example <a href="https://stackoverflow.com/a/24487384/6456163">here</a>. This is how you would do it in your case:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">var</span> joc <span class="token operator">=</span> jasmine<span class="token punctuation">.</span><span class="token property-access">objectContaining</span><span class="token punctuation">;</span>
+<span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">fun</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token method function property-access">toEqual</span><span class="token punctuation">(</span><span class="token function">joc</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"abc"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">jasmine (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,36 @@
+<h1 id="ouija"><a aria-hidden="true" class="anchor-heading icon-link" href="#ouija"></a>Ouija</h1>
+<blockquote>
+<p>You've made contact with a spirit from beyond the grave! Unfortunately, they speak in an ancient tongue of flags, so you can't understand a word. You've enlisted a medium who can translate it, but they like to take their time...</p>
+</blockquote>
+<h2 id="exploitation"><a aria-hidden="true" class="anchor-heading icon-link" href="#exploitation"></a>Exploitation</h2>
+<p>Executing the binary takes a long time and outputs the following:</p>
+<pre class="language-log"><code class="language-log"><span class="token operator">$</span> <span class="token file-path string">./ouija</span>
+Retrieving key<span class="token punctuation">.</span>
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> done<span class="token operator">!</span>
+Hmm<span class="token punctuation">,</span> I don't like that one<span class="token punctuation">.</span> Let's pick a new one<span class="token punctuation">.</span>
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> done<span class="token operator">!</span>
+Yes<span class="token punctuation">,</span> <span class="token number">18</span> will do nicely<span class="token punctuation">.</span>
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> done<span class="token operator">!</span>
+Let's get ready to start<span class="token punctuation">.</span> This might take a while<span class="token operator">!</span>
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> done<span class="token operator">!</span>
+This one's an uppercase letter<span class="token operator">!</span>
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> done<span class="token operator">!</span>
+Okay<span class="token punctuation">,</span> let's write down this letter<span class="token operator">!</span> This is a pretty complex operation<span class="token punctuation">,</span> you might want to check back later<span class="token punctuation">.</span>
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> done<span class="token operator">!</span>
+H
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<p>And on and on and on, which nobody has time to wait for.</p>
+<p>Running <code>strings ouija</code> gives us a lot of output, but the most interesting part is the following:</p>
+<pre class="language-log"><code class="language-log">ZLT<span class="token operator">{</span>Svvafy_kdwwhk_lg_qgmj_ugvw_escwk_al_wskq_lg_ghlaearw_dslwj<span class="token operator">!</span><span class="token operator">}</span>
+</code></pre>
+<p>This is obviously the encoded flag, since it follows the same format as the other flags. We can try to use a <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a> to decode it. We can use <a href="https://gchq.github.io/CyberChef/">CyberChef</a> to do this. We can use the <code>ROT13</code> recipe to decode the flag.</p>
+<p>After experimenting with the <code>ROT</code> recipe, we find the key that decodes the flag to the proper format, 8. That gives us the following flag:</p>
+<pre class="language-text"><code class="language-text">HTB{Adding_sleeps_to_your_code_makes_it_easy_to_optimize_later!}
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hackthebox (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">reverse-engineering (Private)</a></li>
+</ol>

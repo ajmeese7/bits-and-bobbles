@@ -1,0 +1,26 @@
+<h1 id="query-rows-from-a-database-table-in-php"><a aria-hidden="true" class="anchor-heading icon-link" href="#query-rows-from-a-database-table-in-php"></a>Query rows from a database table in PHP</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/57394863/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>You are never using <code>$condition1</code> and <code>$condition2</code> after you give them their static values, which might be the problem here.</p>
+<p>Another thing I would consider is switching from your current <code>$result</code> assignment to this:</p>
+<pre class="language-php"><code class="language-php"><span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"SELECT * FROM client_scope WHERE client_scope_id = '<span class="token interpolation"><span class="token variable">$siteID</span></span>'
+        AND client_Id='"</span><span class="token operator">.</span><span class="token global">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'clientId'</span><span class="token punctuation">]</span><span class="token operator">.</span><span class="token string double-quoted-string">"'"</span><span class="token punctuation">;</span>
+<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$conn</span><span class="token operator">-></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token operator">-></span><span class="token property">error</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>In your current query, you didn't include single quotes around <code>$siteId</code>, which was likely one of the problems because I had the same issue with a query yesterday.</p>
+<p>Another problem was you had a set of single quotes inside another set of single quotes with your <code>client_Id</code> assignment, which doesn't work. Using the period operator, this method joins the <code>$_SESSION</code> part of the query with the rest. This is explained <a href="https://stackoverflow.com/a/3383845/6456163">here</a>.</p>
+<p>Finally, the <code>or die($conn->error)</code> part of <code>$result</code> typically shows you errors that may exist like this in your queries in the future. For an explanation of this, see <a href="https://stackoverflow.com/a/35669638">here</a>.</p>
+<p>This may be a personal preference, but I have always seen your foreach loop written as something similar to this:</p>
+<pre class="language-php"><code class="language-php"><span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$row</span> <span class="token operator">=</span> <span class="token variable">$result</span><span class="token operator">-></span><span class="token function">fetch_assoc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$row</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>I don't know if there is any functional difference, but it may be another factor.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">php (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

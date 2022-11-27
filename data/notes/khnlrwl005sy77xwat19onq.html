@@ -1,0 +1,29 @@
+<h1 id="setting-relative-dates-in-javascript-with-setdate"><a aria-hidden="true" class="anchor-heading icon-link" href="#setting-relative-dates-in-javascript-with-setdate"></a>Setting relative dates in JavaScript with `setDate`</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72691782/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>In answer to your question, the <code>setDate()</code> function is behaving so strangely for you because each time you are setting the date you are setting it relative to the previous setting, so incrementing each time by 31, 32, or 33 days instead of by 1, 2, or 3. See the brilliant answer by <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@Quentin (Private)</a> for more information, this finding was entirely his and I just wanted to mention the root cause in my answer as well as my own fix to your problem.</p>
+<hr>
+<p>An alternative solution if you just want to generate the dates:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> dayOfMonth <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+date<span class="token punctuation">.</span><span class="token method function property-access">setDate</span><span class="token punctuation">(</span>dayOfMonth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"Date:"</span><span class="token punctuation">,</span> date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> timestamp <span class="token operator">=</span> <span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">parse</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;=</span> <span class="token number">14</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newTimestamp <span class="token operator">=</span> timestamp <span class="token operator">+</span> i <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1000</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> newDate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>newTimestamp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"New date:"</span><span class="token punctuation">,</span> newDate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This method will manipulate the timestamp and generate new dates for each of the timestamps added to the number of milliseconds in a day.</p>
+<p>You could use your date logic within the loop to populate the calendar as you mentioned.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">date (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

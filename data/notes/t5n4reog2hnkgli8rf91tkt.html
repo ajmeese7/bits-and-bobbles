@@ -1,0 +1,24 @@
+<h1 id="trick-or-breach"><a aria-hidden="true" class="anchor-heading icon-link" href="#trick-or-breach"></a>Trick Or Breach</h1>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># Extract the DNS query data from the pcap;</span>
+<span class="token comment"># https://unix.stackexchange.com/a/393503/370076</span>
+tshark -r ./capture.pcap -T fields -e dns.qry.name -Y <span class="token string">'dns.flags.response == 0'</span> <span class="token operator">></span> raw_exfil.txt
+
+<span class="token comment"># Get only the data from the DNS queries;</span>
+<span class="token comment"># https://www.hackucf.org/hack-all-the-things/hack-all-the-things-exfiltrating-data-via-dns-requests</span>
+<span class="token function">egrep</span> -o <span class="token string">"[0-9a-f]+.pumpkincorp.com"</span> ./raw_exfil.txt <span class="token operator">|</span> <span class="token function">cut</span> -d. -f1 <span class="token operator">></span> exfil.txt
+
+<span class="token comment"># Unhex the exfiltrated data</span>
+xxd -r -p <span class="token operator">&#x3C;</span> exfil.txt <span class="token operator">></span> data
+</code></pre>
+<p>Looking at the <code>data</code> file, I determined that it was an archive that was really an Excel spreadsheet. I opened it in OpenOffice and found the flag:</p>
+<pre class="language-text"><code class="language-text">HTB{M4g1c_c4nn0t_pr3v3nt_d4t4_br34ch}
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hackthebox (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">easy (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">dns (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">exfiltration (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">forensics (Private)</a></li>
+</ol>

@@ -1,0 +1,87 @@
+<h1 id="bomb-baby"><a aria-hidden="true" class="anchor-heading icon-link" href="#bomb-baby"></a>Bomb Baby</h1>
+<h2 id="instructions"><a aria-hidden="true" class="anchor-heading icon-link" href="#instructions"></a>Instructions</h2>
+<p>You're so close to destroying the LAMBCHOP doomsday device you can taste it! But in order to do so, you need to deploy special self-replicating bombs designed for you by the brightest scientists on Bunny Planet. There are two types: Mach bombs (M) and Facula bombs (F). The bombs, once released into the LAMBCHOP's inner workings, will automatically deploy to all the strategic points you've identified and destroy them at the same time.</p>
+<p>But there's a few catches. First, the bombs self-replicate via one of two distinct processes:
+Every Mach bomb retrieves a sync unit from a Facula bomb; for every Mach bomb, a Facula bomb is created;
+Every Facula bomb spontaneously creates a Mach bomb.</p>
+<p>For example, if you had 3 Mach bombs and 2 Facula bombs, they could either produce 3 Mach bombs and 5 Facula bombs, or 5 Mach bombs and 2 Facula bombs. The replication process can be changed each cycle.</p>
+<p>Second, you need to ensure that you have exactly the right number of Mach and Facula bombs to destroy the LAMBCHOP device. Too few, and the device might survive. Too many, and you might overload the mass capacitors and create a singularity at the heart of the space station - not good!</p>
+<p>And finally, you were only able to smuggle one of each type of bomb - one Mach, one Facula - aboard the ship when you arrived, so that's all you have to start with. (Thus it may be impossible to deploy the bombs to destroy the LAMBCHOP, but that's not going to stop you from trying!)</p>
+<p>You need to know how many replication cycles (generations) it will take to generate the correct amount of bombs to destroy the LAMBCHOP. Write a function solution(M, F) where M and F are the number of Mach and Facula bombs needed. Return the fewest number of generations (as a string) that need to pass before you'll have the exact number of bombs necessary to destroy the LAMBCHOP, or the string "impossible" if this can't be done! M and F will be string representations of positive integers no larger than 10^50. For example, if M = "2" and F = "1", one generation would need to pass, so the solution would be "1". However, if M = "2" and F = "4", it would not be possible.</p>
+<h3 id="languages"><a aria-hidden="true" class="anchor-heading icon-link" href="#languages"></a>Languages</h3>
+<p>To provide a Java solution, edit <code>Solution.java</code></p>
+<p>To provide a Python solution, edit <code>solution.py</code></p>
+<h3 id="test-cases"><a aria-hidden="true" class="anchor-heading icon-link" href="#test-cases"></a>Test cases</h3>
+<p>Your code should pass the following test cases.
+Note that it may also be run against hidden test cases not shown here.</p>
+<p>-- Java cases --</p>
+<p>Input:
+<code>Solution.solution('2', '1')</code></p>
+<p>Output:
+<code>1</code></p>
+<p>Input:
+<code>Solution.solution('4', '7')</code></p>
+<p>Output:
+<code>4</code></p>
+<p>-- Python cases --</p>
+<p>Input:
+<code>solution.solution('4', '7')</code>
+Output:
+<code>4</code></p>
+<p>Input:
+<code>solution.solution('2', '1')</code>
+Output:
+<code>1</code></p>
+<p>Use <code>verify [file]</code> to test your solution and see how it does. When you are finished editing your code, use <code>submit [file]</code> to submit your answer. If your solution passes the test cases, it will be removed from your home folder.</p>
+<h3 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h3>
+<pre class="language-py"><code class="language-py"><span class="token triple-quoted-string string">"""
+Calculate how many replication cycles it will take to generate the
+correct number of bombs to destroy the LAMBCHOP.
+INPUT: m (string) - the needed number of Mach bombs
+       f (string) - the needed number of Facula bombs
+OUTPUT: (string) - the number of cycles to generate the correct number
+        of bombs to destroy the LAMBCHOP
+"""</span>
+<span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    cycles<span class="token punctuation">,</span> m<span class="token punctuation">,</span> f <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> m <span class="token operator">==</span> <span class="token number">1</span> <span class="token keyword">and</span> f <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token builtin">str</span><span class="token punctuation">(</span>cycles<span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> m <span class="token operator">==</span> f <span class="token keyword">or</span> m <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">or</span> f <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">"impossible"</span>
+
+        <span class="token comment"># The subtraction-only method was very easy to implement, but</span>
+        <span class="token comment"># required many more cycles to complete. This method is</span>
+        <span class="token comment"># far more efficient, as it only requires a single division</span>
+        <span class="token comment"># operation per iteration.</span>
+        <span class="token keyword">if</span> m <span class="token operator">></span> f<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> m <span class="token operator">%</span> f <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                cycles <span class="token operator">+=</span> m <span class="token operator">//</span> f <span class="token operator">-</span> <span class="token number">1</span>
+                m <span class="token operator">=</span> f
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                cycles <span class="token operator">+=</span> m <span class="token operator">//</span> f
+                m <span class="token operator">%=</span> f
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> f <span class="token operator">%</span> m <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                cycles <span class="token operator">+=</span> f <span class="token operator">//</span> m <span class="token operator">-</span> <span class="token number">1</span>
+                f <span class="token operator">=</span> m
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                cycles <span class="token operator">+=</span> f <span class="token operator">//</span> m
+                f <span class="token operator">%=</span> m
+
+<span class="token comment"># Test cases</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token string">"4"</span><span class="token punctuation">,</span> <span class="token string">"7"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># "4"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># "1"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># "0"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"4"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># "impossible"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token operator">**</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># "99999999999999999999999999999999999999999999999999"</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">foobar (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">google (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">level-3 (Private)</a></li>
+</ol>

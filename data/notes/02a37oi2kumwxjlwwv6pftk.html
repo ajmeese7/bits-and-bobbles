@@ -1,0 +1,38 @@
+<h1 id="pass-list-of-variables-to-shell-script-in-github-actions"><a aria-hidden="true" class="anchor-heading icon-link" href="#pass-list-of-variables-to-shell-script-in-github-actions"></a>Pass list of variables to shell script in GitHub Actions</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72918267/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>Today I was able to do this with the following YAML (truncated):</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token punctuation">...</span>
+<span class="token key atrule">with</span><span class="token punctuation">:</span>
+  <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+    FolderA/SubfolderA
+    FolderB/SubfolderB</span>
+</code></pre>
+<p>The actual GitHub Action passes this as an argument like the following:</p>
+<pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">runs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">using</span><span class="token punctuation">:</span> docker
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> Dockerfile
+  <span class="token key atrule">args</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">"${{ inputs.targets }}"</span>
+</code></pre>
+<p>What this does is simply sends the parameters as a string with the newline characters embedded, which can then be iterated over similar to an array in a POSIX-compliant manner via the following shell code:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token shebang important">#!/bin/sh -l</span>
+
+<span class="token assign-left variable">targets</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${1}</span>"</span>
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">target</span> <span class="token keyword">in</span> <span class="token variable">$targets</span>
+<span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"Proof that this code works: <span class="token variable">$target</span>"</span>
+<span class="token keyword">done</span>
+</code></pre>
+<p>Which should be capable of accomplishing your desired task, if I understand the question correctly. You can always run something like <code>sh ./script.sh $target</code> in the loop if your use case requires it.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">github-actions (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">shell (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">yaml (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

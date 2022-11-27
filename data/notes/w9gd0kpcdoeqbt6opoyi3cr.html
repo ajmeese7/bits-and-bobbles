@@ -1,0 +1,18 @@
+<h1 id="using-regular-expressions-in-css-selectors"><a aria-hidden="true" class="anchor-heading icon-link" href="#using-regular-expressions-in-css-selectors"></a>Using regular expressions in CSS selectors</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72932790/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>One way to achieve what you are looking for in pure CSS is with an attribute prefix selector (which uses a form of regular expressions). In your case the following would likely do the trick:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token attribute"><span class="token punctuation">[</span><span class="token attr-name">id</span><span class="token operator">^=</span><span class="token attr-value">"edit-field-geolocation-proximity-center-geocoder"</span><span class="token punctuation">]</span></span> <span class="token class">.form-item</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* your styles here :) */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><a href="https://stackoverflow.com/a/8903313/6456163">This thread</a> offers a lot of additional excellent methods on how to use regex in CSS if you would like to do some additional reading.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">css (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

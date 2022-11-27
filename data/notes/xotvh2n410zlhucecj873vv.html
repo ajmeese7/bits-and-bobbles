@@ -1,0 +1,18 @@
+<h1 id="manipulate-pandas-index-column-on-write"><a aria-hidden="true" class="anchor-heading icon-link" href="#manipulate-pandas-index-column-on-write"></a>Manipulate Pandas Index column on write</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72669566/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>According to <a href="https://github.com/pandas-dev/pandas/issues/26042">this thread</a>, the problem can normally be avoided by skipping calling <code>reset_index</code>.</p>
+<p>If that doesn't work for you, one alternative solution that was offered is to try the following:</p>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string">" file_name.csv "</span><span class="token punctuation">)</span>
+df_new <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"file_name.csv"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"unnamed 0"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">pandas (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">dataframe (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,33 @@
+<h1 id="deodorant-evaporator"><a aria-hidden="true" class="anchor-heading icon-link" href="#deodorant-evaporator"></a>Deodorant Evaporator</h1>
+<h3 id="elixir"><a aria-hidden="true" class="anchor-heading icon-link" href="#elixir"></a>Elixir</h3>
+<pre class="language-elixir"><code class="language-elixir"><span class="token keyword">defmodule</span> <span class="token module class-name">Evaporator</span> <span class="token keyword">do</span>
+
+  <span class="token attribute variable">@spec</span> <span class="token function">evaporator</span><span class="token punctuation">(</span>number<span class="token punctuation">,</span> number<span class="token punctuation">,</span> number<span class="token punctuation">)</span> <span class="token operator">::</span> number
+
+  <span class="token keyword">def</span> <span class="token function">evaporator</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span> evap_per_day<span class="token punctuation">,</span> threshold<span class="token punctuation">)</span> <span class="token keyword">do</span>
+    count <span class="token operator">=</span> <span class="token number">0</span>
+    percent_remaining <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span> <span class="token punctuation">(</span>evap_per_day <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span>
+    percent_thresh <span class="token operator">=</span> evap_per_day <span class="token operator">*</span> <span class="token punctuation">(</span>threshold <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span>
+
+    <span class="token function">length</span><span class="token punctuation">(</span>
+      <span class="token module class-name">Stream</span><span class="token punctuation">.</span><span class="token function">unfold</span><span class="token punctuation">(</span><span class="token punctuation">{</span>evap_per_day<span class="token punctuation">,</span> count<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">fn</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> count<span class="token punctuation">}</span>  <span class="token operator">-></span>
+        <span class="token module class-name">IO</span><span class="token punctuation">.</span>puts x
+        <span class="token keyword">if</span> x <span class="token operator">></span> percent_thresh <span class="token keyword">do</span>
+          <span class="token punctuation">{</span>x<span class="token punctuation">,</span> <span class="token punctuation">{</span>x <span class="token operator">*</span> percent_remaining<span class="token punctuation">,</span> count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span> <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+          <span class="token boolean">nil</span>
+        <span class="token keyword">end</span>
+      <span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token operator">|></span> <span class="token module class-name">Enum</span><span class="token punctuation">.</span><span class="token function">to_list</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+  <span class="token keyword">end</span>
+
+<span class="token keyword">end</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">elixir (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">7-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

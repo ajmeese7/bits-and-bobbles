@@ -1,0 +1,19 @@
+<h1 id="counting-duplicates"><a aria-hidden="true" class="anchor-heading icon-link" href="#counting-duplicates"></a>Counting Duplicates</h1>
+<h3 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h3>
+<pre class="language-py"><code class="language-py"><span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter
+
+<span class="token keyword">def</span> <span class="token function">duplicate_count</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> text<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+    frequencies <span class="token operator">=</span> Counter<span class="token punctuation">(</span>text<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">(</span>
+        <span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">,</span> frequencies<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">6-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

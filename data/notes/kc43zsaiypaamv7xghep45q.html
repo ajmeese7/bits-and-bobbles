@@ -1,0 +1,19 @@
+<h1 id="polydivisible-numbers"><a aria-hidden="true" class="anchor-heading icon-link" href="#polydivisible-numbers"></a>Polydivisible Numbers</h1>
+<h3 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h3>
+<pre class="language-py"><code class="language-py"><span class="token keyword">def</span> <span class="token function">polydivisible</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    isPoly <span class="token operator">=</span> <span class="token boolean">True</span>
+    <span class="token keyword">for</span> numDigits <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        num <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span>numDigits<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> num <span class="token operator">%</span> numDigits <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            isPoly <span class="token operator">=</span> <span class="token boolean">False</span>
+            <span class="token keyword">break</span>
+    <span class="token keyword">return</span> isPoly
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">7-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

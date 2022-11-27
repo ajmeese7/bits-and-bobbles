@@ -1,0 +1,118 @@
+<h1 id="sum-and-rest-the-number-with-its-reversed-and-see-what-happens"><a aria-hidden="true" class="anchor-heading icon-link" href="#sum-and-rest-the-number-with-its-reversed-and-see-what-happens"></a>Sum and Rest the Number with its Reversed and See What Happens</h1>
+<h3 id="javascript"><a aria-hidden="true" class="anchor-heading icon-link" href="#javascript"></a>JavaScript</h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> termsToAdd <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> foundTerms <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">sumDifRev</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>foundTerms<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&#x3C;</span> n<span class="token punctuation">)</span> <span class="token function">populateTerms</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">return</span> foundTerms<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">populateTerms</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> lastTerm <span class="token operator">=</span> foundTerms<span class="token punctuation">[</span>foundTerms<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> numToTest <span class="token operator">=</span> lastTerm <span class="token operator">?</span> lastTerm <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> numToTest<span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> <span class="token number">1000000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Reversed number</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>termsToAdd<span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      foundTerms<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">continue</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">var</span> reverse <span class="token operator">=</span> <span class="token function">flipInt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> sum <span class="token operator">=</span> i <span class="token operator">+</span> reverse<span class="token punctuation">;</span>
+    <span class="token keyword">var</span> diff <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">abs</span><span class="token punctuation">(</span>i <span class="token operator">-</span> reverse<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Checks if the condition is met</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>sum <span class="token operator">%</span> diff <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>reverse<span class="token punctuation">.</span><span class="token method function property-access">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">==</span> i<span class="token punctuation">.</span><span class="token method function property-access">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        foundTerms<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        termsToAdd<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>reverse<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// https://stackoverflow.com/a/52366332</span>
+<span class="token keyword">function</span> <span class="token function">flipInt</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> digit<span class="token punctuation">,</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      digit <span class="token operator">=</span> n <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>                  <span class="token comment">//  Get last digit. Ex. 123/10 → 12.3 → 3</span>
+      result <span class="token operator">=</span> <span class="token punctuation">(</span>result <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> digit<span class="token punctuation">;</span>  <span class="token comment">//  Ex. 123 → 1230 + 4 → 1234</span>
+      n <span class="token operator">=</span> n<span class="token operator">/</span><span class="token number">10</span><span class="token operator">|</span><span class="token number">0</span><span class="token punctuation">;</span>                      <span class="token comment">//  Remove last digit. Ex. 123 → 12.3 → 12</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="coffeescript"><a aria-hidden="true" class="anchor-heading icon-link" href="#coffeescript"></a>CoffeeScript</h3>
+<pre class="language-coffee"><code class="language-coffee">foundTerms <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+sumDifRev <span class="token operator">=</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span>
+  <span class="token keyword">if</span> foundTerms<span class="token punctuation">.</span>length <span class="token operator">&#x3C;</span> n
+    <span class="token function">populateTerms</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> foundTerms<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+
+populateTerms <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span>
+  i <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">while</span> i <span class="token operator">&#x3C;</span> <span class="token number">1000000</span>
+    reverse <span class="token operator">=</span> <span class="token function">flipInt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    sum <span class="token operator">=</span> i <span class="token operator">+</span> reverse
+    diff <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>i <span class="token operator">-</span> reverse<span class="token punctuation">)</span>
+
+    <span class="token comment"># Checks if the condition is met</span>
+    <span class="token keyword">if</span> sum <span class="token operator">%</span> diff <span class="token operator">==</span> <span class="token number">0</span>
+      <span class="token keyword">if</span> reverse<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">==</span> i<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length
+        foundTerms<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+    i<span class="token operator">++</span>
+
+<span class="token comment"># https://stackoverflow.com/a/52366332</span>
+flipInt <span class="token operator">=</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span>
+  digit <span class="token operator">=</span> <span class="token number">0</span>
+  result <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">while</span> n <span class="token operator">!=</span> <span class="token number">0</span>
+      digit <span class="token operator">=</span> n <span class="token operator">%</span> <span class="token number">10</span>
+      result <span class="token operator">=</span> <span class="token punctuation">(</span>result <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> digit
+      n <span class="token operator">=</span> n<span class="token operator">/</span><span class="token number">10</span><span class="token operator">|</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> result
+</code></pre>
+<h3 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h3>
+<pre class="language-py"><code class="language-py">foundTerms <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token keyword">def</span> <span class="token function">sum_dif_rev</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>foundTerms<span class="token punctuation">)</span> <span class="token operator">&#x3C;</span> n<span class="token punctuation">:</span>
+        populateTerms<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> foundTerms<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+
+<span class="token keyword">def</span> <span class="token function">populateTerms</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1000000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        reverse <span class="token operator">=</span> flipInt<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token builtin">sum</span> <span class="token operator">=</span> i <span class="token operator">+</span> reverse
+        diff <span class="token operator">=</span> <span class="token builtin">abs</span><span class="token punctuation">(</span>i <span class="token operator">-</span> reverse<span class="token punctuation">)</span>
+
+        <span class="token comment"># Checks if the condition is met</span>
+        <span class="token keyword">if</span> diff <span class="token operator">!=</span> <span class="token number">0</span> <span class="token keyword">and</span> <span class="token builtin">sum</span> <span class="token operator">%</span> diff <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>reverse<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                foundTerms<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+<span class="token comment"># https://stackoverflow.com/a/52366332</span>
+<span class="token keyword">def</span> <span class="token function">flipInt</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  rev <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">while</span> num <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+    rev <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">*</span> rev<span class="token punctuation">)</span> <span class="token operator">+</span> num <span class="token operator">%</span> <span class="token number">10</span>
+    num <span class="token operator">//=</span> <span class="token number">10</span>
+  <span class="token keyword">return</span> rev
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">coffeescript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">5-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

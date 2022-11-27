@@ -1,0 +1,25 @@
+<h1 id="how-many-are-smaller-than-me"><a aria-hidden="true" class="anchor-heading icon-link" href="#how-many-are-smaller-than-me"></a>How many are smaller than me?</h1>
+<h3 id="javascript"><a aria-hidden="true" class="anchor-heading icon-link" href="#javascript"></a>JavaScript</h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">smaller</span><span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> smallerNums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&#x3C;</span> nums<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> numToCheck <span class="token operator">=</span> nums<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> smallerCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> remainingIndices <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">-</span> index<span class="token punctuation">;</span> remainingIndices <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span> remainingIndices<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>index <span class="token operator">+</span> remainingIndices<span class="token punctuation">]</span> <span class="token operator">&#x3C;</span> numToCheck<span class="token punctuation">)</span> smallerCount<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    smallerNums<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>smallerCount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">return</span> smallerNums<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">7-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,65 @@
+<h1 id="smallest-multiple"><a aria-hidden="true" class="anchor-heading icon-link" href="#smallest-multiple"></a>Smallest multiple</h1>
+<blockquote>
+<p>This is the HackerRank version of <a href="https://www.hackerrank.com/contests/projecteuler/challenges/euler005/problem">Euler Project problem #5</a>.</p>
+</blockquote>
+<h3 id="problem"><a aria-hidden="true" class="anchor-heading icon-link" href="#problem"></a>Problem</h3>
+<p>2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.</p>
+<p>What is the smallest positive number that is evenly divisible by all of the numbers from 1 to N?</p>
+<h4 id="input-format"><a aria-hidden="true" class="anchor-heading icon-link" href="#input-format"></a>Input Format</h4>
+<p>First line contains T that denotes the number of test cases. This is followed by T lines, each containing an integer, N.</p>
+<h4 id="constraints"><a aria-hidden="true" class="anchor-heading icon-link" href="#constraints"></a>Constraints</h4>
+<ul>
+<li>1 &#x3C;= T &#x3C;= 10</li>
+<li>1 &#x3C;= N &#x3C;= 40</li>
+</ul>
+<h4 id="output-format"><a aria-hidden="true" class="anchor-heading icon-link" href="#output-format"></a>Output Format</h4>
+<p>Print the required answer for each test case.</p>
+<h3 id="solution"><a aria-hidden="true" class="anchor-heading icon-link" href="#solution"></a>Solution</h3>
+<pre class="language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>text<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>math<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>regex<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Problem5</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Scanner</span> in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> t <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> a0 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> a0 <span class="token operator">&#x3C;</span> t<span class="token punctuation">;</span> a0<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">int</span> n <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">LCM</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Least Common Multiple</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">LCM</span><span class="token punctuation">(</span><span class="token keyword">long</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">long</span> answer <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">long</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      answer <span class="token operator">*=</span> i <span class="token operator">/</span> <span class="token function">GCD</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> answer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> answer<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Greatest Common Divisor</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">GCD</span><span class="token punctuation">(</span><span class="token keyword">long</span> a<span class="token punctuation">,</span> <span class="token keyword">long</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>b <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">long</span> temp <span class="token operator">=</span> a<span class="token punctuation">;</span>
+      a <span class="token operator">=</span> b<span class="token punctuation">;</span>
+      b <span class="token operator">=</span> temp <span class="token operator">%</span> b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">java (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">euler-difficulty-5 (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hackerrank-medium (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hackerrank (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">euler (Private)</a></li>
+</ol>

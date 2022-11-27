@@ -1,0 +1,16 @@
+<h1 id="remove-blank-lines-from-csv-document"><a aria-hidden="true" class="anchor-heading icon-link" href="#remove-blank-lines-from-csv-document"></a>Remove blank lines from CSV document</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73802179/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>One way to do this is to look for only empty lines at the end of the file and remove them all:</p>
+<pre class="language-regex"><code class="language-regex"><span class="token group punctuation">(</span><span class="token escape">\n</span>,<span class="token quantifier number">*</span><span class="token group punctuation">)</span><span class="token quantifier number">+</span><span class="token anchor function">$</span>/g
+</code></pre>
+<p>An example can be found <a href="https://regex101.com/r/YOk2nb/3">here</a>, it just requires using an empty substitution as demonstrated.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">csv (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

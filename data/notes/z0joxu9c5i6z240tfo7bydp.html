@@ -1,0 +1,27 @@
+<h1 id="equal-sides-of-an-array"><a aria-hidden="true" class="anchor-heading icon-link" href="#equal-sides-of-an-array"></a>Equal Sides Of An Array</h1>
+<h3 id="javascript"><a aria-hidden="true" class="anchor-heading icon-link" href="#javascript"></a>JavaScript</h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">findEvenIndex</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> index <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> workingArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>arr<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    workingArr<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> firstHalf <span class="token operator">=</span> workingArr<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> secondHalf <span class="token operator">=</span> workingArr<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> firstHalfSum <span class="token operator">=</span> firstHalf<span class="token punctuation">.</span><span class="token method function property-access">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> num</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> acc <span class="token operator">+</span> num<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> secondHalfSum <span class="token operator">=</span> secondHalf<span class="token punctuation">.</span><span class="token method function property-access">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> num</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> acc <span class="token operator">+</span> num<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>firstHalfSum <span class="token operator">===</span> secondHalfSum<span class="token punctuation">)</span> <span class="token keyword control-flow">return</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">6-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

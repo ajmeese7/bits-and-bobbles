@@ -1,0 +1,66 @@
+<h1 id="defuse-the-bombs"><a aria-hidden="true" class="anchor-heading icon-link" href="#defuse-the-bombs"></a>Defuse the bombs!</h1>
+<h3 id="javascript"><a aria-hidden="true" class="anchor-heading icon-link" href="#javascript"></a>JavaScript</h3>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Bomb #1 - the object property gives the answer</span>
+<span class="token comment">//console.log( Bomb );</span>
+<span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span> <span class="token number">42</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Bomb #2 - needs to be called five times</span>
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span> i <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Bomb #3 - use the answer from Node's global vars</span>
+<span class="token comment">//console.log(global);</span>
+<span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span> global<span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">BombKey</span></span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Bomb #4 - created the function that's called, which didn't exist before</span>
+<span class="token comment">//console.log(Bomb.diffuse.toString())</span>
+<span class="token function-variable function">diffuseTheBomb</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Bomb #5 - decoded the base64 hint</span>
+<span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span><span class="token string">"3.14159"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Bomb #6 - date exactly four years ago</span>
+<span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">setYear</span><span class="token punctuation">(</span><span class="token number">2016</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Bomb #7 - don't let the function modify the value of the key property</span>
+<span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Object</span><span class="token punctuation">.</span><span class="token method function property-access">freeze</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token number">43</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Bomb #8 - make the implicit valueOf function explicit, to control the behavior</span>
+<span class="token keyword">const</span> hack <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">valueOf</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">called</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">called</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span> <span class="token keyword control-flow">return</span> <span class="token number">20</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span>hack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Bomb #9 - overwrite Math.random() valueOf prototype</span>
+<span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">random</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">valueOf</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">called</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">called</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">return</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span> <span class="token keyword control-flow">return</span> <span class="token number">1</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Bomb #10 - overwrite valueOf for arrays, to get the sum tested (42)</span>
+<span class="token class-name">Array</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">valueOf</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> val</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> acc <span class="token operator">+</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token maybe-class-name">Bomb</span><span class="token punctuation">.</span><span class="token method function property-access">diffuse</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span><span class="token string">"yes"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toString</span><span class="token punctuation">(</span><span class="token string">"base64"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-js"><code class="language-js"></code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">3-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

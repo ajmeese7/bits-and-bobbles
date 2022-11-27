@@ -1,0 +1,32 @@
+<h1 id="upload-image-to-s3-from-memory"><a aria-hidden="true" class="anchor-heading icon-link" href="#upload-image-to-s3-from-memory"></a>Upload image to S3 from memory</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73655576/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>I created <a href="https://github.com/dexplo/dataframe_image/issues/43">an issue</a> on the <code>dataframe_image</code> repository asking this question to the library author, and below is my implementation of his suggestion:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> boto3
+<span class="token keyword">import</span> dataframe_image <span class="token keyword">as</span> dfi
+<span class="token keyword">from</span> io <span class="token keyword">import</span> BytesIO
+
+<span class="token comment"># create the buffer in which to store the generated image</span>
+png_io <span class="token operator">=</span> BytesIO<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># assuming that your dataframe is stored as `df` variable</span>
+df<span class="token punctuation">.</span>dfi<span class="token punctuation">.</span>export<span class="token punctuation">(</span>png_io<span class="token punctuation">)</span>
+
+<span class="token comment"># create the boto3 client and upload the BytesIO directly;</span>
+<span class="token comment"># create your client in whatever way works for you</span>
+session <span class="token operator">=</span> boto3<span class="token punctuation">.</span>session<span class="token punctuation">.</span>Session<span class="token punctuation">(</span>aws_access_key_id<span class="token operator">=</span>aws_access_key_id<span class="token punctuation">,</span> aws_secret_access_key<span class="token operator">=</span>aws_secret_access_key<span class="token punctuation">,</span> region_name<span class="token operator">=</span>region_name<span class="token punctuation">)</span>
+s3_client <span class="token operator">=</span> session<span class="token punctuation">.</span>client<span class="token punctuation">(</span><span class="token string">'s3'</span><span class="token punctuation">)</span>
+s3_client<span class="token punctuation">.</span>upload_fileobj<span class="token punctuation">(</span>png_io<span class="token punctuation">,</span> <span class="token string">'your_destination_folder/your_destination_file'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>For more information, check this <a href="https://techoverflow.net/2021/03/08/how-to-use-boto3-to-upload-bytesio-to-wasabi-s3-in-python/">TechOverflow post</a> and this <a href="https://stackoverflow.com/a/69443870/6456163">StackOverflow post</a>.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">s3 (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">pandas (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">dataframe (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

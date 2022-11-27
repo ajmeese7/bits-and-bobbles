@@ -1,0 +1,15 @@
+<h1 id="regex-that-ignores-latin-characters"><a aria-hidden="true" class="anchor-heading icon-link" href="#regex-that-ignores-latin-characters"></a>Regex that ignores Latin characters</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73207214/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>One way to do this is to use word boundaries (<code>\b</code>) instead of the <code>\S</code> anchor:</p>
+<pre class="language-regex"><code class="language-regex"><span class="token anchor function">^</span><span class="token anchor function">\b</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token range"><span class="token escape">\x20</span><span class="token range-punctuation operator">-</span><span class="token escape">\x7E</span></span><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span><span class="token anchor function">\b</span><span class="token anchor function">$</span>
+</code></pre>
+<p>This would match your given test case <code>Priya@ #432</code>, but would not match <code>priya##23á</code> or <code>Priya@ #432 </code>. You can see an example of this regex in action on Regex101 <a href="https://regex101.com/r/bpcUmQ/1">here</a>.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

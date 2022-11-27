@@ -1,0 +1,109 @@
+<h1 id="cult-meeting"><a aria-hidden="true" class="anchor-heading icon-link" href="#cult-meeting"></a>Cult Meeting</h1>
+<h2 id="target-information"><a aria-hidden="true" class="anchor-heading icon-link" href="#target-information"></a>Target Information</h2>
+<ul>
+<li>IP: <code>46.101.82.173:30227</code></li>
+</ul>
+<h2 id="exploitation"><a aria-hidden="true" class="anchor-heading icon-link" href="#exploitation"></a>Exploitation</h2>
+<ul>
+<li>
+<p>Enumerated the target with <code>nmap</code>:</p>
+<pre class="language-shell"><code class="language-shell">nmap <span class="token number">46.101</span>.82.173 -sC -sV -T4 -Pn
+</code></pre>
+<p>  It only returned that ports 31038 and 31337 were open.</p>
+</li>
+<li>
+<p>Attempted to SSH into the given port:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">ssh</span> -p <span class="token number">30227</span> <span class="token number">46.101</span>.82.173
+</code></pre>
+<p>  Returned the message:</p>
+<pre class="language-text"><code class="language-text">Bad packet length 218766171.
+ssh_dispatch_run_fatal: Connection to 46.101.82.173 port 30227: message authentication code incorrect
+</code></pre>
+<p>  The same thing when using <code>anonymous@46.101.82.173</code>.</p>
+<p>  Running in verbose mode returned the following:</p>
+<pre class="language-log"><code class="language-log">OpenSSH_8<span class="token punctuation">.</span>2p1 Ubuntu<span class="token operator">-</span>4ubuntu0<span class="token punctuation">.</span>5<span class="token punctuation">,</span> OpenSSL <span class="token number">1.1.1f</span>  <span class="token date number">31 Mar 2020</span>
+<span class="token property">debug1:</span> Reading configuration data <span class="token file-path string">/etc/ssh/ssh_config</span>
+<span class="token property">debug1:</span> <span class="token file-path string">/etc/ssh/ssh_config</span> line <span class="token number">19</span><span class="token operator">:</span> include <span class="token file-path string">/etc/ssh/ssh_config.d/*.conf</span> matched no files
+<span class="token property">debug1:</span> <span class="token file-path string">/etc/ssh/ssh_config</span> line <span class="token number">21</span><span class="token operator">:</span> Applying options for <span class="token operator">*</span>
+<span class="token property">debug1:</span> Connecting to <span class="token ip-address constant">46.101.82.173</span> <span class="token punctuation">[</span><span class="token ip-address constant">46.101.82.173</span><span class="token punctuation">]</span> port <span class="token number">30227</span><span class="token punctuation">.</span>
+<span class="token property">debug1:</span> Connection established<span class="token punctuation">.</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_rsa</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_rsa-cert</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_dsa</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_dsa-cert</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_ecdsa</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_ecdsa-cert</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_ecdsa_sk</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_ecdsa_sk-cert</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_ed25519</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_ed25519-cert</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_ed25519_sk</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_ed25519_sk-cert</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_xmss</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> identity file <span class="token file-path string">/home/aaron/.ssh/id_xmss-cert</span> type <span class="token operator">-</span><span class="token number">1</span>
+<span class="token property">debug1:</span> Local version string SSH<span class="token operator">-</span><span class="token number">2.0</span><span class="token operator">-</span>OpenSSH_8<span class="token punctuation">.</span>2p1 Ubuntu<span class="token operator">-</span>4ubuntu0<span class="token punctuation">.</span>5
+<span class="token property">debug1:</span> Remote protocol version <span class="token number">2.0</span><span class="token punctuation">,</span> remote software version OpenSSH_8<span class="token punctuation">.</span>2p1 Ubuntu<span class="token operator">-</span>4ubuntu0<span class="token punctuation">.</span>5
+<span class="token property">debug1:</span> <span class="token property">match:</span> OpenSSH_8<span class="token punctuation">.</span>2p1 Ubuntu<span class="token operator">-</span>4ubuntu0<span class="token punctuation">.</span>5 pat OpenSSH<span class="token operator">*</span> compat <span class="token number">0x04000000</span>
+<span class="token property">debug1:</span> Authenticating to <span class="token ip-address constant">46.101.82.173</span><span class="token operator">:</span><span class="token number">30227</span> as <span class="token string">'anonymous'</span>
+<span class="token property">debug1:</span> SSH2_MSG_KEXINIT sent
+Bad packet length <span class="token number">218766171</span><span class="token punctuation">.</span>
+<span class="token property">ssh_dispatch_run_fatal:</span> <span class="token property">Connection to 46.101.82.173 port 30227:</span> message authentication code incorrect
+</code></pre>
+<p>  So we at least know that OpenSSH is running on the target.</p>
+<p>  The logs did highlight that at least one of the problems was that my OpenSSH install was trying to authenticate with my local <code>id_rsa</code> file, which obviously won't work. After conducting some research, <a href="https://serverfault.com/q/493213/537331">I determined</a> that the issue could be solved by using a different command:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">ssh</span> -p <span class="token number">30227</span> anonymous@46.101.82.173 -v -o <span class="token assign-left variable">PreferredAuthentications</span><span class="token operator">=</span>password -o <span class="token assign-left variable">PubkeyAuthentication</span><span class="token operator">=</span>no
+</code></pre>
+<p>  This yielded a much more promising set of logs:</p>
+<pre class="language-log"><code class="language-log"><span class="token property">debug1:</span> <span class="token property">kex_exchange_identification:</span> <span class="token property">banner line 0:</span> \<span class="token number">033</span><span class="token punctuation">[</span>3mYou knock on the door and a panel slides back\<span class="token number">033</span><span class="token punctuation">[</span><span class="token number">0m</span>
+<span class="token property">debug1:</span> <span class="token property">kex_exchange_identification:</span> <span class="token property">banner line 1:</span> <span class="token operator">|</span><span class="token operator">/</span>\<span class="token number">360</span>\<span class="token number">237</span>\<span class="token number">221</span>\<span class="token number">201</span>\<span class="token number">357</span>\<span class="token number">270</span>\<span class="token number">217</span> \<span class="token number">360</span>\<span class="token number">237</span>\<span class="token number">221</span>\<span class="token number">201</span>\<span class="token number">357</span>\<span class="token number">270</span>\<span class="token number">217</span> \\<span class="token operator">|</span>\<span class="token number">033</span><span class="token punctuation">[</span><span class="token number">3m</span> A hooded figure looks out at you\<span class="token number">033</span><span class="token punctuation">[</span><span class="token number">0m</span>
+<span class="token property">debug1:</span> <span class="token property">kex_exchange_identification:</span> <span class="token property">banner line 2:</span> <span class="token string">"What is the password for this week's meeting?"</span> SSH<span class="token operator">-</span><span class="token number">2.0</span><span class="token operator">-</span>OpenSSH_8<span class="token punctuation">.</span>2p1 Ubuntu<span class="token operator">-</span>4ubuntu0<span class="token punctuation">.</span>5
+<span class="token property">debug1:</span> <span class="token property">kex_exchange_identification:</span> <span class="token property">banner line 3:</span>
+<span class="token property">debug1:</span> <span class="token property">kex_exchange_identification:</span> <span class="token property">banner line 4:</span>    \\<span class="token operator">/</span>
+<span class="token property">debug1:</span> <span class="token property">kex_exchange_identification:</span> <span class="token property">banner line 5:</span> <span class="token operator">|</span><span class="token operator">/</span>\<span class="token number">360</span>\<span class="token number">237</span>\<span class="token number">221</span>\<span class="token number">201</span>\<span class="token number">357</span>\<span class="token number">270</span>\<span class="token number">217</span> \<span class="token number">360</span>\<span class="token number">237</span>\<span class="token number">221</span>\<span class="token number">201</span>\<span class="token number">357</span>\<span class="token number">270</span>\<span class="token number">217</span> \\<span class="token operator">|</span> <span class="token string">"That's not our password - call the guards!"</span>
+<span class="token property">kex_exchange_identification:</span> Connection closed by remote host
+</code></pre>
+</li>
+<li>
+<p>Attempted to brute force the password with <code>msfconsole</code>:</p>
+<pre class="language-shell"><code class="language-shell">msfconsole
+</code></pre>
+<pre class="language-ruby"><code class="language-ruby">use auxiliary<span class="token operator">/</span>scanner<span class="token operator">/</span>ssh<span class="token operator">/</span>ssh_login
+set <span class="token constant">RHOSTS</span> <span class="token number">46.101</span><span class="token number">.82</span><span class="token number">.173</span>
+set <span class="token constant">RPORT</span> <span class="token number">30227</span>
+set <span class="token constant">PASS_FILE</span> <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>wordlists<span class="token operator">/</span>rockyou<span class="token punctuation">.</span>txt
+set <span class="token constant">USERNAME</span> anonymous
+set <span class="token constant">STOP_ON_SUCCESS</span> <span class="token boolean">true</span>
+set <span class="token constant">VERBOSE</span> <span class="token boolean">true</span>
+run
+</code></pre>
+<p>  Unfortunately this was sporadically interrupted by the target closing the connection, and there is no setting to force <code>msfconsole</code> to keep trying. I opened an issue <a href="https://github.com/rapid7/metasploit-framework/issues/17178">here</a> to request this feature, but it most certainly won't be implemented in time to help me with this challenge.</p>
+</li>
+<li>
+<p>Attempted to brute force the password with <code>hydra</code>:</p>
+<pre class="language-shell"><code class="language-shell">hydra -l anonymous -P /usr/share/wordlists/rockyou.txt ssh://46.101.82.173 -s <span class="token number">30227</span> -t <span class="token number">4</span>
+</code></pre>
+<p>  Gave this error message: <code>[ERROR] could not connect to ssh://46.101.82.173:30227 - read_packet(): Packet len too high(218766171 d0a1b5b)</code></p>
+</li>
+<li>
+<p>Running <code>strings</code> on the file provided by HTB gave the password <code>sup3r_s3cr3t_p455w0rd_f0r_u!</code> thanks to the proximity to the messages displayed by the SSH server. Unfortunately this just SSH's us into our current directory, since it isn't running on the server.</p>
+</li>
+<li>
+<p>Attached <code>edb_debugger</code> to the SSH password verification binary to determine what the password is being compared to.</p>
+<pre class="language-shell"><code class="language-shell">edb --run ./meeting
+</code></pre>
+<p>  Running a search for the password string shows that <code>/bin/sh</code> is ran if the password matches the proper memory address.</p>
+</li>
+<li>
+<p>Using <code>telnet 46.101.82.173 30227</code> got me the same result as SSH, except this one was interactive and actually allowed me to enter the password.</p>
+<p>  Once I did that, the password I uncovered in the local binary (<code>sup3r_s3cr3t_p455w0rd_f0r_u!</code>) worked, and I was able to get a shell in the server.</p>
+<p>  Running <code>cat flag.txt</code> yielded the flag, <code>HTB{1nf1ltr4t1ng_4_cul7_0f_str1ng5}</code>.</p>
+</li>
+</ul>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hackthebox (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">reversing (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">reverse-engineering (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">ssh (Private)</a></li>
+</ol>

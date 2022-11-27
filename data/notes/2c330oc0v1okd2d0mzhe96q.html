@@ -1,0 +1,21 @@
+<h1 id="listening-for-close-event-of-datetime-local-input"><a aria-hidden="true" class="anchor-heading icon-link" href="#listening-for-close-event-of-datetime-local-input"></a>Listening for `close` event of `datetime-local` input</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72744412/6456163">here</a> for the original question.</p>
+</blockquote>
+<p>I was able to get this working by using the <code>onchange</code> event, but it only works when the user actually interacts with the popup. If they click the default selected date (today) then it functions fine, but if they just leave it selected and close the popup then it doesn't work.</p>
+<p>See example code below:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> picker <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"datePicker"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+picker<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onchange</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"This works when the input is changed, but not when the picker is closed without user interaction."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>This is more of a workaround than the actual solution I was looking for, so other answers are welcome.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">event (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,25 @@
+<h1 id="only-keep-n-newest-files-in-a-directory"><a aria-hidden="true" class="anchor-heading icon-link" href="#only-keep-n-newest-files-in-a-directory"></a>Only keep `n` newest files in a directory</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72635466/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>One way to do this is with the following one-liner, ran from the directory where the logs are located:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">ls</span> -t <span class="token operator">|</span> <span class="token function">head</span> -n -8 <span class="token operator">|</span> <span class="token function">xargs</span> --no-run-if-empty <span class="token function">rm</span>
+</code></pre>
+<p>Explanation:</p>
+<ul>
+<li><code>ls -t</code> - lists all the files in order from youngest to oldest</li>
+<li><code>head -n -8</code> - gets all the files except the first 8</li>
+<li><code>xargs --no-run-if-empty rm</code> - deletes the selected files if there are any, preventing errors if you ever have fewer than 8 logs</li>
+</ul>
+<p>If you want to set this up to run automatically every day, giving you peace of mind in case your server is offline on the 7th day of a cycle and misses the one week mark, run <code>crontab -e</code> and add the following to your jobs:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token number">0</span> <span class="token number">0</span> * * * <span class="token builtin class-name">cd</span> yourDirNameHere <span class="token operator">&#x26;&#x26;</span> <span class="token function">ls</span> -t <span class="token operator">|</span> <span class="token function">head</span> -n -8 <span class="token operator">|</span> <span class="token function">xargs</span> --no-run-if-empty <span class="token function">rm</span>
+</code></pre>
+<p>Then the log cleaner will be ran every night at midnight.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">bash (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">linux (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,26 @@
+<h1 id="emulate-terminal-output-in-dash-ui-textarea-component"><a aria-hidden="true" class="anchor-heading icon-link" href="#emulate-terminal-output-in-dash-ui-textarea-component"></a>Emulate Terminal Output in Dash UI Textarea Component</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72885945/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>The way the project I'm working on captures the <code>stdout</code> is with <code>contextlib</code>. Below is a small code sample that should get the information you are looking for, which you can then append to the value of the textarea:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> contextlib <span class="token keyword">import</span> redirect_stdout
+<span class="token keyword">import</span> io
+
+<span class="token keyword">with</span> redirect_stdout<span class="token punctuation">(</span>io<span class="token punctuation">.</span>StringIO<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> output<span class="token punctuation">:</span>
+    <span class="token comment"># Your code that generates output here</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+    <span class="token comment"># This will get the lines from the output</span>
+    lines <span class="token operator">=</span> output<span class="token punctuation">.</span>getvalue<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>splitlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Append `lines` to the textarea content here</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">dash (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+</ol>

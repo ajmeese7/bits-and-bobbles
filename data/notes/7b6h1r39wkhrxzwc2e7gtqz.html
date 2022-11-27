@@ -1,0 +1,18 @@
+<h1 id="set-default-permissions-for-new-files-in-linux-directory"><a aria-hidden="true" class="anchor-heading icon-link" href="#set-default-permissions-for-new-files-in-linux-directory"></a>Set default permissions for new files in Linux directory</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73671526/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>I think what you're looking for here is the <code>setfacl</code> command, which sets the default permissions for a specified directory. After you mount the directory, try the following:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">sudo</span> setfacl -d -m u:www-data:rwx /www
+</code></pre>
+<p>If you want to change the existing permissions as well, add the <code>-R</code> flag:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">sudo</span> setfacl -R -d -m u:www-data:rwx /www
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">linux (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">setfacl (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

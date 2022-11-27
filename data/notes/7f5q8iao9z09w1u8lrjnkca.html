@@ -1,0 +1,87 @@
+<h1 id="pirate-island-conquer-part-1"><a aria-hidden="true" class="anchor-heading icon-link" href="#pirate-island-conquer-part-1"></a>Pirate Island Conquer Part 1</h1>
+<h3 id="javascript"><a aria-hidden="true" class="anchor-heading icon-link" href="#javascript"></a>JavaScript</h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">var</span> mapSize <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> uninhabitedIslands <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    marineIslands <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">conquerIsland</span><span class="token punctuation">(</span><span class="token parameter">map</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">findIslands</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>uninhabitedIslands<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&#x26;&#x26;</span> marineIslands<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> uninhabitedIslands<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>marineIslands<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&#x26;&#x26;</span> <span class="token operator">!</span>uninhabitedIslands<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> marineIslands<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> marineSolutions <span class="token operator">=</span> <span class="token function">getClosest</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> marineIslands<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> finalSolutions <span class="token operator">=</span> <span class="token function">getClosest</span><span class="token punctuation">(</span>marineSolutions<span class="token punctuation">,</span> uninhabitedIslands<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>finalSolutions<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> finalSolutions <span class="token operator">=</span> finalSolutions<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow">return</span> finalSolutions<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">findIslands</span><span class="token punctuation">(</span><span class="token parameter">map</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Reset the arrays</span>
+  uninhabitedIslands <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  marineIslands <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// iterate over the whole map, recording islands</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> x <span class="token operator">&#x3C;</span> mapSize<span class="token punctuation">;</span> x<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> y <span class="token operator">&#x3C;</span> mapSize<span class="token punctuation">;</span> y<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> coordinates <span class="token operator">=</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">var</span> currentChar <span class="token operator">=</span> map<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>currentChar <span class="token operator">==</span> <span class="token string">'u'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Uninhabited island; highest priority</span>
+        uninhabitedIslands<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>coordinates<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>currentChar <span class="token operator">==</span> <span class="token string">'m'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Marine island; lower priority</span>
+        marineIslands<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>coordinates<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getDistance</span><span class="token punctuation">(</span><span class="token parameter">coordinates</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> x <span class="token operator">=</span> coordinates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> y <span class="token operator">=</span> coordinates<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow">return</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token doc-comment comment">/**
+ * Returns the array of the closest island or islands.
+ */</span>
+<span class="token keyword">function</span> <span class="token function">getClosest</span><span class="token punctuation">(</span><span class="token parameter">solutions<span class="token punctuation">,</span> islands<span class="token punctuation">,</span> marine</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> minDistance <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">999</span><span class="token punctuation">,</span> <span class="token string">'m'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> islands<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> currentIsland <span class="token operator">=</span> islands<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> distance <span class="token operator">=</span> <span class="token function">getDistance</span><span class="token punctuation">(</span>currentIsland<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>distance <span class="token operator">&#x3C;=</span> minDistance<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> previousMin <span class="token operator">=</span> minDistance<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      minDistance <span class="token operator">=</span> <span class="token punctuation">[</span>distance<span class="token punctuation">,</span> marine <span class="token operator">?</span> <span class="token string">'m'</span> <span class="token operator">:</span> <span class="token string">'u'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>solutions<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&#x26;&#x26;</span> distance <span class="token operator">==</span> <span class="token function">getDistance</span><span class="token punctuation">(</span>solutions<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Already a solution of equivalent distance</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>marine <span class="token operator">&#x26;&#x26;</span> previousMin <span class="token operator">===</span> <span class="token string">'u'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          solutions<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>currentIsland<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+          solutions <span class="token operator">=</span> <span class="token punctuation">[</span>currentIsland<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Lowest solution found so far</span>
+        solutions <span class="token operator">=</span> <span class="token punctuation">[</span>currentIsland<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">return</span> solutions<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">5-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

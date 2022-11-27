@@ -1,0 +1,19 @@
+<h1 id="convert-full-image-paths-to-relative-with-regex"><a aria-hidden="true" class="anchor-heading icon-link" href="#convert-full-image-paths-to-relative-with-regex"></a>Convert full image paths to relative with regex</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73313760/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>One way to accomplish this is by looking for the last occurrence of the backslash character, since your examples indicated that the presence of at least once can be relied on.</p>
+<p>The <code>find</code> regex:</p>
+<pre class="language-regex"><code class="language-regex"><span class="token group punctuation">(</span>href<span class="token alternation keyword">|</span>src<span class="token group punctuation">)</span>="<span class="token char-set class-name">.</span><span class="token quantifier number">*</span><span class="token special-escape escape">\\</span><span class="token group punctuation">(</span><span class="token char-set class-name">.</span><span class="token quantifier number">*</span><span class="token group punctuation">)</span>"
+</code></pre>
+<p>The <code>replace</code> regex:</p>
+<pre class="language-regex"><code class="language-regex"><span class="token anchor function">$</span>1="images<span class="token special-escape escape">\\</span><span class="token anchor function">$</span>2"
+</code></pre>
+<p>You can see this in action <a href="https://regex101.com/r/8c6QoA/1">here</a> with the examples you have provided.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

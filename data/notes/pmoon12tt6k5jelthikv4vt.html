@@ -1,0 +1,72 @@
+<h1 id="pixelated-resize-using-canvas-with-transparent-png"><a aria-hidden="true" class="anchor-heading icon-link" href="#pixelated-resize-using-canvas-with-transparent-png"></a>Pixelated resize using canvas with transparent PNG</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/71229461/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>This has since been made into an extremely minimalist library, and my PR for PNG support can be found <a href="https://github.com/rogeriopvl/8bit/pull/6">here</a>.</p>
+<p>Once it has been merged I will come back and update this answer.</p>
+<p>The full code, generalized and simplified from <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@Blindman67 (Private)</a>'s answer:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token doc-comment comment">/**
+ * 8bit
+ *
+ * A module that converts an image into a pixelated version (just like
+ * 8bit artwork).
+ *
+ * <span class="token keyword">@author</span> rogeriopvl &#x3C;https://github.com/rogeriopvl>
+ * <span class="token keyword">@license</span> MIT
+ */</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> factory</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> define <span class="token operator">===</span> <span class="token string">"function"</span> <span class="token operator">&#x26;&#x26;</span> define<span class="token punctuation">.</span><span class="token property-access">amd</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">define</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> factory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> exports <span class="token operator">===</span> <span class="token string">"object"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token function">factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+    root<span class="token punctuation">.</span><span class="token property-access">eightBit</span> <span class="token operator">=</span> <span class="token function">factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Necessary to hide the original image with PNG transparency</span>
+  <span class="token keyword">const</span> invisibleCanvas <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">"canvas"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> invisibleCtx <span class="token operator">=</span> invisibleCanvas<span class="token punctuation">.</span><span class="token method function property-access">getContext</span><span class="token punctuation">(</span><span class="token string">"2d"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token doc-comment comment">/**
+   * Draws a pixelated version of an image in a given canvas.
+   * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>object<span class="token punctuation">}</span></span> <span class="token parameter">canvas</span> - a canvas object
+   * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>object<span class="token punctuation">}</span></span> <span class="token parameter">image</span> - an image HTMLElement object
+   * <span class="token keyword">@param</span> <span class="token class-name"><span class="token punctuation">{</span>number<span class="token punctuation">}</span></span> <span class="token parameter">quality</span> - the new quality: between 0 and 100
+   */</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">eightBit</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">canvas<span class="token punctuation">,</span> image<span class="token punctuation">,</span> quality</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    quality <span class="token operator">/=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+
+    canvas<span class="token punctuation">.</span><span class="token property-access">width</span> <span class="token operator">=</span> invisibleCanvas<span class="token punctuation">.</span><span class="token property-access">width</span> <span class="token operator">=</span> image<span class="token punctuation">.</span><span class="token property-access">width</span><span class="token punctuation">;</span>
+    canvas<span class="token punctuation">.</span><span class="token property-access">height</span> <span class="token operator">=</span> invisibleCanvas<span class="token punctuation">.</span><span class="token property-access">height</span> <span class="token operator">=</span> image<span class="token punctuation">.</span><span class="token property-access">height</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> scaledW <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token property-access">width</span> <span class="token operator">*</span> quality<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> scaledH <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token property-access">height</span> <span class="token operator">*</span> quality<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> ctx <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token method function property-access">getContext</span><span class="token punctuation">(</span><span class="token string">"2d"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    ctx<span class="token punctuation">.</span><span class="token property-access">mozImageSmoothingEnabled</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token property-access">webkitImageSmoothingEnabled</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token property-access">imageSmoothingEnabled</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Draws image scaled to desired quality on the invisible canvas, then</span>
+    <span class="token comment">// draws that scaled image on the visible canvas.</span>
+    ctx<span class="token punctuation">.</span><span class="token method function property-access">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span><span class="token property-access">width</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span><span class="token property-access">height</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    invisibleCtx<span class="token punctuation">.</span><span class="token method function property-access">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> invisibleCtx<span class="token punctuation">.</span><span class="token property-access">canvas</span><span class="token punctuation">.</span><span class="token property-access">width</span><span class="token punctuation">,</span> invisibleCtx<span class="token punctuation">.</span><span class="token property-access">canvas</span><span class="token punctuation">.</span><span class="token property-access">height</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    invisibleCtx<span class="token punctuation">.</span><span class="token method function property-access">drawImage</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> scaledW<span class="token punctuation">,</span> scaledH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token method function property-access">drawImage</span><span class="token punctuation">(</span>invisibleCtx<span class="token punctuation">.</span><span class="token property-access">canvas</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> scaledW<span class="token punctuation">,</span> scaledH<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span><span class="token property-access">width</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span><span class="token property-access">height</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">return</span> eightBit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">canvas (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">image (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">transparent (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">pixel (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

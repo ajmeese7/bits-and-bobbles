@@ -1,0 +1,21 @@
+<h1 id="match-reaper-bypass-with-regex"><a aria-hidden="true" class="anchor-heading icon-link" href="#match-reaper-bypass-with-regex"></a>Match Reaper `BYPASS` with regex</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73549642/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p><a href="https://regex101.com/r/XqVTds/2">Here</a> is an example of the following matching regex at work:</p>
+<pre class="language-regex"><code class="language-regex">BYPASS<span class="token char-set class-name">.</span><span class="token quantifier number">*?</span><span class="token group punctuation">(?:</span>WAK <span class="token char-set class-name">\d</span> <span class="token char-set class-name">\d</span><span class="token group punctuation">)</span>
+</code></pre>
+<p>This is how you implement the regex in Python:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> re
+matches <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">r'BYPASS.*?(?:WAK \d \d)'</span><span class="token punctuation">,</span> string<span class="token punctuation">,</span> flags<span class="token operator">=</span>re<span class="token punctuation">.</span>S<span class="token operator">|</span>re<span class="token punctuation">.</span>M<span class="token punctuation">)</span>
+</code></pre>
+<p>I had to get rid of the capture group with <code>?:</code> and set the flags as a parameter to get it to work, but this should be what you need.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">reaper (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

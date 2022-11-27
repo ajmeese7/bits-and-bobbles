@@ -1,0 +1,74 @@
+<h1 id="fuel-injection-perfection"><a aria-hidden="true" class="anchor-heading icon-link" href="#fuel-injection-perfection"></a>Fuel Injection Perfection</h1>
+<h2 id="instructions"><a aria-hidden="true" class="anchor-heading icon-link" href="#instructions"></a>Instructions</h2>
+<blockquote>
+<p>Commander Lambda has asked for your help to refine the automatic quantum antimatter fuel injection system for the LAMBCHOP doomsday device. It's a great chance for you to get a closer look at the LAMBCHOP -- and maybe sneak in a bit of sabotage while you're at it -- so you took the job gladly.</p>
+</blockquote>
+<p>Quantum antimatter fuel comes in small pellets, which is convenient since the many moving parts of the LAMBCHOP each need to be fed fuel one pellet at a time. However, minions dump pellets in bulk into the fuel intake. You need to figure out the most efficient way to sort and shift the pellets down to a single pellet at a time.</p>
+<p>The fuel control mechanisms have three operations:</p>
+<ol>
+<li>Add one fuel pellet</li>
+<li>Remove one fuel pellet</li>
+<li>Divide the entire group of fuel pellets by 2 (due to the destructive energy released when a quantum antimatter pellet is cut in half, the safety controls will only allow this to happen if there is an even number of pellets)</li>
+</ol>
+<p>Write a function called solution(n) which takes a positive integer as a string and returns the minimum number of operations needed to transform the number of pellets to 1. The fuel intake control panel can only display a number up to 309 digits long, so there won't ever be more pellets than you can express in that many digits.</p>
+<p>For example:</p>
+<pre class="language-text"><code class="language-text">solution(4) returns 2: 4 -> 2 -> 1
+solution(15) returns 5: 15 -> 16 -> 8 -> 4 -> 2 -> 1
+</code></pre>
+<h3 id="languages"><a aria-hidden="true" class="anchor-heading icon-link" href="#languages"></a>Languages</h3>
+<p>To provide a Python solution, edit <code>solution.py</code></p>
+<p>To provide a Java solution, edit <code>Solution.java</code></p>
+<h3 id="test-cases"><a aria-hidden="true" class="anchor-heading icon-link" href="#test-cases"></a>Test cases</h3>
+<p>Your code should pass the following test cases.</p>
+<p>Note that it may also be run against hidden test cases not shown here.</p>
+<p>-- Python cases --</p>
+<p>Input:
+<code>solution.solution('15')</code></p>
+<p>Output:
+<code>5</code></p>
+<p>Input:
+<code>solution.solution('4')</code></p>
+<p>Output:
+<code>2</code></p>
+<p>-- Java cases --
+Input:
+<code>Solution.solution('4')</code></p>
+<p>Output:
+<code>2</code></p>
+<p>Input:
+<code>Solution.solution('15')</code></p>
+<p>Output:
+<code>5</code></p>
+<p>Use <code>verify [file]</code> to test your solution and see how it does. When you are finished editing your code, use <code>submit [file]</code> to submit your answer. If your solution passes the test cases, it will be removed from your home folder.</p>
+<h3 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h3>
+<pre class="language-py"><code class="language-py"><span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    count <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> n <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        count <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> n <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token comment"># Even number, so divide by 2 (// is integer division)</span>
+            n <span class="token operator">=</span> n <span class="token operator">//</span> <span class="token number">2</span>
+        <span class="token keyword">elif</span> n <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token keyword">or</span> n <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>
+            <span class="token comment"># If n is 3 or n-1 is divisible by 4, subtract 1</span>
+            n <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token comment"># Otherwise, add 1</span>
+            n <span class="token operator">+=</span> <span class="token number">1</span>
+
+    <span class="token comment"># Returns the number of operations that took place</span>
+    <span class="token keyword">return</span> count
+
+<span class="token comment"># Test cases</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 0</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 2</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 5</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">foobar (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">google (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">level-3 (Private)</a></li>
+</ol>

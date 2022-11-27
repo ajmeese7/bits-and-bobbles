@@ -1,0 +1,115 @@
+<h1 id="codewars-style-ranking-system"><a aria-hidden="true" class="anchor-heading icon-link" href="#codewars-style-ranking-system"></a>Codewars style ranking system</h1>
+<h3 id="javascript"><a aria-hidden="true" class="anchor-heading icon-link" href="#javascript"></a>JavaScript</h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">rank</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">progress</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">incProgress</span><span class="token punctuation">(</span><span class="token parameter">rank</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Make sure rank passed is valid</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>rank <span class="token operator">></span> <span class="token number">8</span> <span class="token operator">||</span> rank <span class="token operator">&#x3C;</span> <span class="token operator">-</span><span class="token number">8</span> <span class="token operator">||</span> rank <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">throw</span> <span class="token string">"Outside range"</span><span class="token punctuation">;</span>
+      <span class="token keyword control-flow">return</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Skip over 0 in difference calculations</span>
+    <span class="token keyword">let</span> diff <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">abs</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">-</span> rank<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">&#x3C;</span> <span class="token number">0</span> <span class="token operator">&#x26;&#x26;</span> rank <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> diff <span class="token operator">-=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">==</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// No progression once rank 8</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">==</span> rank <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Activity rank is one less than user</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">==</span> rank<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Same rank</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span> <span class="token operator">+=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>rank <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span> <span class="token operator">+=</span> <span class="token number">10</span> <span class="token operator">*</span> diff <span class="token operator">*</span> diff<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Because kata description does not match tests</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">incRank</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">incRank</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span> <span class="token operator">></span> <span class="token number">100</span> <span class="token operator">&#x26;&#x26;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">!=</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Loop over progress and update rank for every 100 points</span>
+      <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span><span class="token punctuation">;</span> i <span class="token operator">></span> <span class="token number">99</span><span class="token punctuation">;</span> i <span class="token operator">-=</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">2</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span> <span class="token operator">-=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Reset progress if new rank is 8</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">==</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">progress</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="coffeescript"><a aria-hidden="true" class="anchor-heading icon-link" href="#coffeescript"></a>CoffeeScript</h3>
+<pre class="language-coffee"><code class="language-coffee"><span class="token keyword">class</span> <span class="token class-name">User</span>
+  <span class="token property">constructor</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token operator">></span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>rank <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token property">rank</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token operator">></span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rank<span class="token punctuation">;</span>
+  <span class="token property">progress</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token operator">></span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>progress<span class="token punctuation">;</span>
+  <span class="token property">incProgress</span><span class="token operator">:</span> <span class="token punctuation">(</span>rank<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span>
+    <span class="token comment"># Make sure rank passed is valid</span>
+    <span class="token keyword">if</span> rank <span class="token operator">></span> <span class="token number">8</span> <span class="token operator">||</span> rank <span class="token operator">&#x3C;</span> <span class="token operator">-</span><span class="token number">8</span> <span class="token operator">||</span> rank <span class="token operator">==</span> <span class="token number">0</span>
+      <span class="token keyword">throw</span> <span class="token string">"Outside range"</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+    <span class="token comment"># Skip over 0 in difference calculations</span>
+    diff <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>rank <span class="token operator">-</span> rank<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rank <span class="token operator">&#x3C;</span> <span class="token number">0</span> <span class="token operator">&#x26;&#x26;</span> rank <span class="token operator">></span> <span class="token number">0</span>
+      diff <span class="token operator">-=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rank <span class="token operator">==</span> <span class="token number">8</span>
+      <span class="token comment"># No progression once rank 8</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+      <span class="token keyword">if</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rank <span class="token operator">==</span> rank <span class="token operator">+</span> <span class="token number">1</span>
+        <span class="token comment"># Activity rank is one less than user</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rank <span class="token operator">==</span> rank
+        <span class="token comment"># Same rank</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">+=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+      <span class="token keyword">else</span> <span class="token keyword">if</span> rank <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>rank
+        <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">+=</span> <span class="token number">10</span> <span class="token operator">*</span> diff <span class="token operator">*</span> diff<span class="token punctuation">;</span>
+      <span class="token keyword">else</span>
+        <span class="token comment"># Because kata description does not match tests</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">incRank</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">incRank</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token operator">></span>
+    <span class="token keyword">if</span> <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">></span> <span class="token number">100</span> <span class="token operator">&#x26;&#x26;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rank <span class="token operator">!=</span> <span class="token number">8</span>
+      <span class="token comment"># Loop over progress and update rank for every 100 points</span>
+      <span class="token keyword">while</span> <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">></span> <span class="token number">99</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>rank <span class="token operator">+=</span> <span class="token inline-javascript"><span class="token delimiter punctuation">`</span><span class="token script language-javascript"><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">rank</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">2</span> <span class="token operator">:</span> <span class="token number">1</span></span><span class="token delimiter punctuation">`</span></span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">-=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+
+        <span class="token comment"># Reset progress if new rank is 8</span>
+        <span class="token keyword">if</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rank <span class="token operator">==</span> <span class="token number">8</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>progress <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">coffeescript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">6-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

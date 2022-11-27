@@ -1,0 +1,21 @@
+<h1 id="javascript---how-to-select-x-row"><a aria-hidden="true" class="anchor-heading icon-link" href="#javascript---how-to-select-x-row"></a>Javascript - How to select "x" row</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72393715/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>One answer to this question can be found <a href="https://stackoverflow.com/a/11365819/6456163">here</a>, if you are only interested in getting the <code>nth</code> row of a table via JavaScript:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">var</span> cells <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">'table'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'td'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>This will contain all your table cells. Use array notation to access a specific one:</p>
+<pre class="language-js"><code class="language-js">cells<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>
+</code></pre>
+<p>Here's a quick demo which changes the background color:</p>
+<p><a href="http://jsfiddle.net/jackwanders/W7RAu/">http://jsfiddle.net/jackwanders/W7RAu/</a></p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">html (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">table (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

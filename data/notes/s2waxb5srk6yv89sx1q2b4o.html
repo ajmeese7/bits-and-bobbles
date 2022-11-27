@@ -1,0 +1,20 @@
+<h1 id="remove-all-escape-sequences-from-a-string"><a aria-hidden="true" class="anchor-heading icon-link" href="#remove-all-escape-sequences-from-a-string"></a>Remove all escape sequences from a string</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73723939/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>What you're looking for is the <code>re.sub()</code> method:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> re
+
+l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'S;V;iPad\r'</span><span class="token punctuation">,</span> <span class="token string">'C;M;mouse pad\r'</span><span class="token punctuation">,</span> <span class="token string">'C;C;code swarm\r'</span><span class="token punctuation">,</span> <span class="token string">'S;C;OrangeHighlighter'</span><span class="token punctuation">]</span>
+l_new <span class="token operator">=</span> <span class="token punctuation">[</span>re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'\r'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> l<span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>l_new<span class="token punctuation">)</span>
+</code></pre>
+<p>This will remove all occurrences of the <code>\r</code> escape sequence.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

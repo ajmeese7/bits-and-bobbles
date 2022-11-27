@@ -1,0 +1,37 @@
+<h1 id="cannot-run-jest-tests-for-components-failed-to-load-html-files"><a aria-hidden="true" class="anchor-heading icon-link" href="#cannot-run-jest-tests-for-components-failed-to-load-html-files"></a>Cannot run Jest tests for components (Failed to load html files)</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/71191077/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p><a href="https://stackoverflow.com/a/41558029/6456163">This answer</a> helped me to solve this problem. As link-only answers are discouraged, below I have included the original answer by <a href="https://stackoverflow.com/users/3712767/bnjmnhndrsn">bnjmnhndrsn</a>.</p>
+<p>I encountered this specific problem recently and creating your own transform preprocesser will solve it. This was my set up:</p>
+<p><strong>package.json</strong></p>
+<pre class="language-json"><code class="language-json"><span class="token property">"jest"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"moduleFileExtensions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"js"</span><span class="token punctuation">,</span>
+    <span class="token string">"html"</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"transform"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"^.+\\.js$"</span><span class="token operator">:</span> <span class="token string">"babel-jest"</span><span class="token punctuation">,</span>
+    <span class="token property">"^.+\\.html$"</span><span class="token operator">:</span> <span class="token string">"&#x3C;rootDir>/test/utils/htmlLoader.js"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>NOTE: babel-jest is normally included by default, but if you specify a custom transform preprocessor, you seem to have to include it manually.</p>
+<p><strong>test/utils/htmlLoader.js:</strong></p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> htmlLoader <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"html-loader"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">process</span><span class="token punctuation">(</span><span class="token parameter">src<span class="token punctuation">,</span> filename<span class="token punctuation">,</span> config<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token function">htmlLoader</span><span class="token punctuation">(</span>src<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">angular (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">jest (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">testing (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

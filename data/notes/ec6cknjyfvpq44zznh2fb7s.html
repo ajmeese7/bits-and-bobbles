@@ -1,0 +1,17 @@
+<h1 id="selecting-elements-via-css-attribute-selectors-in-selenium"><a aria-hidden="true" class="anchor-heading icon-link" href="#selecting-elements-via-css-attribute-selectors-in-selenium"></a>Selecting elements via CSS attribute selectors in Selenium</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72974187/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>Xpath can be a hassle sometimes, I recommend using the CSS selector method to accomplish this:</p>
+<pre class="language-python"><code class="language-python">element <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_elements_by_css_selector<span class="token punctuation">(</span><span class="token string">"[aria-label='1100-1200-200167-620038']"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>You could them use the element in your <code>visibility_of_element_located</code> method.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">selenium (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">css (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

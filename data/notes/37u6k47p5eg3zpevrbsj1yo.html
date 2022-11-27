@@ -1,0 +1,18 @@
+<h1 id="read-team-chats-with-keybase-chat-api"><a aria-hidden="true" class="anchor-heading icon-link" href="#read-team-chats-with-keybase-chat-api"></a>Read team chats with Keybase Chat API</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73804168/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>I found the problem, the Keybase API just wasn't very helpful with the provided error message.</p>
+<p>You need to put quotes around the <code>{}</code> in the <code>echo</code> statement, like such:</p>
+<pre class="language-python"><code class="language-python">cmd <span class="token operator">=</span> <span class="token string">"echo '{}' | keybase chat api > {}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> json_out<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">keybase (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">api (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">json (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

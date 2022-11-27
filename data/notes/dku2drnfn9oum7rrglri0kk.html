@@ -1,0 +1,16 @@
+<h1 id="arraydiff"><a aria-hidden="true" class="anchor-heading icon-link" href="#arraydiff"></a>Array.diff</h1>
+<h3 id="elixir"><a aria-hidden="true" class="anchor-heading icon-link" href="#elixir"></a>Elixir</h3>
+<pre class="language-elixir"><code class="language-elixir"><span class="token keyword">defmodule</span> <span class="token module class-name">ArrayDiff</span> <span class="token keyword">do</span>
+  <span class="token keyword">def</span> <span class="token function">array_diff</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token keyword">do</span>
+    <span class="token module class-name">Enum</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token function">fn</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token operator">!</span><span class="token module class-name">Enum</span><span class="token punctuation">.</span><span class="token function">member?</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token keyword">end</span><span class="token punctuation">)</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">elixir (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">6-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

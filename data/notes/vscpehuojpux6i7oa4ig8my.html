@@ -1,0 +1,61 @@
+<h1 id="rewrite-url-parameters-with-htaccess"><a aria-hidden="true" class="anchor-heading icon-link" href="#rewrite-url-parameters-with-htaccess"></a>Rewrite URL parameters with htaccess</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/57667261/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>Here's a copy of my answer to a <a href="https://stackoverflow.com/a/57666990/6456163">similar question</a>. Hopefully it'll help you:</p>
+<p><a href="https://grokbase.com/t/php/php-general/0159ts8x8h/passing-parameters-in-the-url-using-forward-slashes#20010509ss83mvqx7894e90njxvrsjgkcg">This</a> page appears to have a solution to what you are trying to do:</p>
+<pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&#x3C;?</span>
+    <span class="token variable">$Params</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'/'</span><span class="token punctuation">,</span> <span class="token variable">$PATH_INFO</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span><span class="token punctuation">(</span> <span class="token keyword">list</span><span class="token punctuation">(</span> <span class="token variable">$Index</span><span class="token punctuation">,</span> <span class="token variable">$Value</span> <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">each</span><span class="token punctuation">(</span> <span class="token variable">$Params</span> <span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"Params[ <span class="token interpolation"><span class="token variable">$Index</span></span> ] = <span class="token interpolation"><span class="token variable">$Value</span></span>&#x3C;BR>\n"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token delimiter important">?></span></span>
+</code></pre>
+<blockquote>
+<p>Hit this URL:</p>
+</blockquote>
+<blockquote>
+<p><a href="http://whatever.site.com/ThisIsAProgram/these/directories/are/not/real">http://whatever.site.com/ThisIsAProgram/these/directories/are/not/real</a></p>
+</blockquote>
+<blockquote>
+<p>You should get:</p>
+</blockquote>
+<blockquote>
+<p>Params[ 0 ] =</p>
+</blockquote>
+<blockquote>
+<p>Params[ 1 ] = these</p>
+</blockquote>
+<blockquote>
+<p>Params[ 2 ] = directories</p>
+</blockquote>
+<blockquote>
+<p>Params[ 3 ] = are</p>
+</blockquote>
+<blockquote>
+<p>Params[ 4 ] = not</p>
+</blockquote>
+<blockquote>
+<p>Params[ 5 ] = real</p>
+</blockquote>
+<p>And to display the PHP file as just the file name, try this:</p>
+<pre class="language-text"><code class="language-text">Options +MultiViews
+RewriteEngine On
+
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+</code></pre>
+<hr>
+<p>If you are wanting a more <strong>complete</strong> example, <a href="https://serverfault.com/a/210766">this answer</a> covers it a lot more in depth than I could. This will definitely help you cover all your bases and understand the issue if my other linked article doesn't make it clear enough.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">php (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">htaccess (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">rewrite (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,17 @@
+<h1 id="pass-json-to-keybase-chat-api"><a aria-hidden="true" class="anchor-heading icon-link" href="#pass-json-to-keybase-chat-api"></a>Pass JSON to Keybase Chat API</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73801257/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>The <code>-m</code> flag is intended to take a JSON string directly instead of reading from STDIN, which is what your <code>echo</code> statement is passing.</p>
+<p>If you want to read from <code>echo</code>, simply remove the <code>-m</code> flag entirely. If you wish to use the <code>-m</code> flag and read from a string, try the following format:</p>
+<pre class="language-shell"><code class="language-shell">keybase chat api -m <span class="token string">"{'method': 'send', 'params': {'options': {'channel': {'name': 'you', 'public': true}, 'message': {'body': 'Still going...'}}}}"</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">keybase (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">api (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">json (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

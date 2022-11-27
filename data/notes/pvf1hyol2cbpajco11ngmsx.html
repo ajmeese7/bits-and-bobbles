@@ -1,0 +1,26 @@
+<h1 id="ghost-wrangler"><a aria-hidden="true" class="anchor-heading icon-link" href="#ghost-wrangler"></a>Ghost Wrangler</h1>
+<p>Running <code>./ghost</code> gives us the following output:</p>
+<pre class="language-log"><code class="language-log"><span class="token file-path string">./ghost</span>
+<span class="token operator">|</span>                                       _<span class="token operator">|</span> I<span class="token string">'ve managed to trap the flag ghost in this box, but it'</span>s turned invisible<span class="token operator">!</span>
+Can you figure out how to reveal them<span class="token operator">?</span>
+</code></pre>
+<p>The characters between the pipes are just <code>0x20</code>, so there's nothing of interest there.</p>
+<p>Running <code>strings ghost</code> gives us a lot of output, but the most interesting part is the following, which is right above the string from the prompt:</p>
+<pre class="language-log"><code class="language-log">u<span class="token operator">/</span>UH
+<span class="token punctuation">[</span><span class="token punctuation">]</span>A\A<span class="token punctuation">]</span>A<span class="token operator">^</span>A_
+<span class="token punctuation">[</span>GQh<span class="token operator">{</span><span class="token string">'f}g wLqjLg{ Lt{#`g&#x26;L#uLpgu&#x26;Lc'</span><span class="token operator">&#x26;</span>g2n<span class="token operator">%</span>s
+<span class="token punctuation">[</span><span class="token number">4m</span><span class="token operator">%</span><span class="token operator">*</span><span class="token punctuation">.</span>c
+<span class="token punctuation">[</span><span class="token number">24m</span><span class="token operator">|</span>
+</code></pre>
+<p>Running magic on CyberChef with a depth of 5, intensive mode, and extensive language support showed us that the following operation returned the flag:</p>
+<pre class="language-text"><code class="language-text">XOR({'option':'Hex','string':'13'},'Standard',false)
+
+HTB{h4unt3d_by_th3_gh0st5_0f_ctf5_p45t!}
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hackthebox (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">reverse-engineering (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">encryption (Private)</a></li>
+</ol>

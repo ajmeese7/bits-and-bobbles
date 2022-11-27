@@ -1,0 +1,14 @@
+<h1 id="solving-webelement-object-is-not-subscriptable-in-python"><a aria-hidden="true" class="anchor-heading icon-link" href="#solving-webelement-object-is-not-subscriptable-in-python"></a>Solving `'WebElement' object is not subscriptable` in Python</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73737844/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>The problem is your use of the <code>find_element</code> method, because afterwords you attempt to access an index of the variable, when it is a single element in length.</p>
+<p>What you are looking for is the <code>find_elements</code> command, which will return a list from which you can select individual elements. For more information, see the Selenium documentation on this topic <a href="https://selenium-python.readthedocs.io/locating-elements.html">here</a>.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">selenium (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,11 @@
+<h1 id="capturing-regex-groups-in-vs-code"><a aria-hidden="true" class="anchor-heading icon-link" href="#capturing-regex-groups-in-vs-code"></a>Capturing regex groups in VS Code</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72959497/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>Use the following in your find and replace tool for the find portion:</p>
+<pre class="language-regex"><code class="language-regex">&#x3C;a<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span>><span class="token group punctuation">(</span><span class="token char-set class-name">.</span><span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token char-class-negation operator">^</span>&#x3C;<span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">*</span><span class="token group punctuation">)</span>&#x3C;/a>
+</code></pre>
+<p>Then use the capture group for the replace portion:</p>
+<pre class="language-regex"><code class="language-regex"><span class="token anchor function">$</span>1
+</code></pre>
+<p>What this does is looks for <code>&#x3C;a</code> then any number of characters that are not the closing angle bracket (<code>></code>). Next it matches all characters up until the next opening angle bracket (<code>&#x3C;</code>), then looks for the closing <code>&#x3C;/a></code>. Finally, all the characters in the middle are what is used to replace the matched text, thanks to the capturing group <code>$1</code>.</p>

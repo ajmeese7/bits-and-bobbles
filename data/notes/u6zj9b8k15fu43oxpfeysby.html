@@ -1,0 +1,38 @@
+<h1 id="storing-state-between-page-loads"><a aria-hidden="true" class="anchor-heading icon-link" href="#storing-state-between-page-loads"></a>Storing state between page loads</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73515160/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>I recommend using <code>localStorage</code> for this particular use case, because it can easily be implemented alongside your current method:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> triggerElement <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"trigger-element"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> header <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"h"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> animationTriggered <span class="token operator">=</span> <span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">getItem</span><span class="token punctuation">(</span><span class="token string">"animationTriggered"</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">"true"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> initialLoad <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">menuChange</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>animationTriggered <span class="token operator">&#x26;&#x26;</span> initialLoad<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    header<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">background</span> <span class="token operator">=</span> <span class="token string">"black"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>triggerElement<span class="token punctuation">.</span><span class="token method function property-access">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">top</span> <span class="token operator">&#x3C;</span> <span class="token number">50</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    header<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">background</span> <span class="token operator">=</span> <span class="token string">"black"</span><span class="token punctuation">;</span>
+    header<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">transition</span> <span class="token operator">=</span> <span class="token string">"1s"</span><span class="token punctuation">;</span>
+    <span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">setItem</span><span class="token punctuation">(</span><span class="token string">"animationTriggered"</span><span class="token punctuation">,</span> <span class="token string">"true"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+    header<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">background</span> <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">;</span>
+    header<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">transition</span> <span class="token operator">=</span> <span class="token string">".15s"</span><span class="token punctuation">;</span>
+    <span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">setItem</span><span class="token punctuation">(</span><span class="token string">"animationTriggered"</span><span class="token punctuation">,</span> <span class="token string">"false"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  initialLoad <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"scroll"</span><span class="token punctuation">,</span> menuChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>This will remember the previous state and apply the black background color if the animation was previously triggered. This adds a small amount of overhead, but in a real-world scenario it should not have any noticeable impact on the performance of the application.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">animation (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

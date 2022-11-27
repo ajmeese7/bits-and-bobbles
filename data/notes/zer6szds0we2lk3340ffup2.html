@@ -1,0 +1,75 @@
+<h1 id="dodge-the-lasers"><a aria-hidden="true" class="anchor-heading icon-link" href="#dodge-the-lasers"></a>Dodge the Lasers</h1>
+<h2 id="instructions"><a aria-hidden="true" class="anchor-heading icon-link" href="#instructions"></a>Instructions</h2>
+<p>Oh no! You've managed to escape Commander Lambda's collapsing space station in an escape pod with the rescued bunny workers - but Commander Lambda isnt about to let you get away that easily. Lambda sent an elite fighter pilot squadron after you -- and they've opened fire!</p>
+<p>Fortunately, you know something important about the ships trying to shoot you down. Back when you were still Lambda's assistant, the Commander asked you to help program the aiming mechanisms for the starfighters. They undergo rigorous testing procedures, but you were still able to slip in a subtle bug. The software works as a time step simulation: if it is tracking a target that is accelerating away at 45 degrees, the software will consider the targets acceleration to be equal to the square root of 2, adding the calculated result to the targets end velocity at each timestep. However, thanks to your bug, instead of storing the result with proper precision, it will be truncated to an integer before adding the new velocity to your current position.  This means that instead of having your correct position, the targeting software will erringly report your position as <code>sum(i=1..n, floor(i*sqrt(2)))</code> - not far enough off to fail Commander Lambdas testing, but enough that it might just save your life.</p>
+<p>If you can quickly calculate the target of the starfighters' laser beams to know how far off they'll be, you can trick them into shooting an asteroid, releasing dust, and concealing the rest of your escape.  Write a function solution(str_n) which, given the string representation of an integer n, returns the sum of <code>(floor(1*sqrt(2)) + floor(2*sqrt(2)) + ... + floor(n*sqrt(2)))</code> as a string. That is, for every number i in the range 1 to n, it adds up all of the integer portions of <code>i*sqrt(2)</code>.</p>
+<p>For example, if str_n was "5", the solution would be calculated as</p>
+<pre class="language-text"><code class="language-text">floor(1*sqrt(2)) +
+floor(2*sqrt(2)) +
+floor(3*sqrt(2)) +
+floor(4*sqrt(2)) +
+floor(5*sqrt(2))
+= 1+2+4+5+7 = 19
+</code></pre>
+<p>so the function would return "19".</p>
+<p>str_n will be a positive integer between 1 and 10^100, inclusive. Since n can be very large (up to 101 digits!), using just sqrt(2) and a loop won't work. Sometimes, it's easier to take a step back and concentrate not on what you have in front of you, but on what you don't.</p>
+<h3 id="test-cases"><a aria-hidden="true" class="anchor-heading icon-link" href="#test-cases"></a>Test cases</h3>
+<p>Your code should pass the following test cases.</p>
+<p>Note that it may also be run against hidden test cases not shown here.</p>
+<p>Input: <code>solution.solution('77')</code></p>
+<p>Output: <code>4208</code></p>
+<p>Input: <code>solution.solution('5')</code></p>
+<p>Output: <code>19</code></p>
+<h2 id="solution"><a aria-hidden="true" class="anchor-heading icon-link" href="#solution"></a>Solution</h2>
+<p>Given infinite time and resources, the following would work perfectly:</p>
+<pre class="language-py"><code class="language-py"><span class="token keyword">from</span> math <span class="token keyword">import</span> sqrt<span class="token punctuation">,</span> floor
+
+<span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>str_n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>str_n<span class="token punctuation">)</span>
+    mod <span class="token operator">=</span> sqrt<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">(</span>floor<span class="token punctuation">(</span>x <span class="token operator">*</span> mod<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Test cases</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token string">"5"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 19</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token string">"77"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 4208</span>
+</code></pre>
+<p>However, this is not the case. The test cases are very large, and the time limit is very short. We need to find a way to optimize this.</p>
+<p>After doing some research (I am not yet very well-versed in mathematics), I was able to finalize the following solution:</p>
+<pre class="language-py"><code class="language-py"><span class="token keyword">from</span> decimal <span class="token keyword">import</span> Decimal<span class="token punctuation">,</span> localcontext
+
+<span class="token comment"># https://towardsdatascience.com/dodge-the-lasers-fantastic-question-from-googles-hiring-challenge-72363d95fec</span>
+<span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>str_n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> Decimal<span class="token punctuation">(</span>str_n<span class="token punctuation">)</span>
+    <span class="token keyword">with</span> localcontext<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ctx<span class="token punctuation">:</span>
+        ctx<span class="token punctuation">.</span>prec <span class="token operator">=</span> <span class="token number">101</span>
+        r <span class="token operator">=</span> Decimal<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        s <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">+</span> r
+
+        <span class="token comment"># https://en.wikipedia.org/wiki/Beatty_sequence</span>
+        <span class="token keyword">def</span> <span class="token function">solve</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+
+            <span class="token comment"># B = Beatty sequence</span>
+            <span class="token comment"># r = any irrational number greater than 1 (in our case, sqrt(2))</span>
+            <span class="token comment"># n = any positive integer (in our case, the input)</span>
+            <span class="token comment"># s = 2 + sqrt(2)</span>
+            Br_n <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>r <span class="token operator">*</span> n<span class="token punctuation">)</span>
+            Br_n_s <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>Decimal<span class="token punctuation">(</span>Br_n<span class="token punctuation">)</span> <span class="token operator">/</span> s<span class="token punctuation">)</span>
+
+            <span class="token comment"># https://oeis.org/A001951</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>Br_n <span class="token operator">*</span> <span class="token punctuation">(</span>Br_n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">-</span> solve<span class="token punctuation">(</span>Br_n_s<span class="token punctuation">)</span> <span class="token operator">-</span> Br_n_s <span class="token operator">*</span> <span class="token punctuation">(</span>Br_n_s <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span>solve<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Test cases</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token string">"5"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 19</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>solution<span class="token punctuation">(</span><span class="token string">"77"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 4208</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">level-5 (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">foobar (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">google (Private)</a></li>
+</ol>

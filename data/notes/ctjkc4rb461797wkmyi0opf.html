@@ -1,0 +1,42 @@
+<h1 id="sum-strings-as-numbers"><a aria-hidden="true" class="anchor-heading icon-link" href="#sum-strings-as-numbers"></a>Sum Strings as Numbers</h1>
+<h3 id="javascript"><a aria-hidden="true" class="anchor-heading icon-link" href="#javascript"></a>JavaScript</h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sumStrings</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> len<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> lenx <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> leny <span class="token operator">=</span> y<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> x1<span class="token punctuation">,</span> y1<span class="token punctuation">,</span> rem<span class="token punctuation">,</span> div <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>lenx <span class="token operator">></span> leny<span class="token punctuation">)</span> len <span class="token operator">=</span> lenx<span class="token punctuation">;</span>
+  <span class="token keyword control-flow">else</span> len <span class="token operator">=</span> leny<span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>i <span class="token operator">>=</span> lenx<span class="token punctuation">)</span> x1  <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">else</span> x1 <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>x<span class="token punctuation">[</span>lenx <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>i <span class="token operator">>=</span> leny<span class="token punctuation">)</span> y1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">else</span> y1 <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>y<span class="token punctuation">[</span>leny <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    rem <span class="token operator">=</span> <span class="token punctuation">(</span>x1 <span class="token operator">+</span> y1 <span class="token operator">+</span> div<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    div <span class="token operator">=</span> <span class="token known-class-name class-name">Math</span><span class="token punctuation">.</span><span class="token method function property-access">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x1 <span class="token operator">+</span> y1 <span class="token operator">+</span> div<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    sum <span class="token operator">=</span> rem <span class="token operator">+</span> sum<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>div <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> sum <span class="token operator">=</span> div <span class="token operator">+</span> sum<span class="token punctuation">;</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>sum<span class="token punctuation">.</span><span class="token method function property-access">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> sum <span class="token operator">=</span> sum<span class="token punctuation">.</span><span class="token method function property-access">substring</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="php"><a aria-hidden="true" class="anchor-heading icon-link" href="#php"></a>PHP</h3>
+<pre class="language-php"><code class="language-php"><span class="token keyword">function</span> <span class="token function-definition function">sum_strings</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token variable">$b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword type-casting">float</span><span class="token punctuation">)</span><span class="token variable">$a</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword type-casting">float</span><span class="token punctuation">)</span><span class="token variable">$b</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">php (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">4-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

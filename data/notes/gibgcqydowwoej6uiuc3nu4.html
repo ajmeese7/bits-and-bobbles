@@ -1,0 +1,53 @@
+<h1 id="scrape-js-rendered-html-in-python-with-beautifulsoup"><a aria-hidden="true" class="anchor-heading icon-link" href="#scrape-js-rendered-html-in-python-with-beautifulsoup"></a>Scrape JS-rendered HTML in Python with `BeautifulSoup`</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72585441/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>This answer is modified from the awesome answer by <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@hmomin (Private)</a>, except this answer gets the words in German instead of English as you requested:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> requests
+
+url <span class="token operator">=</span> <span class="token string">"https://10fastfingers.com/speedtests/get_words"</span>
+
+data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"speedtest_mode"</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token string">"speedtest_id"</span><span class="token punctuation">:</span> <span class="token string">"2"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+cookies <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"CAKEPHP"</span><span class="token punctuation">:</span> <span class="token string">"c79f210mdl6n2jpp962g9vjk9f"</span><span class="token punctuation">,</span>
+    <span class="token string">"CookieConsent"</span><span class="token punctuation">:</span> <span class="token string">"{stamp:%276CPboWb+OVPYxb8oz6CfbjxqXJzoYqXEDiPE62FxLheS24AUkkmksA==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:2%2Cutc:1654956041620%2Cregion:%27us%27}"</span><span class="token punctuation">,</span>
+    <span class="token string">"CakeCookie[lang]"</span><span class="token punctuation">:</span> <span class="token string">"Q2FrZQ%3D%3D.5exP"</span><span class="token punctuation">,</span>
+    <span class="token string">"CakeCookie[alternate_language_suggestion]"</span><span class="token punctuation">:</span> <span class="token string">"Q2FrZQ%3D%3D.9PBdWA%3D%3D"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"accept"</span><span class="token punctuation">:</span> <span class="token string">"*/*"</span><span class="token punctuation">,</span>
+    <span class="token string">"accept-encoding"</span><span class="token punctuation">:</span> <span class="token string">"gzip, deflate, br"</span><span class="token punctuation">,</span>
+    <span class="token string">"accept-language"</span><span class="token punctuation">:</span> <span class="token string">"en-US,en;q=0.9"</span><span class="token punctuation">,</span>
+    <span class="token string">"cache-control"</span><span class="token punctuation">:</span> <span class="token string">"no-cache"</span><span class="token punctuation">,</span>
+    <span class="token string">"content-length"</span><span class="token punctuation">:</span> <span class="token string">"30"</span><span class="token punctuation">,</span>
+    <span class="token string">"content-type"</span><span class="token punctuation">:</span> <span class="token string">"application/x-www-form-urlencoded; charset=UTF-8"</span><span class="token punctuation">,</span>
+    <span class="token string">"cookie"</span><span class="token punctuation">:</span> <span class="token string">"CAKEPHP=c79f210mdl6n2jpp962g9vjk9f; CookieConsent={stamp:'6CPboWb+OVPYxb8oz6CfbjxqXJzoYqXEDiPE62FxLheS24AUkkmksA==',necessary:true,preferences:true,statistics:true,marketing:true,ver:2,utc:1654956041620,region:'us'}; CakeCookie[lang]=Q2FrZQ==.5exP; CakeCookie[alternate_language_suggestion]=Q2FrZQ==.9PBdWA=="</span><span class="token punctuation">,</span>
+    <span class="token string">"dnt"</span><span class="token punctuation">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+    <span class="token string">"origin"</span><span class="token punctuation">:</span> <span class="token string">"https://10fastfingers.com"</span><span class="token punctuation">,</span>
+    <span class="token string">"pragma"</span><span class="token punctuation">:</span> <span class="token string">"no-cache"</span><span class="token punctuation">,</span>
+    <span class="token string">"referer"</span><span class="token punctuation">:</span> <span class="token string">"https://10fastfingers.com/typing-test/german"</span><span class="token punctuation">,</span>
+    <span class="token string">"sec-fetch-dest"</span><span class="token punctuation">:</span> <span class="token string">"empty"</span><span class="token punctuation">,</span>
+    <span class="token string">"sec-fetch-mode"</span><span class="token punctuation">:</span> <span class="token string">"cors"</span><span class="token punctuation">,</span>
+    <span class="token string">"sec-fetch-site"</span><span class="token punctuation">:</span> <span class="token string">"same-origin"</span><span class="token punctuation">,</span>
+    <span class="token string">"sec-gpc"</span><span class="token punctuation">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+    <span class="token string">"user-agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.99 Safari/537.36"</span><span class="token punctuation">,</span>
+    <span class="token string">"x-requested-with"</span><span class="token punctuation">:</span> <span class="token string">"XMLHttpRequest"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+response_object <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">,</span> cookies<span class="token operator">=</span>cookies<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+words <span class="token operator">=</span> response_object<span class="token punctuation">.</span>text
+<span class="token keyword">print</span><span class="token punctuation">(</span>words<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">beautifulsoup (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

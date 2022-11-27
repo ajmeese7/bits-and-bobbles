@@ -1,0 +1,1756 @@
+{
+  "roots": [
+    {
+      "key": "onxeajmr7gys0sljngxqj91",
+      "title": "Codepen",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "bits-and-bobbles",
+      "children": []
+    },
+    {
+      "key": "b42r0s0g9g25atrilu3dwqb",
+      "title": "Codewars",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "bits-and-bobbles",
+      "children": [
+        {
+          "key": "bualyjnuwxb24a0mlt9kcmo",
+          "title": "Multiply",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "n37j1vg5zbv8hz7elazk8j9",
+          "title": "RGB To Hex Conversion",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ziu5oe8967pswbqdzqnedje",
+          "title": "Split Strings",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "s6cu5mr0v765hgi3lg4jfxx",
+          "title": "Largest 5 digit number in a series",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "1gm5sf0gtkgqs5cqbdave06",
+          "title": "Reversed Strings",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "shxuiy5fwariwdtqwx3o2xm",
+          "title": "Convert string to camel case",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "fyhho17k0o9ufi6avxhxjli",
+          "title": "String ends with?",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "v2anwtrbhi1waom28xbs90y",
+          "title": "Codewars style ranking system",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "y4n22j8dh8kxh51y291qvtz",
+          "title": "Function 1 - hello world",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "dku2drnfn9oum7rrglri0kk",
+          "title": "Array.diff",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "r6eors1zq0u63mw7yddvpda",
+          "title": "The Hashtag Generator",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "763uttfx5zzxx4z1n4or9bt",
+          "title": "Adjacent repeated words in a string",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "s2uve6u75epx82ojgp9qq7m",
+          "title": "Moving Zeros To The End",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "r6wl9fzetomjmlnjfddoysm",
+          "title": "Create Phone Number",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "kqcs5tlazyv9jh1jwdn8ail",
+          "title": "Stop gninnipS My sdroW!",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "a0ftzxkuq0o9nuwwmisr9e8",
+          "title": "Who likes it?",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "e7308g3r3xhpvxzh5eyugj1",
+          "title": "Human Readable Time",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "pr8ia07n2sdkf6i0pal6mcf",
+          "title": "Human readable duration format",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "i2pdplguy2iuvx8f08vdzy4",
+          "title": "Number Zoo Patrol",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "2qi7ewd2e3j0s7wndfb1i7x",
+          "title": "Does my number look big in this?",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "e9vei5c8fjzdc0vkbwnmc7g",
+          "title": "Disemvowel Trolls",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ctjkc4rb461797wkmyi0opf",
+          "title": "Sum Strings as Numbers",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "z1nurvpvflxoyis42b4epth",
+          "title": "Jaden Casing Strings",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "g4gvhnofrcc0fy3aexkaws9",
+          "title": "A Chain adding function",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "khenkh79muo9oqfi0ue5q8r",
+          "title": "Convert a String to a Number!",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "gpveyz4xco8cncj2dfygn1q",
+          "title": "Replace With Alphabet Position",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "6g7k2196s0bkbzcn9hu07ys",
+          "title": "Decode the Morse code",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "8fspf1e3hhmepmt94qp2mxo",
+          "title": "Decode the Morse code, advanced",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "kb1yvjujmo8vju0oogc2j3p",
+          "title": "Isograms",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "8l4pjwo1pmlp8d71d8zlj3z",
+          "title": "Counting Duplicates",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ltoev3uyh6pfgosn5bfbqnp",
+          "title": "You're a square!",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "zz07g4nfaswbh5vuo0rms65",
+          "title": "Defuse the bombs!",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "p00kexugxoeycllbjj1mixx",
+          "title": "Deodorant Evaporator",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "u4xzeq5e53y0gypyagbuv5g",
+          "title": "Jenny's secret message",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "4e98qx78q0nyrw2kwibhvdu",
+          "title": "IQ Test",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "b0zlvxpoc62rxu4w6w4hyzs",
+          "title": "Exes and Ohs",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "qu6p8fk72ugtfgphaigohkn",
+          "title": "Persistent Bugger.",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "dxu9isnwm1kh049vy75behw",
+          "title": "Best travel",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "lfdbjwuffift1vmrm5ux4xw",
+          "title": "What is between?",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "czcir5gcji0m5r0869i8pi2",
+          "title": "Regex validate PIN code",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "vbw9rjr7fjgs4u96gdufjoz",
+          "title": "Sum of odd numbers",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "tjsmo3mu1icwltiqq4nl5s9",
+          "title": "Sum and Rest the Number with its Reversed and See What Happens",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "r1g4lhlgy50ztyjjh993zvi",
+          "title": "Two to One",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "z0joxu9c5i6z240tfo7bydp",
+          "title": "Equal Sides Of An Array",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "kjxidok94ab149sir22q0ww",
+          "title": "How many are smaller than me?",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "epm7jpol7pr5sl6ja2jwuxb",
+          "title": "Sum of numbers from 0 to N",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "bij80n4f8pk6oocituo6bwu",
+          "title": "altERnaTIng cAsE <=> ALTerNAtiNG CaSe",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "dnc5yjyikvlp2nmvm7pnov0",
+          "title": "Fake Binary",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "xxoxf86n0sbb124pubr625g",
+          "title": "Highest Scoring Word",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ya2dlxigq559hqz67hyyntn",
+          "title": "Decipher this!",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "0l3o4q0svfg571iwgkuu74b",
+          "title": "Find the missing letter",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "rb75j0c673f2xededjzv0v9",
+          "title": "Encrypt this!",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "pfzdd4kbi79yvyeqix90z43",
+          "title": "Character with longest consecutive repetition",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "xhcu53cfge78hxwz79dwyjr",
+          "title": "Ranking System",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "7da6mfk7w79f915352h3zy1",
+          "title": "Oh come on! Hello world! once again?",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "7f5q8iao9z09w1u8lrjnkca",
+          "title": "Pirate Island Conquer Part 1",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "xs50tjc2hjkblbkbwzybhdu",
+          "title": "Take the Derivative",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "gynzvvabdzixqxs6itlg5ux",
+          "title": "Covered pawns",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "dlnlrhgv53uvzva3zf0u0c6",
+          "title": "-Reverse it, quickly!",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "g1odwafencmbotscmxf3jvi",
+          "title": "The soul of wit: reverse an array",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ka5qlmd4v6ucnfyjgvtv20m",
+          "title": "\"AURUM RECLUDIT CUNCTA\"",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "rf7ard545adh8hhng23zob3",
+          "title": "Papers, Please",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "scqle32spaa3z6se1k511pj",
+          "title": "Halving Sum",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "kc43zsaiypaamv7xghep45q",
+          "title": "Polydivisible Numbers",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "y4z6yi08xz82s0ogdfwgam3",
+          "title": "Crack the PIN",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "0hdyi29cv9mqvatjv6zaj7q",
+      "title": "CyberSoc",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "bits-and-bobbles",
+      "children": [
+        {
+          "key": "puy3x8chzao44herg4r68x0",
+          "title": "Detective",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": [
+            {
+              "key": "zqbfzi217vbffro5c2ofb1e",
+              "title": "Bigbrother",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "jsnr4mxpi72cidez9yg5mv6",
+              "title": "Chemtrails",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "uhb15nczy7fv4hckvcvrmli",
+              "title": "Choochoo",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "hkjfdnvj4qmgl7766mleael",
+              "title": "Clocking Out",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "eic97gqoxwq6z566eryhau7",
+              "title": "Connection Refused",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "gvhc5tnkni4ot23pqwop5db",
+              "title": "Growing Up",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "pfvzpws3m9f7g3iojpailwq",
+              "title": "Readyfortakeoff",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "s5v7b76nb9minwz20u1nb2p",
+              "title": "Vote For Me",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "1ug1cew47dmye00nz5trwaa",
+      "title": "Euler Project",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "bits-and-bobbles",
+      "children": [
+        {
+          "key": "l2qeguwjsjyha8zx8kvz738",
+          "title": "Multiples of 3 or 5",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "cgt8tktnqdskkhq4xpfd92t",
+          "title": "Even Fibonacci numbers",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "b06idxnaskoer9xwkrgdhol",
+          "title": "Largest prime factor",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "72rg8r9g22vu3r1c27f9n49",
+          "title": "4",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "rkt5uj66qbiohh7u64yyorx",
+          "title": "Smallest multiple",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "vm8lo115nu0nbqvdz24ugf1",
+      "title": "Google FooBar",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "bits-and-bobbles",
+      "children": [
+        {
+          "key": "y2s7cre8rqs2l9akhlth1uv",
+          "title": "Bomb Baby",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "cf951f8h56do1sh16zt9geo",
+          "title": "Braille Translation",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "6h2d363gkz5lho8hil6343k",
+          "title": "Bunny Worker Locations",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "zer6szds0we2lk3340ffup2",
+          "title": "Dodge the Lasers",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ea5bta1m7crmtpzddhkx61b",
+          "title": "Encrypted Message",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "qglk2s6pvnj079jmq7lsgdh",
+          "title": "Escape Pods",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "d2y0jxkhuiuhuot0yn8d2qw",
+          "title": "Find Access Code",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "8a2cjh9kfpt78zfp8ko5jdl",
+          "title": "Fuel Injection Perfection",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "zx8yd0lbaxdq24ungv43d5e",
+          "title": "Bringing a Gun to a Trainer Fight",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "djalt7pjrmul76fa6lsjg8r",
+          "title": "Please Pass the Coded Messages",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "yqqzccfk3pgp9zvpzpptltr",
+      "title": "HackTheBox",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "bits-and-bobbles",
+      "children": [
+        {
+          "key": "mjizmr058opii6ttj0cxw98",
+          "title": "Hack The Boo 2022",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": [
+            {
+              "key": "m15g0jdyejgzwumn5gxj9fk",
+              "title": "Cult Meeting",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "10kcjswdx90v3sgiv63p36i",
+              "title": "EncodedPayload",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "ea3ee1o3y5c6rhoixoapcj8",
+              "title": "Evaluation Deck",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "iabduu7gcnd9yl6g7utx9ao",
+              "title": "ForensicHalloweenInvitation",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "pvf1hyol2cbpajco11ngmsx",
+              "title": "Ghost Wrangler",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "j9tuxbmsf7ndkj8z99gtsf8",
+              "title": "Ouija",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "snvgm3csh8kyyudzhpbzda5",
+              "title": "Pumpkin Stand",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "t5n4reog2hnkgli8rf91tkt",
+              "title": "Trick Or Breach",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            },
+            {
+              "key": "a2vpkxlzyz7sqs2no5equsk",
+              "title": "Wrong Spooky Season",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "bits-and-bobbles",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "6jdidhs50140ik9c0nhx7kl",
+      "title": "Medium Articles",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "bits-and-bobbles",
+      "children": []
+    },
+    {
+      "key": "djibocawvr9giosnl1nlori",
+      "title": "Stack Overflow",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "bits-and-bobbles",
+      "children": [
+        {
+          "key": "cjwzqnbs9yont3zjbxilsgd",
+          "title": "Apply CSS class to focused element with jQuery",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "xr0hsrhin7l6sv9omec2rnu",
+          "title": "Query rows from a database table in PHP",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "kfeqwwzucctubmzcu8vcg8i",
+          "title": "Connect to CodeIgniter database from PHP",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ttqxfax797mnwg6vg3jtg75",
+          "title": "Show `n` columns side-by-side with CSS",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "1pudr09k5317l5cb8hk40ap",
+          "title": "Join PHP variable with string",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "xz9gt68pw6ghmdamvtybbyo",
+          "title": "Format dynamic URL to be SEO friendly with htaccess and PHP",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "qfamtbq83qo8rdmogk1n39o",
+          "title": "Iterate over objects returned from Google Maps API",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "vscpehuojpux6i7oa4ig8my",
+          "title": "Rewrite URL parameters with htaccess",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "3x0d7hsd0ekmed0v5bus9ax",
+          "title": "Error handling in Express.js",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ss2g16y534704hfkk5xwkug",
+          "title": "Test numerical range with Jasmine",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "7x0ejxlnnfn7p9nh0nflgjy",
+          "title": "Get `nth` word of URL parameter in PHP",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "1cmxhl4kpfy53fq3r300q2x",
+          "title": "Adding elements to an object in a loop",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "cozn8kms7qug72gdzd4cv5r",
+          "title": "Failed to load resource: Preflight response is not successful",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "mixgizej8gmyt9d4e3kmlos",
+          "title": "How to show the last uploaded image when refresh page in PHP",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "rdwkzmaakd49u16qdor8mz8",
+          "title": "How to add or remove a className when screen size change in react",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "6r69w7qdkf5k473s8x0wjbk",
+          "title": "Cannot run Jest tests for components (Failed to load html files)",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "pmoon12tt6k5jelthikv4vt",
+          "title": "Pixelated resize using canvas with transparent PNG",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "zun8bhcow657s47nj90oq7q",
+          "title": "Will user update or overwriting file before other session done in PHP?",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "yvsy5hlt9npwe4gqenaxa2i",
+          "title": "Regex for capturing all the urls in a paragraph except for a specific domain",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "qjej22wp8dwm55t1y77tgkc",
+          "title": "Creating HTML/Javascript Modal with dynamic text",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "b8kj83pcqjap9qp0zfdqp1i",
+          "title": "How to get a Value from NodeList?",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ge8nebuaz5jayt05qwh7oyi",
+          "title": "Javascript - How to select \"x\" row",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "gva5grrt4o13c7lndzzklp2",
+          "title": "Get the pressed key in JavaScript",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "sm5ov1hnxcvvp264vn3fgns",
+          "title": "Access the `location` prop in Gatsby",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ixxsu5p2r7bjkaz0xx9s2t1",
+          "title": "Use `QApplication` in `PyQt5`",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "gibgcqydowwoej6uiuc3nu4",
+          "title": "Scrape JS-rendered HTML in Python with `BeautifulSoup`",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "h5pw3hkjj5rc02g6ee2rl89",
+          "title": "Use regex on all image src attributes with PHP",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "r03gbqspo4bacfwjur41ghw",
+          "title": "Only keep `n` newest files in a directory",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ui1uci0ruk0n71rki48lqgu",
+          "title": "Use TypeScript in a React application",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "xotvh2n410zlhucecj873vv",
+          "title": "Manipulate Pandas Index column on write",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "myxha5t7mre67gwfqniubvg",
+          "title": "Ignore `n` lines of `sed` output",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "rkylsqztsz64wdm80bemzif",
+          "title": "Center angled text in CSS",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "mgekjkzqe33pv9zcj18zxgu",
+          "title": "Instituting columns in CSS with `flex`",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ir8sjyfbmbhk88u7l09lj4s",
+          "title": "Preventing page redirect on form submit with JavaScript",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "khnlrwl005sy77xwat19onq",
+          "title": "Setting relative dates in JavaScript with `setDate`",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "nu7i14lstj9bck6wisnvbqw",
+          "title": "Excluding spaces from `text-decoration`",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "2c330oc0v1okd2d0mzhe96q",
+          "title": "Listening for `close` event of `datetime-local` input",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "iid4gptl4xnno4lz27yd8d3",
+          "title": "Emulate Terminal Output in Dash UI Textarea Component",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "02a37oi2kumwxjlwwv6pftk",
+          "title": "Pass list of variables to shell script in GitHub Actions",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "orsf7j9wung58kxg0pg5s36",
+          "title": "Anchor progress bar to element border",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "jbftpogwwizzzjrtq29h6nr",
+          "title": "Remove empty space after HTML body",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "w9gd0kpcdoeqbt6opoyi3cr",
+          "title": "Using regular expressions in CSS selectors",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "bnxdul4khnno6f61rvwxp6y",
+          "title": "Capturing regex groups in VS Code",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ec6cknjyfvpq44zznh2fb7s",
+          "title": "Selecting elements via CSS attribute selectors in Selenium",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "35lbr2v59wfvtb19fz9m8ks",
+          "title": "Regex that ignores Latin characters",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "r3g36a95c7g4oitk956ypvb",
+          "title": "Convert image syntax to Markdown with regex",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "5nt1uj712d5rmenpkeqw4c7",
+          "title": "Convert full image paths to relative with regex",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "jee328a8o98akt59c4a4qrj",
+          "title": "Get all elements at point with `elementsFromPoint` in JavaScript",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "zsuodqfuzaagf0pxavo905g",
+          "title": "Match Groovy package semver with regex",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "u6zj9b8k15fu43oxpfeysby",
+          "title": "Storing state between page loads",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "xwiuciw74voesgy2joqj019",
+          "title": "Interact with the shadow DOM in Selenium",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "dp2kjinfge5kncyuas0tgtj",
+          "title": "Scroll debounce in JavaScript",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "d4kiep2vqjl211lepbknph5",
+          "title": "Match Reaper `BYPASS` with regex",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "ninqc6d8e9iwybhy5y5ci4d",
+          "title": "Upload image to S3 from memory",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "kaz4wmzq95z3j96v79ruvbq",
+          "title": "Display LaTeX in GitHub Markdown",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "7b6h1r39wkhrxzwc2e7gtqz",
+          "title": "Set default permissions for new files in Linux directory",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "s2waxb5srk6yv89sx1q2b4o",
+          "title": "Remove all escape sequences from a string",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "mm9ehgsh533hq8tc3q7pbpz",
+          "title": "Solving `'WebElement' object is not subscriptable` in Python",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "kb7wis906su67es3y2io4az",
+          "title": "Custom `Yup` validation messages",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "sahtik0t9snvikmkks9pppx",
+          "title": "Authenticate for Google Identity Services (GIS)",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "51y48nm7vp27rg0h6336iew",
+          "title": "Pass JSON to Keybase Chat API",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "cccnut3s1ved5jxgoaau30n",
+          "title": "Remove blank lines from CSV document",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "37u6k47p5eg3zpevrbsj1yo",
+          "title": "Read team chats with Keybase Chat API",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "jsnioibk7sfsla5o6193037",
+          "title": "User input validation in Bash",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "77l69khkyodwil66ey7y2xr",
+          "title": "Remove additional file extensions from filenames",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        },
+        {
+          "key": "zt8b9aov0n9enp5e5jnwuvl",
+          "title": "Regex for all active SCSS variables",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "bits-and-bobbles",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "gn88vvdrli6x8uz1bg9a263",
+      "title": "Unix & Linux Stack Exchange",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "bits-and-bobbles",
+      "children": []
+    }
+  ],
+  "child2parent": {
+    "onxeajmr7gys0sljngxqj91": null,
+    "b42r0s0g9g25atrilu3dwqb": null,
+    "bualyjnuwxb24a0mlt9kcmo": "b42r0s0g9g25atrilu3dwqb",
+    "n37j1vg5zbv8hz7elazk8j9": "b42r0s0g9g25atrilu3dwqb",
+    "ziu5oe8967pswbqdzqnedje": "b42r0s0g9g25atrilu3dwqb",
+    "s6cu5mr0v765hgi3lg4jfxx": "b42r0s0g9g25atrilu3dwqb",
+    "1gm5sf0gtkgqs5cqbdave06": "b42r0s0g9g25atrilu3dwqb",
+    "shxuiy5fwariwdtqwx3o2xm": "b42r0s0g9g25atrilu3dwqb",
+    "fyhho17k0o9ufi6avxhxjli": "b42r0s0g9g25atrilu3dwqb",
+    "v2anwtrbhi1waom28xbs90y": "b42r0s0g9g25atrilu3dwqb",
+    "y4n22j8dh8kxh51y291qvtz": "b42r0s0g9g25atrilu3dwqb",
+    "dku2drnfn9oum7rrglri0kk": "b42r0s0g9g25atrilu3dwqb",
+    "r6eors1zq0u63mw7yddvpda": "b42r0s0g9g25atrilu3dwqb",
+    "763uttfx5zzxx4z1n4or9bt": "b42r0s0g9g25atrilu3dwqb",
+    "s2uve6u75epx82ojgp9qq7m": "b42r0s0g9g25atrilu3dwqb",
+    "r6wl9fzetomjmlnjfddoysm": "b42r0s0g9g25atrilu3dwqb",
+    "kqcs5tlazyv9jh1jwdn8ail": "b42r0s0g9g25atrilu3dwqb",
+    "a0ftzxkuq0o9nuwwmisr9e8": "b42r0s0g9g25atrilu3dwqb",
+    "e7308g3r3xhpvxzh5eyugj1": "b42r0s0g9g25atrilu3dwqb",
+    "pr8ia07n2sdkf6i0pal6mcf": "b42r0s0g9g25atrilu3dwqb",
+    "i2pdplguy2iuvx8f08vdzy4": "b42r0s0g9g25atrilu3dwqb",
+    "2qi7ewd2e3j0s7wndfb1i7x": "b42r0s0g9g25atrilu3dwqb",
+    "e9vei5c8fjzdc0vkbwnmc7g": "b42r0s0g9g25atrilu3dwqb",
+    "ctjkc4rb461797wkmyi0opf": "b42r0s0g9g25atrilu3dwqb",
+    "z1nurvpvflxoyis42b4epth": "b42r0s0g9g25atrilu3dwqb",
+    "g4gvhnofrcc0fy3aexkaws9": "b42r0s0g9g25atrilu3dwqb",
+    "khenkh79muo9oqfi0ue5q8r": "b42r0s0g9g25atrilu3dwqb",
+    "gpveyz4xco8cncj2dfygn1q": "b42r0s0g9g25atrilu3dwqb",
+    "6g7k2196s0bkbzcn9hu07ys": "b42r0s0g9g25atrilu3dwqb",
+    "8fspf1e3hhmepmt94qp2mxo": "b42r0s0g9g25atrilu3dwqb",
+    "kb1yvjujmo8vju0oogc2j3p": "b42r0s0g9g25atrilu3dwqb",
+    "8l4pjwo1pmlp8d71d8zlj3z": "b42r0s0g9g25atrilu3dwqb",
+    "ltoev3uyh6pfgosn5bfbqnp": "b42r0s0g9g25atrilu3dwqb",
+    "zz07g4nfaswbh5vuo0rms65": "b42r0s0g9g25atrilu3dwqb",
+    "p00kexugxoeycllbjj1mixx": "b42r0s0g9g25atrilu3dwqb",
+    "u4xzeq5e53y0gypyagbuv5g": "b42r0s0g9g25atrilu3dwqb",
+    "4e98qx78q0nyrw2kwibhvdu": "b42r0s0g9g25atrilu3dwqb",
+    "b0zlvxpoc62rxu4w6w4hyzs": "b42r0s0g9g25atrilu3dwqb",
+    "qu6p8fk72ugtfgphaigohkn": "b42r0s0g9g25atrilu3dwqb",
+    "dxu9isnwm1kh049vy75behw": "b42r0s0g9g25atrilu3dwqb",
+    "lfdbjwuffift1vmrm5ux4xw": "b42r0s0g9g25atrilu3dwqb",
+    "czcir5gcji0m5r0869i8pi2": "b42r0s0g9g25atrilu3dwqb",
+    "vbw9rjr7fjgs4u96gdufjoz": "b42r0s0g9g25atrilu3dwqb",
+    "tjsmo3mu1icwltiqq4nl5s9": "b42r0s0g9g25atrilu3dwqb",
+    "r1g4lhlgy50ztyjjh993zvi": "b42r0s0g9g25atrilu3dwqb",
+    "z0joxu9c5i6z240tfo7bydp": "b42r0s0g9g25atrilu3dwqb",
+    "kjxidok94ab149sir22q0ww": "b42r0s0g9g25atrilu3dwqb",
+    "epm7jpol7pr5sl6ja2jwuxb": "b42r0s0g9g25atrilu3dwqb",
+    "bij80n4f8pk6oocituo6bwu": "b42r0s0g9g25atrilu3dwqb",
+    "dnc5yjyikvlp2nmvm7pnov0": "b42r0s0g9g25atrilu3dwqb",
+    "xxoxf86n0sbb124pubr625g": "b42r0s0g9g25atrilu3dwqb",
+    "ya2dlxigq559hqz67hyyntn": "b42r0s0g9g25atrilu3dwqb",
+    "0l3o4q0svfg571iwgkuu74b": "b42r0s0g9g25atrilu3dwqb",
+    "rb75j0c673f2xededjzv0v9": "b42r0s0g9g25atrilu3dwqb",
+    "pfzdd4kbi79yvyeqix90z43": "b42r0s0g9g25atrilu3dwqb",
+    "xhcu53cfge78hxwz79dwyjr": "b42r0s0g9g25atrilu3dwqb",
+    "7da6mfk7w79f915352h3zy1": "b42r0s0g9g25atrilu3dwqb",
+    "7f5q8iao9z09w1u8lrjnkca": "b42r0s0g9g25atrilu3dwqb",
+    "xs50tjc2hjkblbkbwzybhdu": "b42r0s0g9g25atrilu3dwqb",
+    "gynzvvabdzixqxs6itlg5ux": "b42r0s0g9g25atrilu3dwqb",
+    "dlnlrhgv53uvzva3zf0u0c6": "b42r0s0g9g25atrilu3dwqb",
+    "g1odwafencmbotscmxf3jvi": "b42r0s0g9g25atrilu3dwqb",
+    "ka5qlmd4v6ucnfyjgvtv20m": "b42r0s0g9g25atrilu3dwqb",
+    "rf7ard545adh8hhng23zob3": "b42r0s0g9g25atrilu3dwqb",
+    "scqle32spaa3z6se1k511pj": "b42r0s0g9g25atrilu3dwqb",
+    "kc43zsaiypaamv7xghep45q": "b42r0s0g9g25atrilu3dwqb",
+    "y4z6yi08xz82s0ogdfwgam3": "b42r0s0g9g25atrilu3dwqb",
+    "0hdyi29cv9mqvatjv6zaj7q": null,
+    "puy3x8chzao44herg4r68x0": "0hdyi29cv9mqvatjv6zaj7q",
+    "zqbfzi217vbffro5c2ofb1e": "puy3x8chzao44herg4r68x0",
+    "jsnr4mxpi72cidez9yg5mv6": "puy3x8chzao44herg4r68x0",
+    "uhb15nczy7fv4hckvcvrmli": "puy3x8chzao44herg4r68x0",
+    "hkjfdnvj4qmgl7766mleael": "puy3x8chzao44herg4r68x0",
+    "eic97gqoxwq6z566eryhau7": "puy3x8chzao44herg4r68x0",
+    "gvhc5tnkni4ot23pqwop5db": "puy3x8chzao44herg4r68x0",
+    "pfvzpws3m9f7g3iojpailwq": "puy3x8chzao44herg4r68x0",
+    "s5v7b76nb9minwz20u1nb2p": "puy3x8chzao44herg4r68x0",
+    "1ug1cew47dmye00nz5trwaa": null,
+    "l2qeguwjsjyha8zx8kvz738": "1ug1cew47dmye00nz5trwaa",
+    "cgt8tktnqdskkhq4xpfd92t": "1ug1cew47dmye00nz5trwaa",
+    "b06idxnaskoer9xwkrgdhol": "1ug1cew47dmye00nz5trwaa",
+    "72rg8r9g22vu3r1c27f9n49": "1ug1cew47dmye00nz5trwaa",
+    "rkt5uj66qbiohh7u64yyorx": "1ug1cew47dmye00nz5trwaa",
+    "vm8lo115nu0nbqvdz24ugf1": null,
+    "y2s7cre8rqs2l9akhlth1uv": "vm8lo115nu0nbqvdz24ugf1",
+    "cf951f8h56do1sh16zt9geo": "vm8lo115nu0nbqvdz24ugf1",
+    "6h2d363gkz5lho8hil6343k": "vm8lo115nu0nbqvdz24ugf1",
+    "zer6szds0we2lk3340ffup2": "vm8lo115nu0nbqvdz24ugf1",
+    "ea5bta1m7crmtpzddhkx61b": "vm8lo115nu0nbqvdz24ugf1",
+    "qglk2s6pvnj079jmq7lsgdh": "vm8lo115nu0nbqvdz24ugf1",
+    "d2y0jxkhuiuhuot0yn8d2qw": "vm8lo115nu0nbqvdz24ugf1",
+    "8a2cjh9kfpt78zfp8ko5jdl": "vm8lo115nu0nbqvdz24ugf1",
+    "zx8yd0lbaxdq24ungv43d5e": "vm8lo115nu0nbqvdz24ugf1",
+    "djalt7pjrmul76fa6lsjg8r": "vm8lo115nu0nbqvdz24ugf1",
+    "yqqzccfk3pgp9zvpzpptltr": null,
+    "mjizmr058opii6ttj0cxw98": "yqqzccfk3pgp9zvpzpptltr",
+    "m15g0jdyejgzwumn5gxj9fk": "mjizmr058opii6ttj0cxw98",
+    "10kcjswdx90v3sgiv63p36i": "mjizmr058opii6ttj0cxw98",
+    "ea3ee1o3y5c6rhoixoapcj8": "mjizmr058opii6ttj0cxw98",
+    "iabduu7gcnd9yl6g7utx9ao": "mjizmr058opii6ttj0cxw98",
+    "pvf1hyol2cbpajco11ngmsx": "mjizmr058opii6ttj0cxw98",
+    "j9tuxbmsf7ndkj8z99gtsf8": "mjizmr058opii6ttj0cxw98",
+    "snvgm3csh8kyyudzhpbzda5": "mjizmr058opii6ttj0cxw98",
+    "t5n4reog2hnkgli8rf91tkt": "mjizmr058opii6ttj0cxw98",
+    "a2vpkxlzyz7sqs2no5equsk": "mjizmr058opii6ttj0cxw98",
+    "6jdidhs50140ik9c0nhx7kl": null,
+    "djibocawvr9giosnl1nlori": null,
+    "cjwzqnbs9yont3zjbxilsgd": "djibocawvr9giosnl1nlori",
+    "xr0hsrhin7l6sv9omec2rnu": "djibocawvr9giosnl1nlori",
+    "kfeqwwzucctubmzcu8vcg8i": "djibocawvr9giosnl1nlori",
+    "ttqxfax797mnwg6vg3jtg75": "djibocawvr9giosnl1nlori",
+    "1pudr09k5317l5cb8hk40ap": "djibocawvr9giosnl1nlori",
+    "xz9gt68pw6ghmdamvtybbyo": "djibocawvr9giosnl1nlori",
+    "qfamtbq83qo8rdmogk1n39o": "djibocawvr9giosnl1nlori",
+    "vscpehuojpux6i7oa4ig8my": "djibocawvr9giosnl1nlori",
+    "3x0d7hsd0ekmed0v5bus9ax": "djibocawvr9giosnl1nlori",
+    "ss2g16y534704hfkk5xwkug": "djibocawvr9giosnl1nlori",
+    "7x0ejxlnnfn7p9nh0nflgjy": "djibocawvr9giosnl1nlori",
+    "1cmxhl4kpfy53fq3r300q2x": "djibocawvr9giosnl1nlori",
+    "cozn8kms7qug72gdzd4cv5r": "djibocawvr9giosnl1nlori",
+    "mixgizej8gmyt9d4e3kmlos": "djibocawvr9giosnl1nlori",
+    "rdwkzmaakd49u16qdor8mz8": "djibocawvr9giosnl1nlori",
+    "6r69w7qdkf5k473s8x0wjbk": "djibocawvr9giosnl1nlori",
+    "pmoon12tt6k5jelthikv4vt": "djibocawvr9giosnl1nlori",
+    "zun8bhcow657s47nj90oq7q": "djibocawvr9giosnl1nlori",
+    "yvsy5hlt9npwe4gqenaxa2i": "djibocawvr9giosnl1nlori",
+    "qjej22wp8dwm55t1y77tgkc": "djibocawvr9giosnl1nlori",
+    "b8kj83pcqjap9qp0zfdqp1i": "djibocawvr9giosnl1nlori",
+    "ge8nebuaz5jayt05qwh7oyi": "djibocawvr9giosnl1nlori",
+    "gva5grrt4o13c7lndzzklp2": "djibocawvr9giosnl1nlori",
+    "sm5ov1hnxcvvp264vn3fgns": "djibocawvr9giosnl1nlori",
+    "ixxsu5p2r7bjkaz0xx9s2t1": "djibocawvr9giosnl1nlori",
+    "gibgcqydowwoej6uiuc3nu4": "djibocawvr9giosnl1nlori",
+    "h5pw3hkjj5rc02g6ee2rl89": "djibocawvr9giosnl1nlori",
+    "r03gbqspo4bacfwjur41ghw": "djibocawvr9giosnl1nlori",
+    "ui1uci0ruk0n71rki48lqgu": "djibocawvr9giosnl1nlori",
+    "xotvh2n410zlhucecj873vv": "djibocawvr9giosnl1nlori",
+    "myxha5t7mre67gwfqniubvg": "djibocawvr9giosnl1nlori",
+    "rkylsqztsz64wdm80bemzif": "djibocawvr9giosnl1nlori",
+    "mgekjkzqe33pv9zcj18zxgu": "djibocawvr9giosnl1nlori",
+    "ir8sjyfbmbhk88u7l09lj4s": "djibocawvr9giosnl1nlori",
+    "khnlrwl005sy77xwat19onq": "djibocawvr9giosnl1nlori",
+    "nu7i14lstj9bck6wisnvbqw": "djibocawvr9giosnl1nlori",
+    "2c330oc0v1okd2d0mzhe96q": "djibocawvr9giosnl1nlori",
+    "iid4gptl4xnno4lz27yd8d3": "djibocawvr9giosnl1nlori",
+    "02a37oi2kumwxjlwwv6pftk": "djibocawvr9giosnl1nlori",
+    "orsf7j9wung58kxg0pg5s36": "djibocawvr9giosnl1nlori",
+    "jbftpogwwizzzjrtq29h6nr": "djibocawvr9giosnl1nlori",
+    "w9gd0kpcdoeqbt6opoyi3cr": "djibocawvr9giosnl1nlori",
+    "bnxdul4khnno6f61rvwxp6y": "djibocawvr9giosnl1nlori",
+    "ec6cknjyfvpq44zznh2fb7s": "djibocawvr9giosnl1nlori",
+    "35lbr2v59wfvtb19fz9m8ks": "djibocawvr9giosnl1nlori",
+    "r3g36a95c7g4oitk956ypvb": "djibocawvr9giosnl1nlori",
+    "5nt1uj712d5rmenpkeqw4c7": "djibocawvr9giosnl1nlori",
+    "jee328a8o98akt59c4a4qrj": "djibocawvr9giosnl1nlori",
+    "zsuodqfuzaagf0pxavo905g": "djibocawvr9giosnl1nlori",
+    "u6zj9b8k15fu43oxpfeysby": "djibocawvr9giosnl1nlori",
+    "xwiuciw74voesgy2joqj019": "djibocawvr9giosnl1nlori",
+    "dp2kjinfge5kncyuas0tgtj": "djibocawvr9giosnl1nlori",
+    "d4kiep2vqjl211lepbknph5": "djibocawvr9giosnl1nlori",
+    "ninqc6d8e9iwybhy5y5ci4d": "djibocawvr9giosnl1nlori",
+    "kaz4wmzq95z3j96v79ruvbq": "djibocawvr9giosnl1nlori",
+    "7b6h1r39wkhrxzwc2e7gtqz": "djibocawvr9giosnl1nlori",
+    "s2waxb5srk6yv89sx1q2b4o": "djibocawvr9giosnl1nlori",
+    "mm9ehgsh533hq8tc3q7pbpz": "djibocawvr9giosnl1nlori",
+    "kb7wis906su67es3y2io4az": "djibocawvr9giosnl1nlori",
+    "sahtik0t9snvikmkks9pppx": "djibocawvr9giosnl1nlori",
+    "51y48nm7vp27rg0h6336iew": "djibocawvr9giosnl1nlori",
+    "cccnut3s1ved5jxgoaau30n": "djibocawvr9giosnl1nlori",
+    "37u6k47p5eg3zpevrbsj1yo": "djibocawvr9giosnl1nlori",
+    "jsnioibk7sfsla5o6193037": "djibocawvr9giosnl1nlori",
+    "77l69khkyodwil66ey7y2xr": "djibocawvr9giosnl1nlori",
+    "zt8b9aov0n9enp5e5jnwuvl": "djibocawvr9giosnl1nlori",
+    "gn88vvdrli6x8uz1bg9a263": null
+  },
+  "notesLabelById": {
+    "onxeajmr7gys0sljngxqj91": "Codepen",
+    "b42r0s0g9g25atrilu3dwqb": "Codewars",
+    "bualyjnuwxb24a0mlt9kcmo": "Multiply",
+    "n37j1vg5zbv8hz7elazk8j9": "RGB To Hex Conversion",
+    "ziu5oe8967pswbqdzqnedje": "Split Strings",
+    "s6cu5mr0v765hgi3lg4jfxx": "Largest 5 digit number in a series",
+    "1gm5sf0gtkgqs5cqbdave06": "Reversed Strings",
+    "shxuiy5fwariwdtqwx3o2xm": "Convert string to camel case",
+    "fyhho17k0o9ufi6avxhxjli": "String ends with?",
+    "v2anwtrbhi1waom28xbs90y": "Codewars style ranking system",
+    "y4n22j8dh8kxh51y291qvtz": "Function 1 - hello world",
+    "dku2drnfn9oum7rrglri0kk": "Array.diff",
+    "r6eors1zq0u63mw7yddvpda": "The Hashtag Generator",
+    "763uttfx5zzxx4z1n4or9bt": "Adjacent repeated words in a string",
+    "s2uve6u75epx82ojgp9qq7m": "Moving Zeros To The End",
+    "r6wl9fzetomjmlnjfddoysm": "Create Phone Number",
+    "kqcs5tlazyv9jh1jwdn8ail": "Stop gninnipS My sdroW!",
+    "a0ftzxkuq0o9nuwwmisr9e8": "Who likes it?",
+    "e7308g3r3xhpvxzh5eyugj1": "Human Readable Time",
+    "pr8ia07n2sdkf6i0pal6mcf": "Human readable duration format",
+    "i2pdplguy2iuvx8f08vdzy4": "Number Zoo Patrol",
+    "2qi7ewd2e3j0s7wndfb1i7x": "Does my number look big in this?",
+    "e9vei5c8fjzdc0vkbwnmc7g": "Disemvowel Trolls",
+    "ctjkc4rb461797wkmyi0opf": "Sum Strings as Numbers",
+    "z1nurvpvflxoyis42b4epth": "Jaden Casing Strings",
+    "g4gvhnofrcc0fy3aexkaws9": "A Chain adding function",
+    "khenkh79muo9oqfi0ue5q8r": "Convert a String to a Number!",
+    "gpveyz4xco8cncj2dfygn1q": "Replace With Alphabet Position",
+    "6g7k2196s0bkbzcn9hu07ys": "Decode the Morse code",
+    "8fspf1e3hhmepmt94qp2mxo": "Decode the Morse code, advanced",
+    "kb1yvjujmo8vju0oogc2j3p": "Isograms",
+    "8l4pjwo1pmlp8d71d8zlj3z": "Counting Duplicates",
+    "ltoev3uyh6pfgosn5bfbqnp": "You're a square!",
+    "zz07g4nfaswbh5vuo0rms65": "Defuse the bombs!",
+    "p00kexugxoeycllbjj1mixx": "Deodorant Evaporator",
+    "u4xzeq5e53y0gypyagbuv5g": "Jenny's secret message",
+    "4e98qx78q0nyrw2kwibhvdu": "IQ Test",
+    "b0zlvxpoc62rxu4w6w4hyzs": "Exes and Ohs",
+    "qu6p8fk72ugtfgphaigohkn": "Persistent Bugger.",
+    "dxu9isnwm1kh049vy75behw": "Best travel",
+    "lfdbjwuffift1vmrm5ux4xw": "What is between?",
+    "czcir5gcji0m5r0869i8pi2": "Regex validate PIN code",
+    "vbw9rjr7fjgs4u96gdufjoz": "Sum of odd numbers",
+    "tjsmo3mu1icwltiqq4nl5s9": "Sum and Rest the Number with its Reversed and See What Happens",
+    "r1g4lhlgy50ztyjjh993zvi": "Two to One",
+    "z0joxu9c5i6z240tfo7bydp": "Equal Sides Of An Array",
+    "kjxidok94ab149sir22q0ww": "How many are smaller than me?",
+    "epm7jpol7pr5sl6ja2jwuxb": "Sum of numbers from 0 to N",
+    "bij80n4f8pk6oocituo6bwu": "altERnaTIng cAsE <=> ALTerNAtiNG CaSe",
+    "dnc5yjyikvlp2nmvm7pnov0": "Fake Binary",
+    "xxoxf86n0sbb124pubr625g": "Highest Scoring Word",
+    "ya2dlxigq559hqz67hyyntn": "Decipher this!",
+    "0l3o4q0svfg571iwgkuu74b": "Find the missing letter",
+    "rb75j0c673f2xededjzv0v9": "Encrypt this!",
+    "pfzdd4kbi79yvyeqix90z43": "Character with longest consecutive repetition",
+    "xhcu53cfge78hxwz79dwyjr": "Ranking System",
+    "7da6mfk7w79f915352h3zy1": "Oh come on! Hello world! once again?",
+    "7f5q8iao9z09w1u8lrjnkca": "Pirate Island Conquer Part 1",
+    "xs50tjc2hjkblbkbwzybhdu": "Take the Derivative",
+    "gynzvvabdzixqxs6itlg5ux": "Covered pawns",
+    "dlnlrhgv53uvzva3zf0u0c6": "-Reverse it, quickly!",
+    "g1odwafencmbotscmxf3jvi": "The soul of wit: reverse an array",
+    "ka5qlmd4v6ucnfyjgvtv20m": "\"AURUM RECLUDIT CUNCTA\"",
+    "rf7ard545adh8hhng23zob3": "Papers, Please",
+    "scqle32spaa3z6se1k511pj": "Halving Sum",
+    "kc43zsaiypaamv7xghep45q": "Polydivisible Numbers",
+    "y4z6yi08xz82s0ogdfwgam3": "Crack the PIN",
+    "0hdyi29cv9mqvatjv6zaj7q": "CyberSoc",
+    "puy3x8chzao44herg4r68x0": "Detective",
+    "zqbfzi217vbffro5c2ofb1e": "Bigbrother",
+    "jsnr4mxpi72cidez9yg5mv6": "Chemtrails",
+    "uhb15nczy7fv4hckvcvrmli": "Choochoo",
+    "hkjfdnvj4qmgl7766mleael": "Clocking Out",
+    "eic97gqoxwq6z566eryhau7": "Connection Refused",
+    "gvhc5tnkni4ot23pqwop5db": "Growing Up",
+    "pfvzpws3m9f7g3iojpailwq": "Readyfortakeoff",
+    "s5v7b76nb9minwz20u1nb2p": "Vote For Me",
+    "1ug1cew47dmye00nz5trwaa": "Euler Project",
+    "l2qeguwjsjyha8zx8kvz738": "Multiples of 3 or 5",
+    "cgt8tktnqdskkhq4xpfd92t": "Even Fibonacci numbers",
+    "b06idxnaskoer9xwkrgdhol": "Largest prime factor",
+    "72rg8r9g22vu3r1c27f9n49": "4",
+    "rkt5uj66qbiohh7u64yyorx": "Smallest multiple",
+    "vm8lo115nu0nbqvdz24ugf1": "Google FooBar",
+    "y2s7cre8rqs2l9akhlth1uv": "Bomb Baby",
+    "cf951f8h56do1sh16zt9geo": "Braille Translation",
+    "6h2d363gkz5lho8hil6343k": "Bunny Worker Locations",
+    "zer6szds0we2lk3340ffup2": "Dodge the Lasers",
+    "ea5bta1m7crmtpzddhkx61b": "Encrypted Message",
+    "qglk2s6pvnj079jmq7lsgdh": "Escape Pods",
+    "d2y0jxkhuiuhuot0yn8d2qw": "Find Access Code",
+    "8a2cjh9kfpt78zfp8ko5jdl": "Fuel Injection Perfection",
+    "zx8yd0lbaxdq24ungv43d5e": "Bringing a Gun to a Trainer Fight",
+    "djalt7pjrmul76fa6lsjg8r": "Please Pass the Coded Messages",
+    "yqqzccfk3pgp9zvpzpptltr": "HackTheBox",
+    "mjizmr058opii6ttj0cxw98": "Hack The Boo 2022",
+    "m15g0jdyejgzwumn5gxj9fk": "Cult Meeting",
+    "10kcjswdx90v3sgiv63p36i": "EncodedPayload",
+    "ea3ee1o3y5c6rhoixoapcj8": "Evaluation Deck",
+    "iabduu7gcnd9yl6g7utx9ao": "ForensicHalloweenInvitation",
+    "pvf1hyol2cbpajco11ngmsx": "Ghost Wrangler",
+    "j9tuxbmsf7ndkj8z99gtsf8": "Ouija",
+    "snvgm3csh8kyyudzhpbzda5": "Pumpkin Stand",
+    "t5n4reog2hnkgli8rf91tkt": "Trick Or Breach",
+    "a2vpkxlzyz7sqs2no5equsk": "Wrong Spooky Season",
+    "6jdidhs50140ik9c0nhx7kl": "Medium Articles",
+    "djibocawvr9giosnl1nlori": "Stack Overflow",
+    "cjwzqnbs9yont3zjbxilsgd": "Apply CSS class to focused element with jQuery",
+    "xr0hsrhin7l6sv9omec2rnu": "Query rows from a database table in PHP",
+    "kfeqwwzucctubmzcu8vcg8i": "Connect to CodeIgniter database from PHP",
+    "ttqxfax797mnwg6vg3jtg75": "Show `n` columns side-by-side with CSS",
+    "1pudr09k5317l5cb8hk40ap": "Join PHP variable with string",
+    "xz9gt68pw6ghmdamvtybbyo": "Format dynamic URL to be SEO friendly with htaccess and PHP",
+    "qfamtbq83qo8rdmogk1n39o": "Iterate over objects returned from Google Maps API",
+    "vscpehuojpux6i7oa4ig8my": "Rewrite URL parameters with htaccess",
+    "3x0d7hsd0ekmed0v5bus9ax": "Error handling in Express.js",
+    "ss2g16y534704hfkk5xwkug": "Test numerical range with Jasmine",
+    "7x0ejxlnnfn7p9nh0nflgjy": "Get `nth` word of URL parameter in PHP",
+    "1cmxhl4kpfy53fq3r300q2x": "Adding elements to an object in a loop",
+    "cozn8kms7qug72gdzd4cv5r": "Failed to load resource: Preflight response is not successful",
+    "mixgizej8gmyt9d4e3kmlos": "How to show the last uploaded image when refresh page in PHP",
+    "rdwkzmaakd49u16qdor8mz8": "How to add or remove a className when screen size change in react",
+    "6r69w7qdkf5k473s8x0wjbk": "Cannot run Jest tests for components (Failed to load html files)",
+    "pmoon12tt6k5jelthikv4vt": "Pixelated resize using canvas with transparent PNG",
+    "zun8bhcow657s47nj90oq7q": "Will user update or overwriting file before other session done in PHP?",
+    "yvsy5hlt9npwe4gqenaxa2i": "Regex for capturing all the urls in a paragraph except for a specific domain",
+    "qjej22wp8dwm55t1y77tgkc": "Creating HTML/Javascript Modal with dynamic text",
+    "b8kj83pcqjap9qp0zfdqp1i": "How to get a Value from NodeList?",
+    "ge8nebuaz5jayt05qwh7oyi": "Javascript - How to select \"x\" row",
+    "gva5grrt4o13c7lndzzklp2": "Get the pressed key in JavaScript",
+    "sm5ov1hnxcvvp264vn3fgns": "Access the `location` prop in Gatsby",
+    "ixxsu5p2r7bjkaz0xx9s2t1": "Use `QApplication` in `PyQt5`",
+    "gibgcqydowwoej6uiuc3nu4": "Scrape JS-rendered HTML in Python with `BeautifulSoup`",
+    "h5pw3hkjj5rc02g6ee2rl89": "Use regex on all image src attributes with PHP",
+    "r03gbqspo4bacfwjur41ghw": "Only keep `n` newest files in a directory",
+    "ui1uci0ruk0n71rki48lqgu": "Use TypeScript in a React application",
+    "xotvh2n410zlhucecj873vv": "Manipulate Pandas Index column on write",
+    "myxha5t7mre67gwfqniubvg": "Ignore `n` lines of `sed` output",
+    "rkylsqztsz64wdm80bemzif": "Center angled text in CSS",
+    "mgekjkzqe33pv9zcj18zxgu": "Instituting columns in CSS with `flex`",
+    "ir8sjyfbmbhk88u7l09lj4s": "Preventing page redirect on form submit with JavaScript",
+    "khnlrwl005sy77xwat19onq": "Setting relative dates in JavaScript with `setDate`",
+    "nu7i14lstj9bck6wisnvbqw": "Excluding spaces from `text-decoration`",
+    "2c330oc0v1okd2d0mzhe96q": "Listening for `close` event of `datetime-local` input",
+    "iid4gptl4xnno4lz27yd8d3": "Emulate Terminal Output in Dash UI Textarea Component",
+    "02a37oi2kumwxjlwwv6pftk": "Pass list of variables to shell script in GitHub Actions",
+    "orsf7j9wung58kxg0pg5s36": "Anchor progress bar to element border",
+    "jbftpogwwizzzjrtq29h6nr": "Remove empty space after HTML body",
+    "w9gd0kpcdoeqbt6opoyi3cr": "Using regular expressions in CSS selectors",
+    "bnxdul4khnno6f61rvwxp6y": "Capturing regex groups in VS Code",
+    "ec6cknjyfvpq44zznh2fb7s": "Selecting elements via CSS attribute selectors in Selenium",
+    "35lbr2v59wfvtb19fz9m8ks": "Regex that ignores Latin characters",
+    "r3g36a95c7g4oitk956ypvb": "Convert image syntax to Markdown with regex",
+    "5nt1uj712d5rmenpkeqw4c7": "Convert full image paths to relative with regex",
+    "jee328a8o98akt59c4a4qrj": "Get all elements at point with `elementsFromPoint` in JavaScript",
+    "zsuodqfuzaagf0pxavo905g": "Match Groovy package semver with regex",
+    "u6zj9b8k15fu43oxpfeysby": "Storing state between page loads",
+    "xwiuciw74voesgy2joqj019": "Interact with the shadow DOM in Selenium",
+    "dp2kjinfge5kncyuas0tgtj": "Scroll debounce in JavaScript",
+    "d4kiep2vqjl211lepbknph5": "Match Reaper `BYPASS` with regex",
+    "ninqc6d8e9iwybhy5y5ci4d": "Upload image to S3 from memory",
+    "kaz4wmzq95z3j96v79ruvbq": "Display LaTeX in GitHub Markdown",
+    "7b6h1r39wkhrxzwc2e7gtqz": "Set default permissions for new files in Linux directory",
+    "s2waxb5srk6yv89sx1q2b4o": "Remove all escape sequences from a string",
+    "mm9ehgsh533hq8tc3q7pbpz": "Solving `'WebElement' object is not subscriptable` in Python",
+    "kb7wis906su67es3y2io4az": "Custom `Yup` validation messages",
+    "sahtik0t9snvikmkks9pppx": "Authenticate for Google Identity Services (GIS)",
+    "51y48nm7vp27rg0h6336iew": "Pass JSON to Keybase Chat API",
+    "cccnut3s1ved5jxgoaau30n": "Remove blank lines from CSV document",
+    "37u6k47p5eg3zpevrbsj1yo": "Read team chats with Keybase Chat API",
+    "jsnioibk7sfsla5o6193037": "User input validation in Bash",
+    "77l69khkyodwil66ey7y2xr": "Remove additional file extensions from filenames",
+    "zt8b9aov0n9enp5e5jnwuvl": "Regex for all active SCSS variables",
+    "gn88vvdrli6x8uz1bg9a263": "Unix & Linux Stack Exchange"
+  }
+}

@@ -1,0 +1,55 @@
+<h1 id="get-all-elements-at-point-with-elementsfrompoint-in-javascript"><a aria-hidden="true" class="anchor-heading icon-link" href="#get-all-elements-at-point-with-elementsfrompoint-in-javascript"></a>Get all elements at point with `elementsFromPoint` in JavaScript</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73320961/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>According to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event#usage_notes">MDN</a>, the <code>mouseenter</code> event does not bubble, whereas the <code>mouseover</code> event does. However, even if it DID bubble, your elements currently have no relation to one another, thus the mouse events are captured by the upper element.</p>
+<p>One possible way around this is with the amazing <code>elementsFromPoint</code> function in JavaScript, which makes quick work of solving your issue:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Only the IDs of the elments you are interested in</span>
+<span class="token keyword">const</span> elems <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token string">"2"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Modified from https://stackoverflow.com/a/71268477/6456163</span>
+<span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mousemove"</span><span class="token punctuation">,</span> checkMousePosition<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">checkMousePosition</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// All the elements the mouse is currently overlapping with</span>
+  <span class="token keyword">const</span> _overlapped <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">elementsFromPoint</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token property-access">pageX</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token property-access">pageY</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Check to see if any element id matches an id in elems</span>
+  <span class="token keyword">const</span> _included <span class="token operator">=</span> _overlapped<span class="token punctuation">.</span><span class="token method function property-access">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> elems<span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span>el<span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> ids <span class="token operator">=</span> _included<span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> el<span class="token punctuation">.</span><span class="token property-access">id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> index <span class="token keyword">in</span> elems<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> elems<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> elem <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>ids<span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      elem<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">background</span> <span class="token operator">=</span> <span class="token string">"yellow"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+      elem<span class="token punctuation">.</span><span class="token property-access">style</span><span class="token punctuation">.</span><span class="token property-access">background</span> <span class="token operator">=</span> <span class="token string">"green"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">green</span><span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">px</span> solid <span class="token color">black</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.second</span></span> <span class="token punctuation">{</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">)</span> <span class="token function">translateY</span><span class="token punctuation">(</span><span class="token number">-50</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>second<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">dom (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

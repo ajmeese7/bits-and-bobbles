@@ -1,0 +1,14 @@
+<h1 id="interact-with-the-shadow-dom-in-selenium"><a aria-hidden="true" class="anchor-heading icon-link" href="#interact-with-the-shadow-dom-in-selenium"></a>Interact with the shadow DOM in Selenium</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73519541/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>What I noticed when using the Selenium head to manually debug is that the <code>cookie</code> element does not show up on my machine. If you have anything on your browser/machine that could be preventing the cookie popup, that may be a factor.</p>
+<p>An additional problem is that the <code>tiktok-cookie-banner</code> element uses the shadow DOM, which introduces a whole separate element of complexity. To solve this problem, I recommend the <a href="https://github.com/sukgu/shadow-automation-selenium">shadow-automation-selenium</a> package, which the documentation explains how to use to interact with the element you are interested in. More information about the shadow DOM can be found in <a href="https://stackoverflow.com/a/55761810/6456163">this thread</a>.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">selenium (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

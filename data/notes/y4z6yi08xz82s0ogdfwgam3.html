@@ -1,0 +1,23 @@
+<h1 id="crack-the-pin"><a aria-hidden="true" class="anchor-heading icon-link" href="#crack-the-pin"></a>Crack the PIN</h1>
+<h3 id="php"><a aria-hidden="true" class="anchor-heading icon-link" href="#php"></a>PHP</h3>
+<pre class="language-php"><code class="language-php"><span class="token keyword">function</span> <span class="token function-definition function">crack</span><span class="token punctuation">(</span><span class="token variable">$hash</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token variable">$pin</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"00000"</span><span class="token punctuation">;</span>
+  <span class="token variable">$passHash</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$pin</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token variable">$passHash</span> <span class="token operator">!=</span> <span class="token variable">$hash</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$pin</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token variable">$pin</span> <span class="token operator">=</span> <span class="token function">str_pad</span><span class="token punctuation">(</span><span class="token variable">$pin</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"0"</span><span class="token punctuation">,</span> <span class="token constant">STR_PAD_LEFT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$passHash</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$pin</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token variable">$pin</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">php (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">6-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

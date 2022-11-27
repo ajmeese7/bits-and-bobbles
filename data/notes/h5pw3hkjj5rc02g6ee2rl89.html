@@ -1,0 +1,25 @@
+<h1 id="use-regex-on-all-image-src-attributes-with-php"><a aria-hidden="true" class="anchor-heading icon-link" href="#use-regex-on-all-image-src-attributes-with-php"></a>Use regex on all image src attributes with PHP</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/72618755/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>A modification of the thread you linked to do what you are requesting:</p>
+<pre class="language-php"><code class="language-php"><span class="token variable">$dom</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DOMDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$dom</span><span class="token operator">-></span><span class="token function">loadHTML</span><span class="token punctuation">(</span><span class="token variable">$content</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$dom</span><span class="token operator">-></span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'img'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">$img</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$current_src</span> <span class="token operator">=</span> <span class="token variable">$img</span><span class="token operator">-></span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$new_src</span> <span class="token operator">=</span> <span class="token function">preg_replace</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'http://'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'/files/images'</span><span class="token punctuation">,</span> <span class="token variable">$current_src</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$img</span><span class="token operator">-></span><span class="token function">setAttribute</span><span class="token punctuation">(</span> <span class="token string single-quoted-string">'src'</span><span class="token punctuation">,</span> <span class="token variable">$new_src</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$content</span> <span class="token operator">=</span> <span class="token variable">$dom</span><span class="token operator">-></span><span class="token function">saveHTML</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>I don't have a machine with PHP readily available to test this for you (not at home), so let me know if you have any issues with it and I would be happy to troubleshoot for you.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">php (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

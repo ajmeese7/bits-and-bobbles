@@ -1,0 +1,29 @@
+<h1 id="user-input-validation-in-bash"><a aria-hidden="true" class="anchor-heading icon-link" href="#user-input-validation-in-bash"></a>User input validation in Bash</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73837133/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>See <a href="https://unix.stackexchange.com/a/562776/370076">this thread</a> for an example of validating user input in Bash.</p>
+<p>Here is the code modified for your use case:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token shebang important">#!/usr/bin/bash</span>
+
+<span class="token assign-left variable">REGEX</span><span class="token operator">=</span><span class="token string">'^[YyNn]$'</span>
+
+<span class="token assign-left variable">CHECK</span><span class="token operator">=</span><span class="token string">"your_user_input_var"</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token variable">$CHECK</span> <span class="token operator">=~</span> <span class="token variable">$REGEX</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"Not ok"</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"ok"</span>
+<span class="token keyword">fi</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">bash (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">input (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">validation (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

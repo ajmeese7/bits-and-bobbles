@@ -1,0 +1,42 @@
+<h1 id="halving-sum"><a aria-hidden="true" class="anchor-heading icon-link" href="#halving-sum"></a>Halving Sum</h1>
+<h3 id="java"><a aria-hidden="true" class="anchor-heading icon-link" href="#java"></a>Java</h3>
+<pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HalvingSum</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> <span class="token function">halvingSum</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&#x3C;=</span> n<span class="token punctuation">;</span> i <span class="token operator">*=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      sum <span class="token operator">+=</span> n <span class="token operator">/</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h3>
+<pre class="language-py"><code class="language-py"><span class="token keyword">def</span> <span class="token function">halving_sum</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    i<span class="token punctuation">,</span> <span class="token builtin">sum</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span>
+    <span class="token keyword">while</span> i <span class="token operator">&#x3C;=</span> n<span class="token punctuation">:</span>
+        <span class="token builtin">sum</span> <span class="token operator">+=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>n <span class="token operator">/</span> i<span class="token punctuation">)</span>
+        i <span class="token operator">*=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token builtin">sum</span>
+</code></pre>
+<h3 id="javascript"><a aria-hidden="true" class="anchor-heading icon-link" href="#javascript"></a>JavaScript</h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">halvingSum</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> sum <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword control-flow">while</span> <span class="token punctuation">(</span>i <span class="token operator">&#x3C;=</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sum <span class="token operator">+=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>n <span class="token operator">/</span> i<span class="token punctuation">)</span>
+    i <span class="token operator">*=</span> <span class="token number">2</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">return</span> sum
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">java (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">javascript (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">7-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

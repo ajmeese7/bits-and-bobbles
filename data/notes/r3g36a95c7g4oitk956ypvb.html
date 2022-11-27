@@ -1,0 +1,19 @@
+<h1 id="convert-image-syntax-to-markdown-with-regex"><a aria-hidden="true" class="anchor-heading icon-link" href="#convert-image-syntax-to-markdown-with-regex"></a>Convert image syntax to Markdown with regex</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73225506/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>I have modified your example to get it working <a href="https://regex101.com/r/wp0XGj/1">here</a>. What you needed to do is escape the square brackets so they would be interpreted literally, since they have special meaning in regex, and you needed to use a capture group to store the matching value in <code>$1</code> so you could use it in the replacement.</p>
+<p>Regular expression:</p>
+<pre class="language-regex"><code class="language-regex">!<span class="token special-escape escape">\[</span><span class="token special-escape escape">\[</span><span class="token char-set class-name">.</span><span class="token quantifier number">*</span><span class="token escape">\/</span><span class="token group punctuation">(</span><span class="token char-set class-name">.</span><span class="token quantifier number">*</span>_image<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span><span class="token range">0<span class="token range-punctuation operator">-</span>9</span><span class="token char-class-punctuation punctuation">]</span></span><span class="token quantifier number">{1,2}</span><span class="token special-escape escape">\.</span>png<span class="token group punctuation">)</span><span class="token special-escape escape">\]</span><span class="token special-escape escape">\]</span>
+</code></pre>
+<p>Substitution format:</p>
+<pre class="language-regex"><code class="language-regex">!<span class="token char-class"><span class="token char-class-punctuation punctuation">[</span>image<span class="token char-class-punctuation punctuation">]</span></span><span class="token special-escape escape">\(</span><span class="token anchor function">$</span>1<span class="token special-escape escape">\)</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">markdown (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

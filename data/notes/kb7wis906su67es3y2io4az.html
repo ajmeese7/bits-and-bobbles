@@ -1,0 +1,19 @@
+<h1 id="custom-yup-validation-messages"><a aria-hidden="true" class="anchor-heading icon-link" href="#custom-yup-validation-messages"></a>Custom `Yup` validation messages</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73778031/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>One way you can do this is via regex, by accepting any value that is not <code>"none"</code>:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token maybe-class-name">NewUserSchema</span> <span class="token operator">=</span> <span class="token maybe-class-name">Yup</span><span class="token punctuation">.</span><span class="token method function property-access">object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">createDate</span><span class="token operator">:</span> <span class="token maybe-class-name">Yup</span><span class="token punctuation">.</span><span class="token method function property-access">string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">nullable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">required</span><span class="token punctuation">(</span><span class="token string">'Create date is required'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">boughtby</span><span class="token operator">:</span> <span class="token maybe-class-name">Yup</span><span class="token punctuation">.</span><span class="token method function property-access">string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">matches</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^(?!none).*$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">"Cannot be none"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">required</span><span class="token punctuation">(</span><span class="token string">"Cannot be none"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">nodejs (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">react (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">yup (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

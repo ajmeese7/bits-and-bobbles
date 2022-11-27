@@ -1,0 +1,23 @@
+<h1 id="remove-additional-file-extensions-from-filenames"><a aria-hidden="true" class="anchor-heading icon-link" href="#remove-additional-file-extensions-from-filenames"></a>Remove additional file extensions from filenames</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73921072/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>What I recommend is running a regex to remove <code>.pdf</code> when the name string ends with it, like so:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">if</span> pdf_checker<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    newName <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'\.pdf$'</span><span class="token punctuation">,</span> <span class="token string">'.txt'</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+    convert_pdf_to_txt<span class="token punctuation">(</span>name<span class="token punctuation">,</span> newName<span class="token punctuation">)</span>
+</code></pre>
+<p>Then replace this line:</p>
+<pre class="language-python"><code class="language-python">make_new_text_file <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>text_folder_path <span class="token operator">+</span> <span class="token string">'/'</span> <span class="token operator">+</span> path <span class="token operator">+</span> <span class="token string">'.txt'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>With the following:</p>
+<pre class="language-python"><code class="language-python">make_new_text_file <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>text_folder_path <span class="token operator">+</span> <span class="token string">'/'</span> <span class="token operator">+</span> txtname<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

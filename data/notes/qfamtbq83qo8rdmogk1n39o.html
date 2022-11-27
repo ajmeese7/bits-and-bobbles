@@ -1,0 +1,27 @@
+<h1 id="iterate-over-objects-returned-from-google-maps-api"><a aria-hidden="true" class="anchor-heading icon-link" href="#iterate-over-objects-returned-from-google-maps-api"></a>Iterate over objects returned from Google Maps API</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/57667164/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>kshetline answered your question the way you would interact with the JSON object in JavaScript, but since you never mentioned JavaScript and only have PHP in your question's tags I am going to try to answer you with PHP.</p>
+<p>To access properties of a JSON object in PHP, you must use the <a href="https://www.w3schools.com/js/js_json_php.asp">arrow syntax</a>:</p>
+<pre class="language-php"><code class="language-php"><span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$djd</span><span class="token operator">-></span><span class="token property">results</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token variable">$i</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">&#x3C;</span><span class="token number">5</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// Do what you want with them from here</span>
+    <span class="token variable">$lat</span> <span class="token operator">=</span> <span class="token variable">$result</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token operator">-></span><span class="token property">geometry</span><span class="token operator">-></span><span class="token property">location</span><span class="token operator">-></span><span class="token property">lat</span><span class="token punctuation">;</span>
+    <span class="token variable">$lng</span> <span class="token operator">=</span> <span class="token variable">$result</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token operator">-></span><span class="token property">geometry</span><span class="token operator">-></span><span class="token property">location</span><span class="token operator">-></span><span class="token property">lng</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Example of how to return them</span>
+    <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$lat</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$lng</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>I do not know what the JSON returned looks like, so I based my PHP off of the JSON in kshetline's answer. I'm sure their JSON is correct, so this should work.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">php (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">json (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">google-maps (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,15 @@
+<h1 id="match-groovy-package-semver-with-regex"><a aria-hidden="true" class="anchor-heading icon-link" href="#match-groovy-package-semver-with-regex"></a>Match Groovy package semver with regex</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/73321649/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>I modified your regex to match the package naming convention, you can see a working example <a href="https://regex101.com/r/h4o5tS/1">here</a>:</p>
+<pre class="language-regex"><code class="language-regex"><span class="token group punctuation">(</span><span class="token group punctuation">(</span><span class="token char-set class-name">.</span><span class="token quantifier number">*</span><span class="token group punctuation">)</span><span class="token special-escape escape">\.</span><span class="token char-set class-name">\d</span><span class="token quantifier number">+</span><span class="token special-escape escape">\.</span><span class="token char-set class-name">\d</span><span class="token quantifier number">+</span><span class="token special-escape escape">\.</span><span class="token char-set class-name">\d</span><span class="token quantifier number">+</span>-<span class="token char-set class-name">\d</span><span class="token quantifier number">+</span><span class="token group punctuation">)</span><span class="token special-escape escape">\.</span>x86_64<span class="token special-escape escape">\.</span>rpm
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">regex (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">groovy (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,18 @@
+<h1 id="get-nth-word-of-url-parameter-in-php"><a aria-hidden="true" class="anchor-heading icon-link" href="#get-nth-word-of-url-parameter-in-php"></a>Get `nth` word of URL parameter in PHP</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/57680284/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>To break the string at a space, you would use the explode function. That separates the parameter and breaks it into an array, so to get the first word you just need to get the 0th index:</p>
+<pre class="language-php"><code class="language-php"><span class="token variable">$fullname</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string double-quoted-string">" "</span><span class="token punctuation">,</span> <span class="token global">$_GET</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>If space in your URL is encoded as in your example, you just need to replace the space with the encoding:</p>
+<pre class="language-php"><code class="language-php"><span class="token variable">$fullname</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"%20"</span><span class="token punctuation">,</span> <span class="token global">$_GET</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>Edit</strong>: As pointed out in the comments, the first method should be the way to go because your method of getting the parameter automatically decodes the URL.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">php (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

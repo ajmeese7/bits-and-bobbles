@@ -1,0 +1,39 @@
+<h1 id="connect-to-codeigniter-database-from-php"><a aria-hidden="true" class="anchor-heading icon-link" href="#connect-to-codeigniter-database-from-php"></a>Connect to CodeIgniter database from PHP</h1>
+<blockquote>
+<p>See <a href="https://stackoverflow.com/a/57432006/6456163">here</a> for the original answer.</p>
+</blockquote>
+<p>This might work instead:</p>
+<pre class="language-php"><code class="language-php"><span class="token variable">$sql</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"SELECT * FROM utilizadores WHERE username = '<span class="token interpolation"><span class="token variable">$username</span></span>' AND password='<span class="token interpolation"><span class="token variable">$password</span></span>'"</span><span class="token punctuation">;</span>
+<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$conn</span><span class="token operator">-></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token variable">$sql</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token operator">-></span><span class="token property">error</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$result</span><span class="token operator">-></span><span class="token property">num_rows</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// return array</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This is similar to what I use with the mysqli library, but I don't know if it is something you are willing to incorporate into your project. It is a breeze to work with.</p>
+<p>Also, it seems your method may be storing the passwords in cleartext, which is not a good idea.</p>
+<p><strong>EDIT</strong>- This is how I create my connection:</p>
+<pre class="language-php"><code class="language-php"><span class="token variable">$servername</span> <span class="token operator">=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
+<span class="token variable">$username</span> <span class="token operator">=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
+<span class="token variable">$password</span> <span class="token operator">=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
+<span class="token variable">$dbname</span> <span class="token operator">=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Create connection</span>
+<span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">mysqli</span><span class="token punctuation">(</span><span class="token variable">$servername</span><span class="token punctuation">,</span> <span class="token variable">$username</span><span class="token punctuation">,</span> <span class="token variable">$password</span><span class="token punctuation">,</span> <span class="token variable">$dbname</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Check connection</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$conn</span><span class="token operator">-></span><span class="token property">connect_error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Connection failed: "</span> <span class="token operator">.</span> <span class="token variable">$conn</span><span class="token operator">-></span><span class="token property">connect_error</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>EDIT #2</strong>: The issue was using double quotes instead of single quotes. Please, nobody else fall into this demonic trap.</p>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">php (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codeigniter (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">odbc (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">stack-overflow (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

