@@ -2,7 +2,7 @@
 id: igmh0dqdu0a6b80x03hhek7
 title: Root
 desc: 'The base of the project tree.'
-updated: 1665530628022
+updated: 1669496499921
 created: 1663712926920
 ---
 
@@ -12,9 +12,12 @@ This is the root of my project, an assortment of fragments of code that I have w
 
 ## What's here?
 
-- [[Stack Overflow answers|stack-overflow]]
-- [[Codewars solutions|codewars]]
-- [[Codepen demos|codepen]]
+- [[Stack Overflow|stack-overflow]]
+- [[Unix & Linux Stack Exchange|unix-stack-exchange]]
+- [[Codewars|codewars]]
+- [[Codepens|codepen]]
 - [[Euler Project|euler]]
 - [[Google FooBar|foobar]]
 - [[HackTheBox Ops Notes|hackthebox]]
+- [[Medium Articles|medium]]
+- [[CyberSoc|cybersoc]]
